@@ -93,6 +93,27 @@ def getnodeshist(nodes) :
         hist.append(match.group(0))
     return hist
 
+def getoddactions(nodes) :
+    a = []
+    o = []
+    regex = "(?<=actions\s)(.*)"
+    regex2 = "((\w){1-2})(?=\=)"
+    for line in nodes :
+        action = []
+        odd = []
+        match = re.search(regex, line)
+        node = match.group(1).split(' ')
+
+        for c in range(0,len(node)) :
+            act = re.split('=', node[c])
+            action.append(act[0])
+            odd.append(float(act[1]))
+
+        a.append(action)
+        o.append(odd)
+
+    return a,o
+
 def getactions(nodes) :
     a = []
     regex = "(?<=actions\s)(.*)"

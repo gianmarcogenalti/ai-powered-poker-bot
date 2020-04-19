@@ -1,7 +1,7 @@
 import pandas as pd
-from txtparsing import getinfosets, getishist, getismembers, getisdepth, getnonterminals, getnodeshist, getplayers, getactions, getnodes, getterminals, getpayoff, getchance
+from txtparsing import *
 
-## Creating the four dataframes required 
+## Creating the four dataframes required
 
 def infosetdf(textfile) :
 
@@ -47,11 +47,13 @@ def chancedf(textfile) :
 
     n = getnodes(textfile)
     t = getchance(n)
+    a,o = getoddactions(t)
 
     data = {'History' : getnodeshist(t),
-    'Actions' : getactions(t)
+    'Actions' : a,
+    'Odds' : o
     }
 
-    df = pd.DataFrame(data, columns = ['History', 'Actions'])
+    df = pd.DataFrame(data, columns = ['History', 'Actions', 'Odds'])
 
     return df

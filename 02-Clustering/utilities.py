@@ -38,13 +38,13 @@ def kmeanscall(mergeGroup,infosets) :
     ikml = 0
     for kml in labs :
         if mergeGroup[ikml] != [] :
-            clustGroup[kml].append(mergeGroup[ikml]) 
+            clustGroup[kml].append(mergeGroup[ikml])
         ikml += 1
     #print("clustGroup")
     #print(clustGroup)
     #print(clustPay)
     return clustGroup, clustPay
-    
+
 
 def fastClusterer(infosetsMerger,infosets,indcdepth,rp) :
     clustPay = list()
@@ -58,15 +58,15 @@ def fastClusterer(infosetsMerger,infosets,indcdepth,rp) :
                 #if similarPayoff(infosets['Payoff Vector P1'][index1], infosets['Payoff Vector P1'][index2]):
                 mergeGroup.append(index2)
         for mg in mergeGroup :
-            indcdepth.remove(mg) # removes the mergeGroup from the list of indexes 
+            indcdepth.remove(mg) # removes the mergeGroup from the list of indexes
         mergeGroup.append(index1) # adds index1 to the mergeGroup
-        
+
         #print("mergeGroup")
         #print(mergeGroup)
         #kmeans
         clustGroup, clustPayh = kmeanscall(mergeGroup,infosets)
         [infosetsMerger.append(cg) for cg in clustGroup] # adds the final group to the infosetMerger list
-        [clustPay.append(cp) for cp in clustPayh] 
+        [clustPay.append(cp) for cp in clustPayh]
         '''
         # PRINTS OUT the distance matrix!
         matdist = list()
@@ -86,21 +86,21 @@ def fastClusterer(infosetsMerger,infosets,indcdepth,rp) :
 # res[i] is the row index of infosetsMerger in which infosets[][i] is saved
 def mapinfosets(infosets,infosetsMerger) :
     res = []
-    
+
     for ii in range(0,len(infosets)) :
         res.append(rowinlistoflist(infosetsMerger,ii))
-    
+
     return res
 
 def mapinfosetsoriginal(infosets,infosetsMerger) :
     res = []
-    
+
     for ii in range(0,len(infosetsMerger)) :
         curres = list()
         for im in infosetsMerger[ii] :
-            curres += infosets['Map'][im] 
+            curres += infosets['Map'][im]
         res.append(curres)
-    
+
     return res
 
 
@@ -110,7 +110,7 @@ def createstructure(hist):
     res = []
     flag = []
     flagpath = []
-    
+
     for ih in range(0,len(hist)):
         alfl = False
         for ifl in range(0,len(flag)):
@@ -123,19 +123,19 @@ def createstructure(hist):
             flag.append(curfl)
             flagpath.append(hist[ih])
             res.append(curfl)
-    
+
     return res
 
 # Loads the csvs and returns them as dataframes in the proper format
-def loadcsvs(game): 
-    folderpath = "..\\Import_files\\"
-    
+def loadcsvs(game):
+    folderpath = "C:\\Users\\gianm\\Documents\\POKERBOT\\Import-files\\"
+
     #Loads the dataframes in 2D (lists are loaded as strings)
     infosets = pd.read_csv(folderpath +"ph1_"+ game + ".csv", dtype={'Map':str,'Depth':int,'Payoff Vector P1':str,'Player':int,'Sons':str,'Parents':str,'Structure':int})
     terminals = pd.read_csv(folderpath + game + "_terminals.csv", dtype={'History':str,'Payoff':str})
     nonterminals = pd.read_csv(folderpath + game + "_nonterminals.csv", dtype={'History':str,'Player':int,'Actions':str})
     chances = pd.read_csv(folderpath + game + "_chances.csv", dtype={'History':str,'Actions':str})
-    
+
     # A column of "['a', 'b', 'c']" becomes a column of lists of strings
     def makeArray(text):
         ret = []
@@ -145,7 +145,7 @@ def loadcsvs(game):
             textwb = match[0]
             ret.append(textwb.split("', '"))
         return ret
-    
+
     # A column of "[1.0, 2.0, 3.0]" becomes a column of lists of floats
     def makeArrayFloat(text):
         ret = []
@@ -156,7 +156,7 @@ def loadcsvs(game):
             textl = np.array(textwb.split(", "))
             ret.append(textl.astype(np.float))
         return ret
-    
+
     # A column of "[1, 2, 3]" becomes a column of lists of ints
     def makeArrayInt(text):
         ret = []
@@ -170,8 +170,8 @@ def loadcsvs(game):
             else :
                 ret.append([])
         return ret
-    
-    # Calls the functions and converts the columns elements from strings to lists (properly) 
+
+    # Calls the functions and converts the columns elements from strings to lists (properly)
     infosets['Map'] = makeArrayInt(infosets['Map']) # float
     infosets['Payoff Vector P1'] = makeArrayFloat(infosets['Payoff Vector P1']) # float
     infosets['Sons'] = makeArrayInt(infosets['Sons']) # int
@@ -179,11 +179,11 @@ def loadcsvs(game):
     terminals['Payoff'] = makeArrayFloat(terminals['Payoff']) # float
     nonterminals['Actions'] = makeArray(nonterminals['Actions']) # str
     chances['Actions'] = makeArray(chances['Actions']) # str
-    
+
     return infosets, terminals, nonterminals, chances
 
 # checks if two histories are the same
-def samepath(path1, path2): 
+def samepath(path1, path2):
     test = False
     match1 = re.search("(?<=((\?./)|(.\?/)))(.*)", path1)
     match2 = re.search("(?<=((\?./)|(.\?/)))(.*)", path2)
@@ -212,14 +212,14 @@ def samepath(path1, path2):
 
 # checks wether two payoffs are similar
 def similarPayoff(payoff1,payoff2) :
-    
+
     l1 = len(payoff1)
     if l1 != len(payoff2):
         return 0
     for ipl in range(0,l1):
         if payoff1[ipl] != payoff2[ipl]:
             return 0
-    
+
     return 1
 
 # returns the row indexes of infosets with the specified depth
@@ -233,7 +233,7 @@ def inddepth(infosets,depth) :
 # checks if el is an element of an element of listoflist
 def isinlistoflist(listoflist,el) :
     for list1 in listoflist :
-        try: 
+        try:
             if el in list1:
                 return 1
         except:
@@ -245,7 +245,7 @@ def isinlistoflist(listoflist,el) :
 def rowinlistoflist(listoflist,el) :
     il = 0
     for list1 in listoflist :
-        try: 
+        try:
             if el in list1:
                 return il
         except:
@@ -256,7 +256,7 @@ def rowinlistoflist(listoflist,el) :
 
 def sameParentsinIM(infosetsMerger,rp1,rp2) :
     for rp1i in rp1 :
-        if isinlistoflist(infosetsMerger,rp1i) :    
+        if isinlistoflist(infosetsMerger,rp1i) :
             row = rowinlistoflist(infosetsMerger,rp1i)
             for rp2i in rp2 :
                 if not (rp2i in infosetsMerger[row]) :
@@ -267,24 +267,24 @@ def sameParentsinIM(infosetsMerger,rp1,rp2) :
 # given an infosets dataframe and indexes of two infosets returns 1 if they are
 # mergeable (it would be possible to merge them) and 0 otherwise
 def conditions(infoset1, infoset2,infosetsMerger,rp1,rp2) : # for speed doesn't load all the infoset, just the selected rows
-    
+
     # CHECKS SAME Player, Parents, Structure (Depth already checked in main)
-    
+
     if(infoset1['Player'] != infoset2['Player']) : # Same player
         #print("Different Players!")
         return 0
-    
-    if(infoset1['Parents'] != infoset2['Parents']) : # Same parents 
-        if not sameParentsinIM(infosetsMerger,rp1,rp2) : # Same parents 
+
+    if(infoset1['Parents'] != infoset2['Parents']) : # Same parents
+        if not sameParentsinIM(infosetsMerger,rp1,rp2) : # Same parents
             return 0
-        
+
     if(len(infoset1['Payoff Vector P1']) != len(infoset2['Payoff Vector P1'])) : # Same player
         #print("Different Players!")
         return 0
-    
+
     if(infoset1['Depth'] > 1) : # at the 1st level there is no history
         if( infoset1['Structure'] != infoset2['Structure']) : # Same history
             #print("Different Structures!")
             return 0
-    
+
     return 1

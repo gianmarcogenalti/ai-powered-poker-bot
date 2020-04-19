@@ -17,6 +17,24 @@ def sons(infosets, index) :
     #
     return descendents
 
+
+def allsons(infosets, index) :
+    descendents = []
+    for member in infosets['Members'][index] :
+        counter = 0
+        for candidates in infosets['Members'] :
+            if(counter != index) :
+                for membcandidate in candidates :
+                    if(membcandidate.find(member) != -1 and counter not in descendents) :
+                        descendents.append(counter)
+                    #
+                #
+            #
+            counter =  counter + 1
+        #
+    #
+    return descendents
+
 def parents(infosets, index) :
     antenates = []
     for member in infosets['Members'][index] :
@@ -33,6 +51,7 @@ def parents(infosets, index) :
 ###### IMPORTANT: infosets' parents and sons only include SAME PLAYER infosets,
 ###### while in nodes also nodes of the other player.
 
+''' ##Outdated
 def nodesons(nodes, index) :
     src = nodes['History'][index]
     dpt = nodes['Depth'][index]
@@ -45,6 +64,7 @@ def nodesons(nodes, index) :
     #
     return descendents
 
+
 def nodeparents(nodes, index) :
     antenates = []
     dpt = nodes['Depth'][index]
@@ -54,3 +74,4 @@ def nodeparents(nodes, index) :
         #
     #
     return antenates
+'''

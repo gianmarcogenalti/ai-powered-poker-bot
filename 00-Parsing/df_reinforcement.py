@@ -56,6 +56,13 @@ def descendents(infosets) :
     #
     infosets['Sons'] = descendent
 
+def alldescendents(infosets) :
+    descendent = []
+    for i in range(len(infosets)) :
+        descendent.append(allsons(infosets, i))
+        #
+    infosets['All_Sons'] = descendent
+
 def antenates(infosets) :
     antenate = []
     for i in range(len(infosets)) :
@@ -63,13 +70,13 @@ def antenates(infosets) :
     #
     infosets['Parents'] = antenate
 
-
-def maptois(nodes, infosets) : ## df1.loc[lambda df: df['A'] > 0, :]
+def maptois(nodes, infosets) :
     map = [0] * len(nodes.index)
     for nindex, nrow in nodes.iterrows():
         player = nrow['Player']
-        i = infosets.index.values[nodeiscomp(nrow['History'], infosets['History'], player)][0]
-        map[nindex] = i
+        if len(infosets.index.values[nodeiscomp(nrow.History, infosets.History, player)]) > 0:
+            i = infosets.index.values[nodeiscomp(nrow.History, infosets.History, player)][0]
+            map[nindex] = i
     #
     nodes['Map'] = map
 
@@ -79,7 +86,7 @@ def indexmembers(infosets, nodes) :
         i = row['Map']
         ixmembers[i].append(index)
     #
-    infosets['Index Members'] = ixmembers
+    infosets['Index_Members'] = ixmembers
 
 def nodedepth(nodes, infosets) :
     depth = [0] * len(nodes.index)
@@ -89,16 +96,29 @@ def nodedepth(nodes, infosets) :
     #
     nodes['Depth'] = depth
 
-def nodedescendents(nodes) : ##To improve
-    descendent = []
-    for i in range(len(nodes)) :
-        descendent.append(nodesons(nodes, i))
+def nodedescendents(nodes) : ##improved
+    descendent = [[] for _ in range(len(nodes.index))]
+    for index,row in nodes.iterrows() :
+        nd = nodes.where(nodes.History.str.find(row.History + '/') != -1)
+        nd = nd.dropna()
+        descendent[index] = nd.index.values
     #
     nodes['Sons'] = descendent
 
-def nodeantenates(nodes) : ##To improve
-    antenate = []
-    for i in range(len(nodes)) :
-        antenate.append(nodeparents(nodes, i))
+def nodeantenates(nodes) : ##improved
+    antenate = [[] for _ in range(len(nodes.index))]
+    for index,row in nodes.iterrows() :
+        for sindex in row['Sons'] :
+            antenate[sindex].append(index)
+        #
     #
     nodes['Parents'] = antenate
+
+
+def isactions(infosets, nodes) :
+    actions =  [[] for _ in range(len(infosets.index))]
+    for index,row in infosets.iterrows() :
+        map = row['Index_Members'][0]
+        actions[index] = nodes.Actions[map]
+    #
+    infosets['Actions'] = actions
