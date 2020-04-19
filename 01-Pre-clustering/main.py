@@ -73,4 +73,4 @@ infoMerged['Sons'] = sons
 
 # returns and saves the dataFrame
 print(infoMerged.head)
-infoMerged.to_csv("..\\Import_files\\ph1_"+game+".csv", index = False, header = True)
+infoMerged.to_csv("..\\Import-files\\ph1_"+game+".csv", index = False, header = True)

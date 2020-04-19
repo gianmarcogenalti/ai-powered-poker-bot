@@ -67,10 +67,10 @@ def createstructure(hist):
 
 # Loads the csvs and returns them as dataframes in the proper format
 def loadcsvs(game): 
-    folderpath = "..\\Import_files\\"
+    folderpath = "..\\Import-files\\"
     
     #Loads the dataframes in 2D (lists are loaded as strings)
-    infosets = pd.read_csv(folderpath + game + "_infosets.csv", dtype={'History':str,'Members':str,'Depth':int,'Payoff Vector P1':str,'Payoff Vector P2':str,'Player':int,'Sons':str,'Parents':str})
+    infosets = pd.read_csv(folderpath + game + "_infosets.csv", dtype={'History':str,'Members':str,'Depth':int,'Payoff Vector P1':str,'Payoff Vector P2':str,'Player':int,'Sons':str,'Parents':str,'Index_Members':str,'Actions':str,'Actions_Prob':str,'Probabilities':str})
     terminals = pd.read_csv(folderpath + game + "_terminals.csv", dtype={'History':str,'Payoff':str})
     nonterminals = pd.read_csv(folderpath + game + "_nonterminals.csv", dtype={'History':str,'Player':int,'Actions':str})
     chances = pd.read_csv(folderpath + game + "_chances.csv", dtype={'History':str,'Actions':str})

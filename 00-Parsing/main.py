@@ -18,7 +18,7 @@ game_for_csv = "leduc5" # name to use on the .csv file
 print('Chosen game: ', game_for_csv, '\n')
 ## Path to store the .csv files and names of the ifles
 
-path = 'C:\\Users\\gianm\\Documents\\POKERBOT\\Import-files'
+path = '..\\Import-files'
 infopath = path + '\\' + game_for_csv + '_infosets.csv'
 nonterminalpath = path + '\\' + game_for_csv + '_nonterminals.csv'
 terminalpath = path + '\\' + game_for_csv + '_terminals.csv'
@@ -94,9 +94,9 @@ print('infosets probabilities updated!')
 
 ## Writing dataframes on a .csv file
 
-infosets.to_csv(infopath, index = False, header = True, quoting=csv.QUOTE_NONE, escapechar=' ')
-nonterminals.to_csv(nonterminalpath, index = False, header = True, quoting=csv.QUOTE_NONE, escapechar=' ')
-terminals.to_csv(terminalpath, index = False, header = True, quoting=csv.QUOTE_NONE, escapechar=' ')
-chances.to_csv(chancepath, index = False, header = True, quoting=csv.QUOTE_NONE, escapechar=' ')
+infosets.to_csv(infopath, index = False, header = True, escapechar=' ')
+nonterminals.to_csv(nonterminalpath, index = False, header = True, escapechar=' ')
+terminals.to_csv(terminalpath, index = False, header = True, escapechar=' ')
+chances.to_csv(chancepath, index = False, header = True, escapechar=' ')
 
 print('Execution time: ', time.time() - t0)
