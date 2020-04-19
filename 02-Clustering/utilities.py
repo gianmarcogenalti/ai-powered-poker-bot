@@ -126,50 +126,50 @@ def createstructure(hist):
 
     return res
 
+# A column of "['a', 'b', 'c']" becomes a column of lists of strings
+def makeArray(text):
+    ret = []
+    for t in text :
+        regex = "(?<=\[')(.*)(?='\])"
+        match = re.findall(regex,t)
+        textwb = match[0]
+        ret.append(textwb.split("', '"))
+    return ret
+
+# A column of "[1.0, 2.0, 3.0]" becomes a column of lists of floats
+def makeArrayFloat(text):
+    ret = []
+    for t in text :
+        regex = "(?<=\[)(.*)(?=\])"
+        match = re.findall(regex,t)
+        textwb = match[0]
+        textl = np.array(textwb.split(", "))
+        ret.append(textl.astype(np.float))
+    return ret
+
+# A column of "[1, 2, 3]" becomes a column of lists of ints
+def makeArrayInt(text):
+    ret = []
+    for t in text :
+        if t != '[]':
+            regex = "(?<=\[)(.*)(?=\])"
+            match = re.findall(regex,t)
+            textwb = match[0]
+            textl = np.array(textwb.split(", "))
+            ret.append(list(map(int, textl)))
+        else :
+            ret.append([])
+    return ret
+
 # Loads the csvs and returns them as dataframes in the proper format
 def loadcsvs(game):
-    folderpath = "C:\\Users\\gianm\\Documents\\POKERBOT\\Import-files\\"
-
+    folderpath = "..\\Import-files\\"
+    
     #Loads the dataframes in 2D (lists are loaded as strings)
     infosets = pd.read_csv(folderpath +"ph1_"+ game + ".csv", dtype={'Map':str,'Depth':int,'Payoff Vector P1':str,'Player':int,'Sons':str,'Parents':str,'Structure':int})
     terminals = pd.read_csv(folderpath + game + "_terminals.csv", dtype={'History':str,'Payoff':str})
     nonterminals = pd.read_csv(folderpath + game + "_nonterminals.csv", dtype={'History':str,'Player':int,'Actions':str})
     chances = pd.read_csv(folderpath + game + "_chances.csv", dtype={'History':str,'Actions':str})
-
-    # A column of "['a', 'b', 'c']" becomes a column of lists of strings
-    def makeArray(text):
-        ret = []
-        for t in text :
-            regex = "(?<=\[')(.*)(?='\])"
-            match = re.findall(regex,t)
-            textwb = match[0]
-            ret.append(textwb.split("', '"))
-        return ret
-
-    # A column of "[1.0, 2.0, 3.0]" becomes a column of lists of floats
-    def makeArrayFloat(text):
-        ret = []
-        for t in text :
-            regex = "(?<=\[)(.*)(?=\])"
-            match = re.findall(regex,t)
-            textwb = match[0]
-            textl = np.array(textwb.split(", "))
-            ret.append(textl.astype(np.float))
-        return ret
-
-    # A column of "[1, 2, 3]" becomes a column of lists of ints
-    def makeArrayInt(text):
-        ret = []
-        for t in text :
-            if t != '[]':
-                regex = "(?<=\[)(.*)(?=\])"
-                match = re.findall(regex,t)
-                textwb = match[0]
-                textl = np.array(textwb.split(", "))
-                ret.append(list(map(int, textl)))
-            else :
-                ret.append([])
-        return ret
 
     # Calls the functions and converts the columns elements from strings to lists (properly)
     infosets['Map'] = makeArrayInt(infosets['Map']) # float
