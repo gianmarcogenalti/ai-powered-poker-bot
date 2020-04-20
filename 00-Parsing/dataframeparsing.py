@@ -57,3 +57,23 @@ def chancedf(textfile) :
     df = pd.DataFrame(data, columns = ['History', 'Actions', 'Odds'])
 
     return df
+
+def nodesdf(textfile) :
+
+    n = getnodes(textfile)
+    c = getchance(n)
+    a,o = getnodesactions(n)
+    p = oddtoprob(o)
+    po = getpayoff(n)
+    player = getplayers(n)
+
+    data = {'History' : getnodeshist(n),
+            'Type' : types(n),
+            'Actions' : a,
+            'Actions_Prob' : p,
+            'Payoff_P1' : po,
+            'Player' : player}
+
+    df = pd.DataFrame(data, columns = ['History', 'Type', 'Actions', 'Actions_Prob', 'Payoff_P1', 'Player'])
+
+    return df

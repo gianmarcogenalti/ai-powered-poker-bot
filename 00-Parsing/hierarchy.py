@@ -49,29 +49,5 @@ def parents(infosets, index) :
     return antenates
 
 ###### IMPORTANT: infosets' parents and sons only include SAME PLAYER infosets,
-###### while in nodes also nodes of the other player.
-
-''' ##Outdated
-def nodesons(nodes, index) :
-    src = nodes['History'][index]
-    dpt = nodes['Depth'][index]
-    descendents = []
-    for nindex, row in nodes[nodes['Depth'] > dpt].iterrows():
-        line = row['History']
-        if(line.find(src) != -1 and index != nindex):
-            descendents.append(nindex)
-        #
-    #
-    return descendents
-
-
-def nodeparents(nodes, index) :
-    antenates = []
-    dpt = nodes['Depth'][index]
-    for nindex, row in nodes[nodes['Depth'] < dpt].iterrows():
-        if(index in row['Sons'] and nindex not in antenates):
-            antenates.append(nindex)
-        #
-    #
-    return antenates
-'''
+###### while in nodes also nodes of the other player. In infosets you can find All_Sons
+###### where ALL sons are stored (both players)
