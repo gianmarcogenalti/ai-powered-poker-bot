@@ -104,23 +104,22 @@ def loadcsvs(game):
     folderpath = "..\\Import-files\\"
     
     #Loads the dataframes in 2D (lists are loaded as strings)
-    infosets = pd.read_csv(folderpath + game + "_infosets.csv", dtype={'History':str,'Members':str,'Depth':int,'Payoff Vector P1':str,'Payoff Vector P2':str,'Player':int,'Sons':str,'Parents':str,'Index_Members':str,'Actions':str,'Actions_Prob':str,'Probabilities':str})
-    terminals = pd.read_csv(folderpath + game + "_terminals.csv", dtype={'History':str,'Payoff':str})
-    nonterminals = pd.read_csv(folderpath + game + "_nonterminals.csv", dtype={'History':str,'Player':int,'Actions':str})
-    chances = pd.read_csv(folderpath + game + "_chances.csv", dtype={'History':str,'Actions':str})
+    infosets = pd.read_csv(folderpath + game + "_infosets.csv", dtype={'History':str,'Members':str,'Depth':int,'Index_Members':str,'Player':int,'Payoff_Vector_P1':str,'Sons':str,'All_Sons':str,'Parents':str,'Actions':str,'Probability':str})
+    terminals = 0#pd.read_csv(folderpath + game + "_terminals.csv", dtype={'History':str,'Payoff':str})
+    nonterminals = 0#pd.read_csv(folderpath + game + "_nonterminals.csv", dtype={'History':str,'Player':int,'Actions':str})
+    chances = 0#pd.read_csv(folderpath + game + "_chances.csv", dtype={'History':str,'Actions':str})
     
     # A column of "['a', 'b', 'c']" becomes a column of lists of strings
     
     
     # Calls the functions and converts the columns elements from strings to lists (properly) 
     infosets['Members'] = makeArray(infosets['Members']) # str
-    infosets['Payoff Vector P1'] = makeArrayFloat(infosets['Payoff Vector P1']) # float
-    infosets['Payoff Vector P2'] = makeArrayFloat(infosets['Payoff Vector P2']) # float
+    infosets['Payoff Vector P1'] = makeArrayFloat(infosets['Payoff_Vector_P1']) # float
     infosets['Sons'] = makeArrayInt(infosets['Sons']) # int
     infosets['Parents'] = makeArrayInt(infosets['Parents']) # int
-    terminals['Payoff'] = makeArrayFloat(terminals['Payoff']) # float
-    nonterminals['Actions'] = makeArray(nonterminals['Actions']) # str
-    chances['Actions'] = makeArray(chances['Actions']) # str
+    #terminals['Payoff'] = makeArrayFloat(terminals['Payoff']) # float
+    #nonterminals['Actions'] = makeArray(nonterminals['Actions']) # str
+    #chances['Actions'] = makeArray(chances['Actions']) # str
     
     return infosets, terminals, nonterminals, chances
 

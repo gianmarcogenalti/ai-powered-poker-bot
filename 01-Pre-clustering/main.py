@@ -11,7 +11,7 @@ l3 = "leduc3"
 l5 = "leduc5"
 
 # choose the game to cluster and loads the cvs as df
-game = l3
+game = l5
 infosets, terminals, nonterminals, chances = loadcsvs(game)
 
 # simplifies its history creating a structure made out of flags

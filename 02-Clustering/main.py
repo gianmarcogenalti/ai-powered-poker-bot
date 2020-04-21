@@ -38,14 +38,14 @@ print(len(infosetsMergerPay))
 # Maps the initial rows of infosets into the index of row of the final merged infosets
 
 # builds the output dataFrame
-infoMerged = pd.DataFrame(columns=['MapPh1','Map','Depth','Payoff Vector P1','Player','Sons','Parents','Structure','Index_Members','Actions','Actions_Prob','Probabilities'])
+infoMerged = pd.DataFrame(columns=['MapPh1','Map','Depth','Payoff Vector P1','Player','Sons','All_Sons','Parents','Structure','Index_Members','Actions','Probability'])
 
 # Imports original Index_Members, Actions, Actions_Prob, Probabilities in the proper place
 folderpath = "..\\Import-files\\"
 startingInfosets = pd.read_csv(folderpath + game + "_infosets.csv", dtype={'History':str,'Members':str,'Depth':int,'Payoff Vector P1':str,'Payoff Vector P2':str,'Player':int,'Sons':str,'Parents':str,'Index_Members':str,'Actions':str,'Actions_Prob':str,'Probabilities':float})
 startingInfosets['Index_Members'] = makeArrayInt(startingInfosets['Index_Members']) # int
 startingInfosets['Actions'] = makeArray(startingInfosets['Actions']) # string
-startingInfosets['Actions_Prob'] = makeArrayFloat(startingInfosets['Actions_Prob']) # float  
+startingInfosets['All_Sons'] = makeArrayInt(startingInfosets['All_Sons']) # float  
 
 
 # builds the remaining output dataFrame's columns
@@ -55,9 +55,9 @@ players = []
 structures = []
 parents = []
 sons = []
+allsons = []
 indexMembers = []
 actions = []
-actionsprob = []
 probabilities = []
 imi = 0
 for im in infosetsMerger :
@@ -91,6 +91,11 @@ for im in infosetsMerger :
                 if not infosets['MapPh1'][son] in sonsnow:
                     sonsnow.append(infosets['MapPh1'][son])
     sons.append(sonsnow)
+    # gets the new indexes of the sons
+    allsonsnow = list()
+    for i1 in maptooriginal[imi] :
+        allsonsnow += startingInfosets['All_Sons'][i1]
+    allsons.append(allsonsnow)
     # Adds the elements of indexMembers
     indexMembersNow = list();
     for i1 in maptooriginal[imi] :
@@ -98,12 +103,10 @@ for im in infosetsMerger :
     indexMembers.append(indexMembersNow)
     # Adds the elements of Actions
     actions.append(startingInfosets['Actions'][maptooriginal[imi][0]])
-    # Adds the elements of ActionsProb
-    actionsprob.append(startingInfosets['Actions_Prob'][maptooriginal[imi][0]])
     # Adds the elements of Probabilities
     probabilitiesnow = 0
     for i1 in maptooriginal[imi] :
-        probabilitiesnow += startingInfosets['Probabilities'][i1]
+        probabilitiesnow += startingInfosets['Probability'][i1]
     probabilities.append(probabilitiesnow)
     imi += 1
     
@@ -114,12 +117,12 @@ infoMerged['Player'] = players
 infoMerged['Structure'] = structures
 infoMerged['Parents'] = parents
 infoMerged['Sons'] = sons
+infoMerged['All_Sons'] = allsons
 infoMerged['MapPh1'] = infosetsMerger
 infoMerged['Map'] = maptooriginal
 infoMerged['Index_Members'] = indexMembers
 infoMerged['Actions'] = actions
-infoMerged['Actions_Prob'] = actionsprob
-infoMerged['Probabilities'] = probabilities
+infoMerged['Probability'] = probabilities
 
 # returns and saves the dataFrame
 print(infoMerged.head)
