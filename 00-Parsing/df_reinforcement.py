@@ -95,33 +95,34 @@ def nodedescendents(nodes = None, leaf = None) : ##improved
 def nodedescendents(nodes):
     globalnodes = nodes
     descendent = [[] for _ in range(len(nodes.index))]
-    root = nodes[nodes.History == '/']
+    root = nodes.iloc[nodes.index[nodes.History == "/"].tolist()[0]]
     def recursivesons(dad): ##improved
         if dad.Type == 'L':
             return []
         if dad.Player == 1:
             player = '/P1:'
-        if dad.Player == 2:
-            player = '/P2:'
         else:
-            player = '/C:'
+            if dad.Player == 2:
+                player = '/P2:'
+            else:
+                player = '/C:'
         if(dad.History == '/'):
-            for action in root.Actions:
-                son = '/C:' + action
-                son = nodes[nodes.History == son]
-                idxson = son.index
-                descendent[dad.index].append(recursivesons(son), idxson)
+            for action in dad.Actions:
+                son1 = '/C:' + action
+                son = nodes.iloc[nodes.index[nodes.History == son1].tolist()[0]]
+                idxson = son.name
+                descendent[dad.name] = descendent[dad.name] + recursivesons(son)+ [idxson]
         else:
-            for action in root.Actions:
-                son = dad.History + player  + action
-                son = nodes[nodes.History == son]
-                idxson = son.index
-                descendent[dad.index].append(recursivesons(son), idxson)
+            for action in dad.Actions:
+                son1 = dad.History + player + action
+                son = nodes.iloc[nodes.index[nodes.History == son1].tolist()[0]]
+                idxson = son.name
+                descendent[dad.name] = descendent[dad.name] + recursivesons(son)+ [idxson]
 
-        return descendent[dad.index]
+        return descendent[dad.name]
 
     recursivesons(root)
-    print(descendent)
+    nodes['Sons'] = descendent
 
 def nodeantenates(nodes) : ##improved
     antenate = [[] for _ in range(len(nodes.index))]
