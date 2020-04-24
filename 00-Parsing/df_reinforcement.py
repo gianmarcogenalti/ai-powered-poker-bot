@@ -79,10 +79,10 @@ def nodesdepth(nodes):
     for hist in nodes.History:
         depth.append(getnodedepth(hist))
     nodes['Depth'] = depth
-
-def nodedescendents(nodes) : ##improved
+'''
+def nodedescendents(nodes = None, leaf = None) : ##improved
     descendent = [[] for _ in range(len(nodes.index))]
-    for index,row in nodes.iterrows() :
+    for index,row in nodes[nodes.Type == 'L'].iterrows() :
         if(row.History == '/'):
             descendent[index] = nodes.index.values
         else:
@@ -91,6 +91,37 @@ def nodedescendents(nodes) : ##improved
             descendent[index] = nd.index.values
     #
     nodes['Sons'] = descendent
+'''
+def nodedescendents(nodes):
+    globalnodes = nodes
+    descendent = [[] for _ in range(len(nodes.index))]
+    root = nodes[nodes.History == '/']
+    def recursivesons(dad): ##improved
+        if dad.Type == 'L':
+            return []
+        if dad.Player == 1:
+            player = '/P1:'
+        if dad.Player == 2:
+            player = '/P2:'
+        else:
+            player = '/C:'
+        if(dad.History == '/'):
+            for action in root.Actions:
+                son = '/C:' + action
+                son = nodes[nodes.History == son]
+                idxson = son.index
+                descendent[dad.index].append(recursivesons(son), idxson)
+        else:
+            for action in root.Actions:
+                son = dad.History + player  + action
+                son = nodes[nodes.History == son]
+                idxson = son.index
+                descendent[dad.index].append(recursivesons(son), idxson)
+
+        return descendent[dad.index]
+
+    recursivesons(root)
+    print(descendent)
 
 def nodeantenates(nodes) : ##improved
     antenate = [[] for _ in range(len(nodes.index))]
@@ -109,6 +140,20 @@ def isactions(infosets, nodes) :
         actions.append(nodes.Actions[map])
     #
     infosets['Actions'] = actions
+
+def directparent(nodes):
+    dads = []
+    for index,row in nodes.iterrows():
+        if row.History != '/':
+            for parent in row.Parents:
+                if nodes.Depth[parent] == row.Depth - 1:
+                    dads.append(parent)
+                #
+            #
+        else:
+            dads.append(-1)
+    #
+    nodes['Dad'] = dads
 
 def directsons(nodes):
     direct_sons = []
