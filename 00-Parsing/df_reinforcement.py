@@ -4,26 +4,6 @@ import re
 
 ## Utilities that add columns to the original dataframes
 
-def payoffvectors(infosets,nodes):
-    pv1 = []
-    terminals = nodes[nodes.Type == 'L']
-    #pv2 = [[] for _ in range(len(infosets.index))]
-    for index,row in infosets.iterrows():
-        for member in row.Members:
-            payoff = []
-            for tindex,terminal in terminals.iterrows():
-                if terminal.History.find(member) != -1:
-                    c1 = terminal.Payoff_P1
-                    #c2 = -c1
-                    payoff.append(c1)
-                #
-            #
-        #
-        pv1.append(payoff)
-    #
-    infosets['Payoff_Vector_P1'] = pv1
-
-
 def isplayers(infosets, nodes):
     finalp = []
     for index,row in infosets.iterrows():
@@ -79,26 +59,16 @@ def nodesdepth(nodes):
     for hist in nodes.History:
         depth.append(getnodedepth(hist))
     nodes['Depth'] = depth
-'''
-def nodedescendents(nodes = None, leaf = None) : ##improved
+
+def payoffdescendents(nodes, infosets = None):
     descendent = [[] for _ in range(len(nodes.index))]
-    for index,row in nodes[nodes.Type == 'L'].iterrows() :
-        if(row.History == '/'):
-            descendent[index] = nodes.index.values
-        else:
-            nd = nodes.where(nodes.History.str.find(row.History + '/') != -1)
-            nd = nd.dropna()
-            descendent[index] = nd.index.values
-    #
-    nodes['Sons'] = descendent
-'''
-def nodedescendents(nodes):
-    globalnodes = nodes
-    descendent = [[] for _ in range(len(nodes.index))]
+    po1 = [[] for _ in range(len(nodes.index))]
+    ispo1 = [[] for _ in range(len(infosets.index))]
     root = nodes.iloc[nodes.index[nodes.History == "/"].tolist()[0]]
     def recursivesons(dad): ##improved
         if dad.Type == 'L':
-            return []
+            po1[dad.name] = [dad.Payoff_P1]
+            return [[], [dad.Payoff_P1]]
         if dad.Player == 1:
             player = '/P1:'
         else:
@@ -111,18 +81,26 @@ def nodedescendents(nodes):
                 son1 = '/C:' + action
                 son = nodes.iloc[nodes.index[nodes.History == son1].tolist()[0]]
                 idxson = son.name
-                descendent[dad.name] = descendent[dad.name] + recursivesons(son)+ [idxson]
+                outlist = recursivesons(son)
+                descendent[dad.name] = descendent[dad.name] + outlist[0] + [idxson]
+                po1[dad.name] = po1[dad.name] + outlist[1]
         else:
             for action in dad.Actions:
                 son1 = dad.History + player + action
                 son = nodes.iloc[nodes.index[nodes.History == son1].tolist()[0]]
                 idxson = son.name
-                descendent[dad.name] = descendent[dad.name] + recursivesons(son)+ [idxson]
+                outlist = recursivesons(son)
+                descendent[dad.name] = descendent[dad.name] + outlist[0] + [idxson]
+                po1[dad.name] = po1[dad.name] + outlist[1]
+                if(dad.Type == 'N'):
+                    ispo1[dad.Map] = ispo1[dad.Map] + outlist[1]
 
-        return descendent[dad.name]
+        return descendent[dad.name],po1[dad.name]
 
     recursivesons(root)
     nodes['Sons'] = descendent
+    nodes['Payoff_Vector_P1'] = po1
+    infosets['Payoff_Vector_P1'] = ispo1
 
 def nodeantenates(nodes) : ##improved
     antenate = [[] for _ in range(len(nodes.index))]
@@ -142,19 +120,23 @@ def isactions(infosets, nodes) :
     #
     infosets['Actions'] = actions
 
-def directparent(nodes):
+def directparent(nodes, infosets):
     dads = []
+    isdads = [[] for _ in range(len(infosets.index))]
     for index,row in nodes.iterrows():
         if row.History != '/':
             for parent in row.Parents:
                 if nodes.Depth[parent] == row.Depth - 1:
                     dads.append(parent)
+                    isdads[row.Map] = nodes.Map[parent]
                 #
             #
         else:
             dads.append(-1)
+            isdads[row.Map] = -1
     #
     nodes['Dad'] = dads
+    infosets['Dad'] = isdads
 
 def directsons(nodes):
     direct_sons = []
@@ -171,6 +153,25 @@ def directsons(nodes):
                         hist = row.History + '/P1:' + action
                     if row.Player == 2:
                         hist = row.History + '/P2:' + action
+                #
+                candidates = nodes[nodes.Depth == row.Depth +1]
+                sons.append(int(candidates.index.values[candidates.History == hist]))
+            #
+            direct_sons.append(sons)
+        else:
+            direct_sons.append(-1)
+    #
+    nodes['Direct_Sons'] = direct_sons
+
+def isdirectsons(infosets):
+    direct_sons = []
+    for index,row in infosets.iterrows():
+        sons = []
+        for action in row.Actions:
+            if row.Player == 1:
+                hist = row.History + '/P1:' + action
+            if row.Player == 2:
+                hist = row.History + '/P2:' + action
                 #
                 candidates = nodes[nodes.Depth == row.Depth +1]
                 sons.append(int(candidates.index.values[candidates.History == hist]))
