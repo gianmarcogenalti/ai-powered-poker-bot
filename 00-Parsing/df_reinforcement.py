@@ -63,7 +63,7 @@ def nodesdepth(nodes):
 def payoffdescendents(nodes, infosets = None):
     descendent = [[] for _ in range(len(nodes.index))]
     po1 = [[] for _ in range(len(nodes.index))]
-    #nodesdad = [[] for _ in range(len(nodes.index))]
+    ispo1 = [[] for _ in range(len(infosets.index))]
     root = nodes.iloc[nodes.index[nodes.History == "/"].tolist()[0]]
     def recursivesons(dad): ##improved
         if dad.Type == 'L':
@@ -96,22 +96,16 @@ def payoffdescendents(nodes, infosets = None):
                 outlist = recursivesons(son)
                 descendent[dad.name] = descendent[dad.name] + outlist[0] + [idxson]
                 po1[dad.name] = po1[dad.name] + outlist[1]
+                if(dad.Type == 'N'):
+                    ispo1[dad.Map] = ispo1[dad.Map] + outlist[1]
 
         return descendent[dad.name],po1[dad.name]
 
     recursivesons(root)
     nodes['Sons'] = descendent
     nodes['Payoff_Vector_P1'] = po1
-    #nodes['Dad'] = nodesdad
-
-def ispayoffs(infosets, nodes):
-    ispo1 = [[] for _ in range(len(infosets.index))]
-    for index,row in infosets.iterrows():
-        for i in row.Index_Members:
-            ispo1[index] += nodes.Payoff_Vector_P1[i]
-        #
-    #
     infosets['Payoff_Vector_P1'] = ispo1
+    #nodes['Dad'] = nodesdad
 
 def nodeantenates(nodes) : ##improved
     antenate = [[] for _ in range(len(nodes.index))]
@@ -141,20 +135,15 @@ def directparent(nodes, infosets):
                     dads.append(parent)
                     if nodes.History[parent] == '/':
                         isdads[row.Map] = -1
-                    if row.Type != 'C':
+                    if row.Type != 'C' and row.Type != 'L':
                         if nodes.Type[parent] != 'C':
                             if not nodes.Map[parent] in isdads[row.Map]:
-                                if row.Map != -1:
                                     isdads[row.Map].append(nodes.Map[parent])
-                                else:
-                                    print('Error 3')
                         if nodes.Type[parent] == 'C' and nodes.History[parent] != '/':
                             if row.Map != -1:
                                 isdads[row.Map] = -2
                             else:
                                 print('Error 2')
-
-
                 #
             #
         else:

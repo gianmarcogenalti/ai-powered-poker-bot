@@ -19,15 +19,16 @@ def nodestree(nodes):
     print(RenderTree(root).by_attr('payoffs'))
 
 def istree(infosets):
+    root = AnyNode(name = 'C')
     tree = [[] for _ in range(len(infosets.index))]
     for rindex,row in infosets[infosets.Depth == 1].iterrows():
-        tree[rindex] = AnyNode(name = row.History.split('/')[-1], payoffs = infosets.Payoff_Vector_P1[rindex])
+        tree[rindex] = AnyNode(name = row.History.split('/')[-1], parent = root)
 
-        for dpt in range(2,max(nodes.Depth)):
-            for index,row in infosets[infosets.Depth == dpt].iterrows():
-                if(row.Dad != -1):
-                    tree[index] = AnyNode(name = row.History.split('/')[-1], parent = tree[row.Dad], payoffs = nodes.Payoff_Vector_P1[index])
+    for dpt in range(2,max(infosets.Depth)):
+        for index,row in infosets[infosets.Depth == dpt].iterrows():
+            tree[index] = AnyNode(name = row.History.split('/')[-1], parent = tree[row.Dad[0]], payoffs = nodes.Payoff_Vector_P1[index])
 
-        print(RenderTree(tree[rindex]).by_attr('payoffs'))
+
+    print(RenderTree(tree[45]).by_attr('payoffs'))
 
 istree(infosets)

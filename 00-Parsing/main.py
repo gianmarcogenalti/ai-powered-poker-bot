@@ -12,8 +12,8 @@ kuhn = 'input - kuhn.txt'
 l3 = 'input - leduc3.txt'
 l5 = 'input - leduc5.txt'
 
-game = l3 # Game to play
-game_for_csv = "leduc3" # name to use on the .csv file
+game = l5 # Game to play
+game_for_csv = "leduc5" # name to use on the .csv file
 print('Chosen game: ', game_for_csv, '\n')
 ## Path to store the .csv files and names of the ifles
 
@@ -69,9 +69,6 @@ print('parents added to infosets!\n')
 isactions(infosets,nodes) # adding possible actions to an infoset using the map with  nodes
 print('actions added to infosets!\n')
 
-ispayoffs(infosets,nodes) # adding all the possible payoffs reachable from the infoset: it adds the vector for P1
-print('payoff vectors added to infosets!\n')
-
 update_nodeprob(nodes) # adding probabilities of chance nodes
 print('probabilities added to nodes!\n')
 
@@ -81,7 +78,7 @@ print('infosets probabilities updated!')
 prob_leaf(nodes)
 
 print(nodes)
-print(infosets.Dad)
+
 #prob_check(nonterminals)
 
 ## Writing dataframes on a tre and on a .csv file

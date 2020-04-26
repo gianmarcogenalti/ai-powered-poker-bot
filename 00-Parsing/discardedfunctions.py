@@ -64,4 +64,13 @@ def nodedescendents(nodes) : ##outdated
             descendent[index] = nd.index.values
     #
     nodes['Sons'] = descendent
+
+    def ispayoffs(infosets, nodes):
+        ispo1 = [[] for _ in range(len(infosets.index))]
+        for index,row in infosets.iterrows():
+            for i in row.Index_Members:
+                ispo1[index] += nodes.Payoff_Vector_P1[i]
+            #
+        #
+        infosets['Payoff_Vector_P1'] = ispo1
 '''
