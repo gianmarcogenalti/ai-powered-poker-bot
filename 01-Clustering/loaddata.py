@@ -72,33 +72,16 @@ def createstringflag(hist):
     
     return res
 
-# Returns immediate real parents and sons of the infosets
-def realFamily(dads,players) :
-    infocount = len(dads)
-    resSons = [[] for i in range(infocount)] # Real_Sons (same player)
-    resPar = [[] for i in range(infocount)] # Real_Parents (same player)
-    sons = [[] for i in range(infocount)] # Sons (other player)
-    for ii in range(infocount) :
-        dad = dads[ii]
-        for d in dad :
-            sons[d].append(ii)
+def infosetstoprint(infosets,rawinfosets) :
+    infosets['History'] = [[] for i in range(len(infosets))]
+    infosets['All_Histories'] = [[] for i in range(len(infosets))]
+    for ini in range(len(infosets)) :
+        infosets['History'][ini] = rawinfosets['History'][infosets['Map'][ini][0]]
+        for ihi in infosets['Map'][ini] :
+            infosets['All_Histories'][ini].append(rawinfosets['History'][ihi])
     
-    def recursiveRealSons(idxdad,player) :
-        for s in sons[idxdad] :
-            if players[s] == player:
-                if not s in resSons[idxdad] :
-                    resSons[idxdad].append(s)
-                if not idxdad in resPar[s] :
-                    resPar[s].append(idxdad)
-            recursiveRealSons(s,player)
-    
-    for d in range(infocount) :
-        if dads[d] == [] : # start here
-            recursiveRealSons(d,players[d])
-            for s in sons[d] :
-                recursiveRealSons(s,players[s]) # and here
-            
-    return resSons, resPar
+    infosets.drop(['MapPh1'], axis=1)
+    return infosets
 
 # Loads the csv and returns it as pd.dataframes in the proper format
 def loadinfosets(game): 
@@ -114,9 +97,10 @@ def loadinfosets(game):
                      'Sons':str,
                      'All_Sons':str,
                      'Parents':str,
+                     'Direct_Parents':str,
                      'Actions':str,
                      'Payoff_Vector_P1':str,
-                     'Probability':float}
+                     'Probability':float }
     
     # Loads the dataframes 
     rawinfosets = pd.read_csv(folderpath + game + "_infosets.csv", dtype = datastructure)
@@ -127,7 +111,7 @@ def loadinfosets(game):
     infosets['Depth'] = rawinfosets['Depth'] 
     infosets['Payoff'] = makeArray(rawinfosets['Payoff_Vector_P1'],"float")
     infosets['Player'] = rawinfosets['Player'] 
-    infosets['Real_Sons'], infosets['Real_Parents'] = realFamily(makeArray(rawinfosets['Dad'],"int"),infosets['Player'])
+    infosets['Real_Parents'] = makeArray(rawinfosets['Direct_Parents'],"int")
     infosets['Actions'] = makeArray(rawinfosets['Actions'],"string")
     infosets['Probability'] = rawinfosets['Probability']
     infosets['MapPh1'] = [[] for i in range(len(infosets['History_Structure']))]

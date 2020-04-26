@@ -11,7 +11,7 @@ def mergeInfosets(infosets,mergeGroup,mergeGroupPay) :
     newinfosets = pd.DataFrame()
     
     #preallocates
-    pdkeys = ['MapPh1','Map','History_Structure','Depth','Payoff','Player','Actions','Probability','Real_Parents','Real_Sons']
+    pdkeys = ['MapPh1','Map','History_Structure','Depth','Payoff','Player','Actions','Probability','Real_Parents']
     for pdkey in pdkeys :
         newinfosets[pdkey] = [[] for i in range(len(mergeGroup))]
         
@@ -39,16 +39,12 @@ def mergeInfosets(infosets,mergeGroup,mergeGroupPay) :
     
     # Updates Sons
     for img in range(len(mergeGroup)) :
-        theseSons = []
         for imgi in mergeGroup[img] :
-            thisSon = infosets['MapPh1'][infosets['Real_Sons'][imgi]]
-            for ts in thisSon :
-                if not ts in theseSons :
-                    theseSons.append(ts)
-        nodoublesSons = theseSons
-        newinfosets['Real_Sons'][img] = nodoublesSons
-        for s in nodoublesSons :
-            newinfosets['Real_Parents'][s].append(img)
+            par = infosets['Real_Parents'][imgi]
+            for pari in par :
+                parnmg = infosets['MapPh1'][pari]
+                if not parnmg in newinfosets['Real_Parents'][img] :
+                    newinfosets['Real_Parents'][img].append(parnmg)
         
     return newinfosets
 
