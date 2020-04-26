@@ -48,6 +48,21 @@ def mergeInfosets(infosets,mergeGroup,mergeGroupPay) :
         
     return newinfosets
 
+def payoffAverage(toMerge,infosets) :
+    payres = []
+    for tm in toMerge :
+        if len(tm) < 1 :
+            payres.append([0])
+        elif len(tm) == 1 :
+            payres.append(infosets['Payoff'][tm[0]])
+        else :
+            sumnp = np.zeros(len(infosets['Payoff'][tm[0]]))
+            for tm2 in tm :
+                sumnp = np.add(sumnp, np.array(infosets['Payoff'][tm2], dtype=float))
+            nptl = np.divide(sumnp,len(tm))
+            payres.append(nptl.tolist())
+    return payres
+
 # Calls kmeans algorithm
 def kmeanscall(toMerge,infosets) :
     k = round(math.sqrt(len(toMerge))) # k in kmeans
@@ -56,15 +71,14 @@ def kmeanscall(toMerge,infosets) :
     mg = np.array(pv)
     kmeans = KMeans(n_clusters=k, random_state=0).fit(mg)
     labs = kmeans.labels_
-    pay = kmeans.cluster_centers_
     clustGroup = list()
-    clustPay = pay.tolist()
     [clustGroup.append(list()) for i in range(0,k)]
     ikml = 0
     for kml in labs :
         if toMerge[ikml] != [] :
             clustGroup[kml].append(toMerge[ikml])
         ikml += 1
+    clustPay = payoffAverage(clustGroup,infosets)
     return clustGroup, clustPay
 
 # Merges infosets into clusters
@@ -93,8 +107,12 @@ def cluster(infosets, infoloss) :
                 mergeGroupPay.append(infosets['Payoff'][toMerge[0]])
             else : # proper clustering with information loss
                 clustGroup, clustPayh = kmeanscall(toMerge,infosets)
-                [mergeGroup.append(cg) for cg in clustGroup if cg != []]
-                [mergeGroupPay.append(cg) for cg in range(len(clustPayh)) if clustGroup[cg] != []]
+                for cgi in range(len(clustGroup)) :
+                    cg = clustGroup[cgi]
+                    cp = clustPayh[cgi]
+                    if cg != [] :
+                        mergeGroup.append(cg)
+                        mergeGroupPay.append(cp)
         return mergeGroup, mergeGroupPay
     
     # The groups that are to be merged are saved in mergeGroup
