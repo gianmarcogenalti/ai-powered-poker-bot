@@ -63,12 +63,13 @@ def nodesdepth(nodes):
 def payoffdescendents(nodes, infosets = None):
     descendent = [[] for _ in range(len(nodes.index))]
     po1 = [[] for _ in range(len(nodes.index))]
-    ispo1 = [[] for _ in range(len(infosets.index))]
+    #nodesdad = [[] for _ in range(len(nodes.index))]
     root = nodes.iloc[nodes.index[nodes.History == "/"].tolist()[0]]
     def recursivesons(dad): ##improved
         if dad.Type == 'L':
             po1[dad.name] = [dad.Payoff_P1]
             return [[], [dad.Payoff_P1]]
+
         if dad.Player == 1:
             player = '/P1:'
         else:
@@ -76,11 +77,13 @@ def payoffdescendents(nodes, infosets = None):
                 player = '/P2:'
             else:
                 player = '/C:'
+
         if(dad.History == '/'):
             for action in dad.Actions:
                 son1 = '/C:' + action
                 son = nodes.iloc[nodes.index[nodes.History == son1].tolist()[0]]
                 idxson = son.name
+                #nodesdad[idxson] = int(dad.name)
                 outlist = recursivesons(son)
                 descendent[dad.name] = descendent[dad.name] + outlist[0] + [idxson]
                 po1[dad.name] = po1[dad.name] + outlist[1]
@@ -89,17 +92,25 @@ def payoffdescendents(nodes, infosets = None):
                 son1 = dad.History + player + action
                 son = nodes.iloc[nodes.index[nodes.History == son1].tolist()[0]]
                 idxson = son.name
+                #nodesdad[idxson] = int(dad.name)
                 outlist = recursivesons(son)
                 descendent[dad.name] = descendent[dad.name] + outlist[0] + [idxson]
                 po1[dad.name] = po1[dad.name] + outlist[1]
-                if(dad.Type == 'N'):
-                    ispo1[dad.Map] = ispo1[dad.Map] + outlist[1]
 
         return descendent[dad.name],po1[dad.name]
 
     recursivesons(root)
     nodes['Sons'] = descendent
     nodes['Payoff_Vector_P1'] = po1
+    #nodes['Dad'] = nodesdad
+
+def ispayoffs(infosets, nodes):
+    ispo1 = [[] for _ in range(len(infosets.index))]
+    for index,row in infosets.iterrows():
+        for i in row.Index_Members:
+            ispo1[index] += nodes.Payoff_Vector_P1[i]
+        #
+    #
     infosets['Payoff_Vector_P1'] = ispo1
 
 def nodeantenates(nodes) : ##improved
@@ -128,7 +139,15 @@ def directparent(nodes, infosets):
             for parent in row.Parents:
                 if nodes.Depth[parent] == row.Depth - 1:
                     dads.append(parent)
-                    isdads[row.Map] = nodes.Map[parent]
+                    if nodes.History[parent] == '/':
+                        isdads[row.Map] = -1
+                    if nodes.Type[parent] != 'C':
+                        if not nodes.Map[parent] in isdads[row.Map]:
+                            isdads[row.Map].append(nodes.Map[parent])
+                    if nodes.Type[parent] == 'C' and nodes.History[parent] != '/':
+                        isdads[row.Map] = -2
+
+
                 #
             #
         else:
@@ -137,6 +156,15 @@ def directparent(nodes, infosets):
     #
     nodes['Dad'] = dads
     infosets['Dad'] = isdads
+    for index,row in infosets[infosets.Dad == -2].iterrows():
+        infosets.Dad[index] = []
+        for i in row.Index_Members:
+            if nodes.Type[nodes.Dad[i]] == 'C':
+                grandpa = nodes.Dad[nodes.Dad[i]]
+                isgrandpa = nodes.Map[grandpa]
+                if not isgrandpa in infosets.Dad[index]:
+                    infosets.Dad[index].append(isgrandpa)
+
 
 def directsons(nodes):
     direct_sons = []
@@ -162,6 +190,14 @@ def directsons(nodes):
             direct_sons.append(-1)
     #
     nodes['Direct_Sons'] = direct_sons
+'''
+def isdirectsons(infosets,nodes):
+    direct_sons = []
+    for index, row in infosets.iterrows():
+        for i in row.Index_Members:
+            ds = []
+            for son in nodes.Direct_Sons[i]:
+
 
 def isdirectsons(infosets):
     direct_sons = []
@@ -181,3 +217,4 @@ def isdirectsons(infosets):
             direct_sons.append(-1)
     #
     nodes['Direct_Sons'] = direct_sons
+'''
