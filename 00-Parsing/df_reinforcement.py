@@ -141,29 +141,39 @@ def directparent(nodes, infosets):
                     dads.append(parent)
                     if nodes.History[parent] == '/':
                         isdads[row.Map] = -1
-                    if nodes.Type[parent] != 'C':
-                        if not nodes.Map[parent] in isdads[row.Map]:
-                            isdads[row.Map].append(nodes.Map[parent])
-                    if nodes.Type[parent] == 'C' and nodes.History[parent] != '/':
-                        isdads[row.Map] = -2
+                    if row.Type != 'C':
+                        if nodes.Type[parent] != 'C':
+                            if not nodes.Map[parent] in isdads[row.Map]:
+                                if row.Map != -1:
+                                    isdads[row.Map].append(nodes.Map[parent])
+                                else:
+                                    print('Error 3')
+                        if nodes.Type[parent] == 'C' and nodes.History[parent] != '/':
+                            if row.Map != -1:
+                                isdads[row.Map] = -2
+                            else:
+                                print('Error 2')
 
 
                 #
             #
         else:
             dads.append(-1)
-            isdads[row.Map] = -1
     #
     nodes['Dad'] = dads
     infosets['Dad'] = isdads
-    for index,row in infosets[infosets.Dad == -2].iterrows():
-        infosets.Dad[index] = []
-        for i in row.Index_Members:
-            if nodes.Type[nodes.Dad[i]] == 'C':
-                grandpa = nodes.Dad[nodes.Dad[i]]
-                isgrandpa = nodes.Map[grandpa]
-                if not isgrandpa in infosets.Dad[index]:
-                    infosets.Dad[index].append(isgrandpa)
+    for index,row in infosets.iterrows():
+        if infosets.Dad[index] == -2:
+            infosets.Dad[index] = []
+            for i in row.Index_Members:
+                if nodes.Type[nodes.Dad[i]] == 'C':
+                    grandpa = nodes.Dad[nodes.Dad[i]]
+                    isgrandpa = nodes.Map[grandpa]
+                    if isgrandpa != -1:
+                        if not isgrandpa in infosets.Dad[index]:
+                            infosets.Dad[index].append(isgrandpa)
+                    else:
+                        print('Error')
 
 
 def directsons(nodes):
