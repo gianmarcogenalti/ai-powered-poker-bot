@@ -9,7 +9,7 @@ folderpath = "..\\Import-files\\"
 def makeArray(text,targetType):
     ret = []
     for t in text :
-        if t != '[]' :
+        if t != '[]' and t != '-1' :
             regex = "(?<=\[)(.*)(?=\])"
             if targetType == "string" :
                 regex = "(?<=\[')(.*)(?='\])"
@@ -73,36 +73,49 @@ def createstringflag(hist):
     return res
 
 # Returns immediate real parents and sons of the infosets
-def realFamily(ancestors,depths) :
-    infocount = len(ancestors)
-    resSons = [[] for i in range(infocount)]
-    resPar = [[] for i in range(infocount)]
+def realFamily(dads,players) :
+    infocount = len(dads)
+    resSons = [[] for i in range(infocount)] # Real_Sons (same player)
+    resPar = [[] for i in range(infocount)] # Real_Parents (same player)
+    sons = [[] for i in range(infocount)] # Sons (other player)
     for ii in range(infocount) :
-        anc = ancestors[ii]
-        dep = list(depths.loc[anc])
-        if anc != [] :
-            mindep = min(dep)
-            resSons[ii] = [anc[iia] for iia in range(len(anc)) if dep[iia] == mindep]
-            [resPar[rs].append(ii) for rs in resSons[ii]]
+        dad = dads[ii]
+        for d in dad :
+            sons[d].append(ii)
     
+    def recursiveRealSons(idxdad,player) :
+        for s in sons[idxdad] :
+            if players[s] == player:
+                if not s in resSons[idxdad] :
+                    resSons[idxdad].append(s)
+                if not idxdad in resPar[s] :
+                    resPar[s].append(idxdad)
+            recursiveRealSons(s,player)
+    
+    for d in range(infocount) :
+        if dads[d] == [] : # start here
+            recursiveRealSons(d,players[d])
+            for s in sons[d] :
+                recursiveRealSons(s,players[s]) # and here
+            
     return resSons, resPar
 
 # Loads the csv and returns it as pd.dataframes in the proper format
 def loadinfosets(game): 
     global folderpath
-    
+
     # Defines the data structure of the csv from parsing
     datastructure = {'History':str,
                      'Members':str,
                      'Depth':int,
-                     'Payoff_Vector_P1':str,
-                     'Dad':str,
                      'Index_Members':str,
+                     'Dad':str,
                      'Player':int,
                      'Sons':str,
                      'All_Sons':str,
                      'Parents':str,
                      'Actions':str,
+                     'Payoff_Vector_P1':str,
                      'Probability':float}
     
     # Loads the dataframes 
@@ -114,7 +127,7 @@ def loadinfosets(game):
     infosets['Depth'] = rawinfosets['Depth'] 
     infosets['Payoff'] = makeArray(rawinfosets['Payoff_Vector_P1'],"float")
     infosets['Player'] = rawinfosets['Player'] 
-    infosets['Real_Sons'], infosets['Real_Parents'] = realFamily(makeArray(rawinfosets['Sons'],"int"),rawinfosets['Depth'])
+    infosets['Real_Sons'], infosets['Real_Parents'] = realFamily(makeArray(rawinfosets['Dad'],"int"),infosets['Player'])
     infosets['Actions'] = makeArray(rawinfosets['Actions'],"string")
     infosets['Probability'] = rawinfosets['Probability']
     infosets['MapPh1'] = [[] for i in range(len(infosets['History_Structure']))]
