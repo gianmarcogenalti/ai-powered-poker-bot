@@ -3,7 +3,7 @@ from clusterinfosets import *
 
 # Choose game:
 
-game = "leduc5"
+game = "leduc3"
 
 # Loads the csv and gets the proper infoset
 infosets, rawinfosets = loadinfosets(game)

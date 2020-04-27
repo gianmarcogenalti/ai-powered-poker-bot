@@ -22,7 +22,9 @@ def sameParentsMG(parents1,parents2,mergeGroup) :
                 if p1 in mergeGroup[mgi] and not mgi in plist:
                     plist.append(mgi)
         return plist
-    return getparlistinmg(parents1,mergeGroup) == getparlistinmg(parents2,mergeGroup)
+    rpar1 = getparlistinmg(parents1,mergeGroup)
+    rpar2 = getparlistinmg(parents2,mergeGroup)
+    return rpar1.sort() == rpar2.sort()
 
 # Given an infosets dataframe and indexes of two infosets returns 1 if they are
 # mergeable (it would be possible to merge them) and 0 otherwise
