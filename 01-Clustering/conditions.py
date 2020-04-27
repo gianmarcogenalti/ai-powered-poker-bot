@@ -48,7 +48,7 @@ def basicConditions(infoset1,infoset2,mergeGroup) : # for speed doesn't load all
         return 0
     
     if(infoset1['Depth'] > 1) : # at the 1st level there is no history
-        if( infoset1['History_Structure'] != infoset2['History_Structure']) : # Same history
+        if( infoset1['History_Structure'] != infoset2['History_Structure'] ) : # Same history
             return 0
     
     return 1

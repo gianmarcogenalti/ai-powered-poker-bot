@@ -1,9 +1,12 @@
 from loaddata import *
 from clusterinfosets import *
+import time
+
+t0 = time.time()
 
 # Choose game:
 
-game = "leduc3"
+game = "leduc5"
 
 # Loads the csv and gets the proper infoset
 infosets, rawinfosets = loadinfosets(game)
@@ -25,3 +28,5 @@ infosets = infosetstoprint(infosets,rawinfosets)
 
 # Saves it
 infosets.to_csv("..\\Import-files\\clust_"+game+".csv", index = False, header = True)
+
+print(time.time()-t0)
