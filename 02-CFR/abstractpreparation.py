@@ -1,8 +1,6 @@
 import re
 import pandas as pd
 
-infosets = pd.read_csv("..\\Import-Files\\leduc3_infosets.csv")
-
 def histoparents(infosets):
     opparents  = [[] for _ in range(len(infosets.index))]
     oppactions = [[] for _ in range(len(infosets.index))]
@@ -18,14 +16,32 @@ def histoparents(infosets):
         else:
             opponent = 1
         for pindex, prow in infosets[infosets.Depth < row.Depth].iterrows():
-            if prow.History in row.History and prow.Player == opponent:
+            phist = prow.History[4:]
+            pix = phist.find(regexchance)
+            if pix != -1:
+                phist = phist[:ix] + phist[ix+4:]
+            if phist in hist and prow.Player == opponent and phist != "" and hist != "":
                 opparents[index].append(pindex)
-                match = re.search(regex, prow.History)
+                match = re.search(regex, phist)
                 oppactions[index].append(match[0])
-
 
     infosets['Opponent_Parents'] = opparents
     infosets['Opponent_Actions'] = oppactions
 
-histoparents(infosets)
-print(infosets.Opponent_Parents)
+
+def abstractnodes(nodes, abs_infosets, infosets):
+    newpo1  = [[] for _ in range(len(nodes.index))]
+    abmap   = [[] for _ in range(len(nodes.index))]
+    members = [[] for _ in range(len(abs_infosets.index))]
+
+    for abindex, abrow in abs_infosets.iterrows():
+        for m in abrow.Map:
+            members[abindex] = members[abindex] + infosets.Index_Members[m]
+            for i in infosets.Index_Members[m]:
+                sz = len(nodes.Payoff_Vector_P1[i])
+                newpo1[i] = abrow.Payoff[:sz]
+                abmap[i]  = abindex
+
+    nodes['Payoff_Vector_P1']     = newpo1
+    nodes['Abstract_Map']         = abmap
+    abs_infosets['Index_Members'] = members
