@@ -36,7 +36,9 @@ def basicConditions(infoset1,infoset2,mergeGroup) : # for speed doesn't load all
     if(infoset1['Actions'] != infoset2['Actions']) : # Same Actions
         return 0
     
-    if infoset1['Real_Parents'] != infoset2['Real_Parents'] : # Same parents
+    rp1 = infoset1['Real_Parents']
+    rp2 = infoset2['Real_Parents']
+    if rp1.sort() != rp2.sort() : # Same parents
         if not sameParentsMG(infoset1['Real_Parents'],infoset2['Real_Parents'],mergeGroup) : # Parents in same mergeGroup 
             return 0
     
