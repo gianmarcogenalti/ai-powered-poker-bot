@@ -64,6 +64,7 @@ alldescendents(infosets)
 print('sons added to infosets!\n')
 
 antenates(infosets) # adding the "parents" of an infoset: all the infosets from which the infoset is reachable
+directantenates(infosets)
 print('parents added to infosets!\n')
 
 isactions(infosets,nodes) # adding possible actions to an infoset using the map with  nodes

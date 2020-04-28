@@ -80,7 +80,7 @@ def getplayers(nodes) :
     regex = "(?<=player\s)[1-2]{1}"
     for line in nodes:
         if(line.find("leaf")!= -1):
-            p.append('END')
+            p.append(-1)
         if(line.find("chance actions")!=-1):
             p.append(0)
         if(line.find("player")!=-1):

@@ -15,6 +15,7 @@ def update_nodeprob(nodes):
         #
     #
 
+
 ## THIS WORKS USING NONTERMINAL NODES
 def update_infoprob(infosets, nodes):
     prob = [0] * len(infosets.index)

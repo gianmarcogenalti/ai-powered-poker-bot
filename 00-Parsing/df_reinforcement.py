@@ -32,6 +32,23 @@ def antenates(infosets) :
     #
     infosets['Parents'] = antenate
 
+def directantenates(infosets) :
+    dantenates = [[] for _ in range(len(infosets.index))]
+    for index, row in infosets.iterrows():
+        for p in row.Parents:
+            if row.Player == 1:
+                player = 'P1'
+            else:
+                player = 'P2'
+
+            occ_row = row.History.count(player)
+            occ_p = infosets.History[p].count(player)
+
+            if infosets.History[p] in row.History and occ_p == occ_row - 1:
+                dantenates[index].append(p)
+
+    infosets['Direct_Parents'] = dantenates
+
 def maptois(nodes, infosets) :
     map = [0] * len(nodes.index)
     for nindex, nrow in nodes.iterrows():
@@ -208,7 +225,7 @@ def isdirectsons(infosets):
             if row.Player == 2:
                 hist = row.History + '/P2:' + action
                 #
-                candidates = nodes[nodes.Depth == row.Depth +1]
+                candidates = nodes[nodes.Depth == row.Depth + 1]
                 sons.append(int(candidates.index.values[candidates.History == hist]))
             #
             direct_sons.append(sons)

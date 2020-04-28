@@ -28,6 +28,11 @@ print(nodes.Payoff_Vector_P1)
 gamer = Vanilla_Gamer(abs_infosets, nodes)
 print(gamer.nodes)
 gamer.tree_drop()
+<<<<<<< HEAD
 print(gamer.recursive_payoff(2))
 #gamer.update_abstract(0, [0.5,0.5])
 #nodestree(gamer.nodes, "payoffs")
+=======
+#gamer.update_abstract(0, [0.5,0.5]) 
+nodestree(gamer.nodes, "prob_opp")
+>>>>>>> 13b55da47b769c173ce57b7e01b933f4aea705dd

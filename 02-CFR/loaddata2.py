@@ -186,7 +186,7 @@ def loadnodes(game):
                      'Actions':str,
                      'Actions_Prob': str,
                      'Payoff_P1': str,
-                     'Player':int,
+                     'Player':str,
                      'Depth':int,
                      'Map': int,
                      'Sons':str,
