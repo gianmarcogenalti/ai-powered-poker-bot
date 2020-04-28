@@ -12,8 +12,10 @@ class Vanilla_Gamer(Gamer):
     def tree_drop(self) : ## Top-Bottom of the tree
         startingnodeidx = self.nodes.index[self.nodes.Depth == 0][0]
         self.nodes['Probability'][startingnodeidx] = 1
+        self.nodes.Probability_Opp[startingnodeidx] = 1
         self.recursive_probs(startingnodeidx)
-        self.recursive_probs_oppo(startingnodeidx, 1)
+        self.recursive_probs_oppo(startingnodeidx, "1", initialize = True)
+        self.recursive_probs_oppo(startingnodeidx, "2")
 
 
     def recursive_probs(self, idxcurnode) :
@@ -23,19 +25,28 @@ class Vanilla_Gamer(Gamer):
                 self.nodes.Probability[dson] = self.nodes.Probability[idxcurnode] * self.nodes.Actions_Prob[idxcurnode][idson]
                 self.recursive_probs(dson)
 
-    def recursive_probs_oppo(self,idxcurnode,player):
-        prevprob = np.ones(len(self.nodes.index))
-        def recursive_query(idxcurnode) :
-            if self.nodes.Direct_Sons[idxcurnode] != -1 :
-                for idson in range(len(self.nodes.Direct_Sons[idxcurnode])) :
+    def recursive_probs_oppo(self,startingnodeidx,player,initialize = False):
+        
+        # Probabilities given by the opponents are initialized and will begin at startingnodeidx
+        if initialize : 
+            self.nodes.Probability_Opp = [0.0 for _ in range(len(self.nodes['Probability']))]
+            self.nodes.Probability_Opp[startingnodeidx] = 1
+            
+        # Recursive function to update the probabilities given by the opponent starting from startingnodeidx and going down
+        def recursive_probs_oppo_query(idxcurnode,prevprob) :
+            if self.nodes.Direct_Sons[idxcurnode] != -1 : # Not a leaf
+                for idson in range(len(self.nodes.Direct_Sons[idxcurnode])) : # Cycles the direct sons
                     dson = self.nodes.Direct_Sons[idxcurnode][idson]
-                    if self.nodes.Player[dson] != player :
-                        self.nodes.Probability_Opp[dson] = prevprob[idxcurnode]
-                    else :
-                        prevprob[dson] = prevprob[dson] * self.nodes.Actions_Prob[idxcurnode][idson]
-                    recursive_query(dson)
-        recursive_query(idxcurnode)
-        self.nodes['Probability_Opp'] = prevprob
+                    prevprobnow = prevprob
+                    if self.nodes.Player[idxcurnode] != player : # If it's an opponent node, keeps track of probabilities
+                        prevprobnow = prevprobnow * self.nodes.Actions_Prob[idxcurnode][idson]
+                    if self.nodes.Player[dson] == player : # Updates the df of the son
+                        self.nodes.Probability_Opp[dson] = prevprobnow
+                    recursive_probs_oppo_query(dson, prevprobnow) # The recursion goes on anyways
+        
+        # Calls the recursive function for probabilities
+        recursive_probs_oppo_query(startingnodeidx,self.nodes.Probability_Opp[startingnodeidx])
+        
 '''
     def get_payoff(self, idxcurnode, action = None):
         ds = self.nodes.Direct_Sons[idxcurnode][action]
