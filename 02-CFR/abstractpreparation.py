@@ -34,6 +34,7 @@ def abstractnodes(nodes, abs_infosets, infosets):
     newpo1  = [[] for _ in range(len(nodes.index))]
     abmap   = [[] for _ in range(len(nodes.index))]
     members = [[] for _ in range(len(abs_infosets.index))]
+    prob_opp = np.ones(len(nodes.index))
     exp_U   = np.zeros(len(nodes.index))
 
     for abindex, abrow in abs_infosets.iterrows():
@@ -53,7 +54,7 @@ def abstractnodes(nodes, abs_infosets, infosets):
         #
     #
 
-
+    nodes['Probability_Opp']      = prob_opp
     nodes['Payoff_Vector_P1']     = newpo1
     nodes['Abstract_Map']         = abmap
     abs_infosets['Index_Members'] = members

@@ -1,6 +1,7 @@
 from loaddata2 import *
 from abstractpreparation import *
 from Vanilla_Gamer import *
+from trees2 import *
 
 # Choose game:
 
@@ -24,6 +25,7 @@ method = 'vanilla'
 
 print(nodes.Payoff_Vector_P1)
 gamer = Vanilla_Gamer(abs_infosets, nodes)
-gamer.tree_drop()
-gamer.update_abstract(0, [0.5,0.5])
 print(gamer.nodes)
+gamer.tree_drop()
+#gamer.update_abstract(0, [0.5,0.5]) 
+nodestree(gamer.nodes, "prob_opp")
