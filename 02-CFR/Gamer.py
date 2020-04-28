@@ -33,7 +33,11 @@ class Gamer() :
 
 
     def update_strategies(self, info_index, regrets) :
+
         for act in range(len(self.cumulative_regret[info_index])):
             self.cumulative_regret[info_index][act] = max(self.cumulative_regret[info_index][act] + regrets[act], 0)
 
         self.strategies[info_index] = self.regret_matching(info_index)
+
+        for m in infosets.Index_Members[info_index]:
+            self.nodes.Actions_Prob[m] = self.strategies[info_index]

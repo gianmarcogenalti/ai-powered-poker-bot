@@ -1,6 +1,7 @@
 from loaddata2 import *
 from abstractpreparation import *
 from Vanilla_Gamer import *
+from Node_Gamer import *
 from trees2 import *
 
 # Choose game:
@@ -13,26 +14,22 @@ abs_infosets = loadabstract(game)
 nodes    = loadnodes(game)
 
 # Enriching the nodes and abstract infosets dataframe
-
-histoparents(abs_infosets)
+update_nodeprob(nodes)
+print(nodes.Nature_Prob)
 abstractnodes(nodes, abs_infosets, infosets)
-print(nodes)
-print(nodes.Payoff_Vector_P1)
-print(abs_infosets.Index_Members)
-
+abstractsons(nodes, abs_infosets)
+for index,row in abs_infosets.iterrows():
+    print(row.Nature_Weight)
+'''
 # Environment set
 T = 10
 method = 'vanilla'
+nodes.Probability = [[] for _ in range(len(nodes.index))]
+nodes.Probability[-1] = 1.0
+monkey = Node_Gamer(abs_infosets, nodes)
+monkey.recursive_probs(nodes.index[-1])
 
-print(nodes.Payoff_Vector_P1)
-gamer = Vanilla_Gamer(abs_infosets, nodes)
-print(gamer.nodes)
-gamer.tree_drop()
-<<<<<<< HEAD
-print(gamer.recursive_payoff(2))
-#gamer.update_abstract(0, [0.5,0.5])
-#nodestree(gamer.nodes, "payoffs")
-=======
-#gamer.update_abstract(0, [0.5,0.5]) 
-nodestree(gamer.nodes, "prob_opp")
->>>>>>> 13b55da47b769c173ce57b7e01b933f4aea705dd
+'''
+## Tree rendering
+
+nodestree(nodes, "probability")

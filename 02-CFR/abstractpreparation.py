@@ -1,7 +1,7 @@
 import re
 import pandas as pd
 import numpy as np
-
+'''
 def histoparents(infosets):
     opparents  = [[] for _ in range(len(infosets.index))]
     oppactions = [[] for _ in range(len(infosets.index))]
@@ -28,6 +28,8 @@ def histoparents(infosets):
 
     infosets['Opponent_Parents'] = opparents
     infosets['Opponent_Actions'] = oppactions
+
+'''
 
 
 def abstractnodes(nodes, abs_infosets, infosets):
@@ -59,3 +61,57 @@ def abstractnodes(nodes, abs_infosets, infosets):
     nodes['Abstract_Map']         = abmap
     abs_infosets['Index_Members'] = members
     nodes['Exp_Utility']          = exp_U
+
+def abstractsons(nodes, abs_infosets):
+    direct_sons = []
+    prob_sons   = []
+    for index, row in abs_infosets.iterrows():
+        temp_son = [[] for _ in range(len(row.Actions))]
+        temp_prob = [[] for _ in range(len(row.Actions))]
+        for m in row.Index_Members:
+            counter = 0
+            prob_m = nodes.Nature_Prob[m]
+            for ds in nodes.Direct_Sons[m]:
+                if nodes.Type[ds] != 'C':
+                    temp_son[counter].append(ds)
+                    temp_prob[counter].append(prob_m)
+                else:
+                    counter2 = 0
+                    for ns in nodes.Direct_Sons[ds]:
+                        nat_probs = nodes.Actions_Prob[ds]
+                        temp_prob[counter].append(prob_m * nat_probs[counter2])
+                        temp_son[counter].append(ns)
+                        counter2 += 1
+                counter += 1
+        direct_sons.append(temp_son)
+
+        counter = 0
+        for list in temp_prob:
+            sm = sum(list)
+            temp = []
+            for i in list:
+                temp.append(i/sm)
+            temp_prob[counter] = temp
+            counter += 1
+
+        prob_sons.append(temp_prob)
+
+    abs_infosets['Direct_Sons']   = direct_sons
+    abs_infosets['Nature_Weight'] = prob_sons
+
+def update_nodeprob(nodes):
+    nodes['Nature_Prob'] = [1.00] * len(nodes.index)
+    for dpt in range(max(nodes.Depth)+1):
+        for index,row in nodes[nodes.Depth == dpt].iterrows():
+            if row.Direct_Sons != -1:
+                counter = 0
+                for ds in row.Direct_Sons:
+                    if nodes.Player[index] == 0:
+                        nodes.Nature_Prob[ds] = nodes.Nature_Prob[index] * row.Actions_Prob[counter]
+                    else:
+                        nodes.Nature_Prob[ds] = nodes.Nature_Prob[index]
+                    counter = counter + 1
+                #
+            #
+        #
+    #

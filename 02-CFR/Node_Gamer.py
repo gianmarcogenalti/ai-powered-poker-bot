@@ -1,30 +1,28 @@
 import numpy as np
 from Gamer import *
 
-class Vanilla_Gamer(Gamer):
+class Node_Gamer(Gamer):
 
     def __init__(self, infosets, nodes) :
         super().__init__(infosets, nodes)
         self.utilities   = [[] for _ in range(len(self.infosets.index))]
         self.cfutilities = [[] for _ in range(len(self.infosets.index))]
 
-
 ################################################################################
     def tree_drop(self) : ## Top-Bottom of the tree
-        roots = self.infosets.index[self.infosets.Depth == 1]
-        for startingidx in roots:
-            self.infosets.Probability[startingidx] = 1
-            self.infosets.Probability_Opp[startingidx] = 1
-            self.recursive_probs(startingidx)
-            self.recursive_probs_oppo(startingidx, "1", initialize = True)
-            self.recursive_probs_oppo(startingidx, "2")
+        startingnodeidx = self.nodes.index[self.nodes.Depth == 0][0]
+        self.nodes['Probability'][startingnodeidx] = 1
+        self.nodes.Probability_Opp[startingnodeidx] = 1
+        self.recursive_probs(startingnodeidx)
+        self.recursive_probs_oppo(startingnodeidx, "1", initialize = True)
+        self.recursive_probs_oppo(startingnodeidx, "2")
 ###############################################################################
 
-    def recursive_probs(self, idxcur) :
-        if self.infosets.Direct_Sons[idxcur] != -1 :
-            for idson in range(len(self.infosets.Direct_Sons[idxcur])) :
-                dson = self.infosets.Direct_Sons[idxcur][idson]
-                self.infosets.Probability[dson] = self.infosets.Probability[idxcur] * self.strategies[idxcur][idson]
+    def recursive_probs(self, idxcurnode) :
+        if self.nodes.Direct_Sons[idxcurnode] != -1 :
+            for idson in range(len(self.nodes.Direct_Sons[idxcurnode])) :
+                dson = self.nodes.Direct_Sons[idxcurnode][idson]
+                self.nodes.Probability[dson] = self.nodes.Probability[idxcurnode] * self.nodes.Actions_Prob[idxcurnode][idson]
                 self.recursive_probs(dson)
 
     def recursive_probs_oppo(self,startingnodeidx,player,initialize = False):
