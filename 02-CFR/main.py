@@ -1,6 +1,6 @@
 from loaddata2 import *
 from abstractpreparation import *
-#from Vanilla_Gamer import *
+from Vanilla_Gamer import *
 
 # Choose game:
 
@@ -22,7 +22,8 @@ print(nodes.Payoff_Vector_P1)
 T = 10
 method = 'vanilla'
 
-'''
-gamer = Vanilla_Gamer(infosets, nodes)
+print(nodes.Payoff_Vector_P1)
+gamer = Vanilla_Gamer(abs_infosets, nodes)
 gamer.tree_drop()
-'''
+gamer.update_abstract(0, [0.5,0.5])
+print(gamer.nodes)

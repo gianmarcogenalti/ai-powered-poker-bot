@@ -1,5 +1,6 @@
 import re
 import pandas as pd
+import numpy as np
 
 def histoparents(infosets):
     opparents  = [[] for _ in range(len(infosets.index))]
@@ -33,6 +34,7 @@ def abstractnodes(nodes, abs_infosets, infosets):
     newpo1  = [[] for _ in range(len(nodes.index))]
     abmap   = [[] for _ in range(len(nodes.index))]
     members = [[] for _ in range(len(abs_infosets.index))]
+    exp_U   = np.zeros(len(nodes.index))
 
     for abindex, abrow in abs_infosets.iterrows():
         for m in abrow.Map:
@@ -41,7 +43,18 @@ def abstractnodes(nodes, abs_infosets, infosets):
                 sz = len(nodes.Payoff_Vector_P1[i])
                 newpo1[i] = abrow.Payoff[:sz]
                 abmap[i]  = abindex
+                counter = 0
+                for ds in nodes.Direct_Sons[i]:
+                    if nodes.Type[ds] == 'L':
+                        newpo1[ds] = newpo1[i][counter]
+                    counter += 1
+                #
+            #
+        #
+    #
+
 
     nodes['Payoff_Vector_P1']     = newpo1
     nodes['Abstract_Map']         = abmap
     abs_infosets['Index_Members'] = members
+    nodes['Exp_Utility']          = exp_U
