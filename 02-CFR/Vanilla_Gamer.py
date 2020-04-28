@@ -36,16 +36,20 @@ class Vanilla_Gamer(Gamer):
                     recursive_query(dson)
         recursive_query(idxcurnode)
         self.nodes['Probability_Opp'] = prevprob
+
+    def recursive_payoff(self,idxcurnode):
+        utility = 0.
+        if self.nodes.Type[idxcurnode] == 'L':
+            print(self.nodes.Payoff_Vector_P1[0])
+            return self.nodes.Payoff_Vector_P1[0]
+        for ds in range(len(self.nodes.Direct_Sons[idxcurnode])):
+            utility += self.recursive_payoff(self.nodes.Direct_Sons[idxcurnode][ds])*self.nodes.Actions_Prob[idxcurnode][ds]
+        return utility
 '''
     def get_payoff(self, idxcurnode, action = None):
         ds = self.nodes.Direct_Sons[idxcurnode][action]
         def recursive_payoff(self,idxcurnode):
-            if self.nodes.Direct_Sons[idxcurnode] != -1 :
-                for idson in range(len(self.nodes.Direct_Sons[idxcurnode])) :
-                    dson = self.nodes.Direct_Sons[idxcurnode][idson]
-                    self.nodes.Probability[dson] = self.nodes.Probability[idxcurnode] * self.nodes.Actions_Prob[idxcurnode][idson]
-                    self.recursive_probs(dson)
-            else:
+
 
         recursive_payoff(ds)
 

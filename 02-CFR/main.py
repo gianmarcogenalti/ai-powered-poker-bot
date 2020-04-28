@@ -18,6 +18,7 @@ histoparents(abs_infosets)
 abstractnodes(nodes, abs_infosets, infosets)
 print(nodes)
 print(nodes.Payoff_Vector_P1)
+print(abs_infosets.Index_Members)
 
 # Environment set
 T = 10
@@ -27,5 +28,6 @@ print(nodes.Payoff_Vector_P1)
 gamer = Vanilla_Gamer(abs_infosets, nodes)
 print(gamer.nodes)
 gamer.tree_drop()
-#gamer.update_abstract(0, [0.5,0.5]) 
-nodestree(gamer.nodes, "prob_opp")
+print(gamer.recursive_payoff(2))
+#gamer.update_abstract(0, [0.5,0.5])
+#nodestree(gamer.nodes, "payoffs")

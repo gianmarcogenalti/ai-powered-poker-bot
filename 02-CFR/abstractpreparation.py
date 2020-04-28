@@ -40,15 +40,15 @@ def abstractnodes(nodes, abs_infosets, infosets):
     for abindex, abrow in abs_infosets.iterrows():
         for m in abrow.Map:
             members[abindex] = members[abindex] + infosets.Index_Members[m]
-            for i in infosets.Index_Members[m]:
-                sz = len(nodes.Payoff_Vector_P1[i])
-                newpo1[i] = abrow.Payoff[:sz]
-                abmap[i]  = abindex
-                counter = 0
-                for ds in nodes.Direct_Sons[i]:
-                    if nodes.Type[ds] == 'L':
-                        newpo1[ds] = newpo1[i][counter]
-                    counter += 1
+        for i in infosets.Index_Members[m]:
+            sz = len(nodes.Payoff_Vector_P1[i])
+            newpo1[i] = abrow.Payoff[:sz]
+            abmap[i]  = abindex
+            counter = 0
+            for ds in nodes.Direct_Sons[i]:
+                if nodes.Type[ds] == 'L':
+                    newpo1[ds] = newpo1[i][counter]
+                counter += 1
                 #
             #
         #
