@@ -8,7 +8,7 @@ def init_probabilities(infosets):
         regrets[index] = np.zeros(n_actions)
         for pr_act in range(n_actions):
             probabilities[index].append(1/n_actions)
-
+    infosets.Actions_Prob = probabilities
     return probabilities, regrets
 
 class Gamer() :
@@ -16,8 +16,8 @@ class Gamer() :
         self.infosets = infosets
         self.nodes = nodes
         self.t = 0
-        self.strategies = init_probabilities(infosets)[0]
-        self.cumulative_regret = init_probabilities(infosets)[1] ##PLUS
+        self.strategies = init_probabilities(self.infosets)[0]
+        self.cumulative_regret = init_probabilities(self.infosets)[1] ##PLUS
 
     def regret_matching(self, info_index) :
         new_strats = []

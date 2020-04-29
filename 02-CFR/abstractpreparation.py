@@ -106,7 +106,7 @@ def update_nodeprob(nodes):
             if row.Direct_Sons != -1:
                 counter = 0
                 for ds in row.Direct_Sons:
-                    if nodes.Player[index] == 0:
+                    if nodes.Type[index] == 'C':
                         nodes.Nature_Prob[ds] = nodes.Nature_Prob[index] * row.Actions_Prob[counter]
                     else:
                         nodes.Nature_Prob[ds] = nodes.Nature_Prob[index]

@@ -15,11 +15,16 @@ nodes    = loadnodes(game)
 
 # Enriching the nodes and abstract infosets dataframe
 update_nodeprob(nodes)
-print(nodes.Nature_Prob)
+#print(nodes.Nature_Prob)
 abstractnodes(nodes, abs_infosets, infosets)
 abstractsons(nodes, abs_infosets)
-for index,row in abs_infosets.iterrows():
-    print(row.Nature_Weight)
+#for index,row in abs_infosets.iterrows():
+#    print(row.Nature_Weight)
+monkey = Vanilla_Gamer(abs_infosets, nodes)
+roots = abs_infosets.index[abs_infosets.Depth == 1]
+for startingidx in roots:
+    monkey.recursive_probs_abstract_call(startingidx, init = True)
+    print(1)
 '''
 # Environment set
 T = 10
