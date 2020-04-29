@@ -61,7 +61,7 @@ class Node_Gamer(Gamer):
 
         recursive_payoff(ds)
 
-
+'''
 ################################################################################
     def update_abstract(self, abs_index, regrets):
         self.update_strategies(abs_index, regrets)
@@ -74,4 +74,3 @@ class Node_Gamer(Gamer):
                     utility += self.nodes.Payoff_Vector_P1[son]*self.nodes.Probability[son]
             self.nodes.Exp_Utility[i] = utility
 ################################################################################
-'''

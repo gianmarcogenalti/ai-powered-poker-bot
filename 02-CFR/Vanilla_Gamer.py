@@ -1,5 +1,6 @@
 import numpy as np
 from Gamer import *
+import time
 
 class Vanilla_Gamer(Gamer):
 
@@ -11,82 +12,76 @@ class Vanilla_Gamer(Gamer):
 
 ################################################################################
     def tree_drop(self) : ## Top-Bottom of the tree
+        t0 = time.time()
         roots = self.infosets.index[self.infosets.Depth == 1]
+        first = True
         for startingidx in roots:
-            self.infosets.Probability[startingidx] = 1
-            self.infosets.Probability_Opp[startingidx] = 1
-            self.recursive_probs(startingidx)
-            self.recursive_probs_oppo(startingidx, "1", initialize = True)
-            self.recursive_probs_oppo(startingidx, "2")
+            self.recursive_probs_abstract_call(startingidx, init = first)
+            firt = False
+        print("The monkey dropped from the tree in ",time.time() - t0)
+'''
+    def tree_climb(self) :
+        for i in reversed(range(1, max(self.infosets.Depth)+1)):
+'''            
+
 ###############################################################################
-
-    def recursive_probs(self, idxcur) :
-        if self.infosets.Direct_Sons[idxcur] != -1 :
-            for idson in range(len(self.infosets.Direct_Sons[idxcur])) :
-                dson = self.infosets.Direct_Sons[idxcur][idson]
-                self.infosets.Probability[dson] = self.infosets.Probability[idxcur] * self.strategies[idxcur][idson]
-                self.recursive_probs(dson)
-
-    def recursive_probs_oppo(self,startingnodeidx,player,initialize = False):
-
-        # Probabilities given by the opponents are initialized and will begin at startingnodeidx
-        if initialize :
-            self.nodes.Probability_Opp = [0.0 for _ in range(len(self.nodes['Probability']))]
-            self.nodes.Probability_Opp[startingnodeidx] = 1
-
-        # Recursive function to update the probabilities given by the opponent starting from startingnodeidx and going down
-        def recursive_probs_oppo_query(idxcurnode,prevprob) :
-            if self.nodes.Direct_Sons[idxcurnode] != -1 : # Not a leaf
-                for idson in range(len(self.nodes.Direct_Sons[idxcurnode])) : # Cycles the direct sons
-                    dson = self.nodes.Direct_Sons[idxcurnode][idson]
-                    prevprobnow = prevprob
-                    if self.nodes.Player[idxcurnode] != player : # If it's an opponent node, keeps track of probabilities
-                        prevprobnow = prevprobnow * self.nodes.Actions_Prob[idxcurnode][idson]
-                    if self.nodes.Player[dson] == player : # Updates the df of the son
-                        self.nodes.Probability_Opp[dson] = prevprobnow
-                    recursive_probs_oppo_query(dson, prevprobnow) # The recursion goes on anyways
-
-        # Calls the recursive function for probabilities
-        recursive_probs_oppo_query(startingnodeidx,self.nodes.Probability_Opp[startingnodeidx])
-
     # Infosets probabilities
     def recursive_probs_abstract_call(self, startingnodeidx, prevprob = 1, init = False) :
 
         if init :
             self.infosets.Probability =[0.0 for _ in range(len(self.infosets.index))]
-            self.nodes.Probability[startingnodeidx] = 1
+            tot_p = 0
+            for im in self.infosets.Index_Members[startingnodeidx]:
+                tot_p += self.nodes.Nature_Prob[im]
+            self.infosets.Probability[startingnodeidx] = tot_p
 
         def recursive_probs_abstract(idxcurnode, prevprob = 1) :
             dslists = self.infosets.Direct_Sons[idxcurnode]
             for idslist in range(len(dslists)) : # select one action
-                print(idslist)
                 if len(dslists) > 0 :
-                    print(dslists)
-                    print(idslist)
                     dslist = dslists[idslist]
                     if len(dslist) > 0 :
                         for idson in range(len(dslist)) : # select one infoset
                             dson = dslist[idson]
-                            print(dson)
                             prevprobnow = prevprob * self.infosets.Actions_Prob[idxcurnode][idslist] * self.infosets.Nature_Weight[idxcurnode][idslist][idson]
                             self.infosets.Probability[dson] += prevprobnow
                             recursive_probs_abstract(dson,prevprobnow)
 
         recursive_probs_abstract(startingnodeidx, prevprob = 1)
-
 ################################################################################
 '''
-    def get_payoff(self, idxcurnode, action = None):
-        ds = self.nodes.Direct_Sons[idxcurnode][action]
-        def recursive_payoff(self,idxcurnode):
-            if self.nodes.Direct_Sons[idxcurnode] != -1 :
-                for idson in range(len(self.nodes.Direct_Sons[idxcurnode])) :
-                    dson = self.nodes.Direct_Sons[idxcurnode][idson]
-                    self.nodes.Probability[dson] = self.nodes.Probability[idxcurnode] * self.nodes.Actions_Prob[idxcurnode][idson]
-                    self.recursive_probs(dson)
-            else:
+    def recursive_utility_call(self,startingabsidx, init = False, oppo_prob = True):
 
-        recursive_payoff(ds)
+        if init:
+            self.infosets.Exp_Utility = [0.0 for _ in range(len(self.infosets.index))]
+
+        if oppo_prob:
+            prob = self.infosets.Probability_Opp
+        else:
+            prob = self.infosets.Probability
+
+        def recursive_utility(absidx, sonut = 0) :
+            dslists = self.infosets.Direct_Sons[absidx]
+            for idslist in range(len(dslists)) :
+                dslist = dslists[idslist]
+                if len(dslist) == 0: ## so the action number idslist leads to terminal nodes aka a single abstract payoff
+                    self.infosets.Exp_Utility[absidx] += self.infosets.Payoff_P1[idslist]*self.infosets.Actions_Prob[idslist]
+                else:
+                    for idson in range(len(dslist)): #cycling on sons
+                        self.infosets.Exp_Utility[absidx] += self.infosets.Exp_Utility[idson]*self.infosets.Actions_Prob[idslist]
+                        recursive_utility(idson, sonut)
+
+        recursive_utility(startingabsidx)
+
+################################################################################
+    def get_regrets(self, absidx):
+        regrets = []
+        for act in range(len(self.infosets.Actions[absidx])):
+            regrets.append(self.infosets.Exp_CFUtility[absidx][act] - self.infosets.Exp_Utility[absidx])
+        return regrets
+###############################################################################
+
+
 
 
 ################################################################################
