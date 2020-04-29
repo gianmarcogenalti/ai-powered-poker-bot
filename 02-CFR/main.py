@@ -1,7 +1,6 @@
 from loaddata2 import *
 from abstractpreparation import *
-#from Vanilla_Gamer import *
-from Node_Gamer import *
+from Vanilla_Gamer import *
 from trees2 import *
 
 # Choose game:
@@ -15,33 +14,22 @@ nodes    = loadnodes(game)
 
 # Enriching the nodes and abstract infosets dataframe
 update_nodeprob(nodes)
-<<<<<<< HEAD
 maptoclust(infosets, abs_infosets)
 abstractnodes(nodes, abs_infosets, infosets)
 abstractsons(nodes, abs_infosets, infosets)
-
-=======
-#print(nodes.Nature_Prob)
-abstractnodes(nodes, abs_infosets, infosets)
-abstractsons(nodes, abs_infosets)
-#for index,row in abs_infosets.iterrows():
-#    print(row.Nature_Weight)
-monkey = Vanilla_Gamer(abs_infosets, nodes)
-roots = abs_infosets.index[abs_infosets.Depth == 1]
-for startingidx in roots:
-    monkey.recursive_probs_abstract_call(startingidx, init = True)
-    print(1)
->>>>>>> abde4946cfc0085af9ce587fec6098d948435797
 '''
+for i in range(len(abs_infosets.index)):
+    print(abs_infosets.Direct_Sons[i])
+'''
+
 # Environment set
 T = 10
 method = 'vanilla'
-nodes.Probability = [[] for _ in range(len(nodes.index))]
-nodes.Probability[-1] = 1.0
-monkey = Node_Gamer(abs_infosets, nodes)
-monkey.recursive_probs(nodes.index[-1])
+monkey = Vanilla_Gamer(abs_infosets, nodes)
+monkey.recursive_probs_abstract_call(monkey.infosets.index[30])
+for i in range(len(monkey.infosets.index)):
+    print(monkey.infosets.Probability[i])
 
-'''
 ## Tree rendering
 
 #nodestree(nodes, "probability")

@@ -49,24 +49,30 @@ class Vanilla_Gamer(Gamer):
         # Calls the recursive function for probabilities
         recursive_probs_oppo_query(startingnodeidx,self.nodes.Probability_Opp[startingnodeidx])
 
-    # Infosets probabilities 
+    # Infosets probabilities
     def recursive_probs_abstract_call(self, startingnodeidx, prevprob = 1, init = False) :
-        
+
         if init :
-            self.infosets.Probability =[0.0 for _ in range(len(self.infosets.Actions_Prob))]
+            self.infosets.Probability =[0.0 for _ in range(len(self.infosets.index))]
             self.nodes.Probability[startingnodeidx] = 1
-        
-        def recursive_probs_abstract(self, idxcurnode, prevprob = 1) :
+
+        def recursive_probs_abstract(idxcurnode, prevprob = 1) :
             dslists = self.infosets.Direct_Sons[idxcurnode]
             for idslist in range(len(dslists)) : # select one action
-                dslist = dslists[idslist]
-                for idson in range(len(dslist)) : # select one infoset
-                    dson = dslist[idson]
-                    prevprobnow = prevprob * self.infosets.Actions_Prob[idxcurnode][idson] * self.infosets.Nature_Weight[idxcurnode][idslist][idson]
-                    self.infosets.Probability[dson] += prevprobnow 
-                    self.infosets.recursive_probs_abstract(dson,prevprobnow)
-    
-        recursive_probs_abstract(self, startingnodeidx, prevprob = 1)
+                print(idslist)
+                if len(dslists) > 0 :
+                    print(dslists)
+                    print(idslist)
+                    dslist = dslists[idslist]
+                    if len(dslist) > 0 :
+                        for idson in range(len(dslist)) : # select one infoset
+                            dson = dslist[idson]
+                            print(dson)
+                            prevprobnow = prevprob * self.infosets.Actions_Prob[idxcurnode][idslist] * self.infosets.Nature_Weight[idxcurnode][idslist][idson]
+                            self.infosets.Probability[dson] += prevprobnow
+                            recursive_probs_abstract(dson,prevprobnow)
+
+        recursive_probs_abstract(startingnodeidx, prevprob = 1)
 
 ################################################################################
 '''

@@ -8,7 +8,7 @@ def init_probabilities(infosets):
         regrets[index] = np.zeros(n_actions)
         for pr_act in range(n_actions):
             probabilities[index].append(1/n_actions)
-    infosets.Actions_Prob = probabilities
+    infosets['Actions_Prob'] = probabilities
     return probabilities, regrets
 
 class Gamer() :
