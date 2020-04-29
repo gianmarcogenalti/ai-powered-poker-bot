@@ -17,23 +17,25 @@ class Vanilla_Gamer(Gamer):
         first = True
         for startingidx in roots:
             self.recursive_probs_abstract_call(startingidx, init = first)
-            firt = False
+            self.recursive_probs_oppo_abstract_call(startingidx, init = first)
+            first = False
         print("The monkey dropped from the tree in ",time.time() - t0)
-'''
-    def tree_climb(self) :
-        for i in reversed(range(1, max(self.infosets.Depth)+1)):
-'''            
+    '''
+        def tree_climb(self) :
+            for i in reversed(range(1, max(self.infosets.Depth)+1)):
+    '''            
 
-###############################################################################
+    ###############################################################################
     # Infosets probabilities
-    def recursive_probs_abstract_call(self, startingnodeidx, prevprob = 1, init = False) :
+    def recursive_probs_abstract_call(self, startingnodeidx, init = False) :
 
         if init :
             self.infosets.Probability =[0.0 for _ in range(len(self.infosets.index))]
-            tot_p = 0
-            for im in self.infosets.Index_Members[startingnodeidx]:
-                tot_p += self.nodes.Nature_Prob[im]
-            self.infosets.Probability[startingnodeidx] = tot_p
+        
+        tot_p = 0
+        for im in self.infosets.Index_Members[startingnodeidx]:
+            tot_p += self.nodes.Nature_Prob[im]
+        self.infosets.Probability[startingnodeidx] = tot_p
 
         def recursive_probs_abstract(idxcurnode, prevprob = 1) :
             dslists = self.infosets.Direct_Sons[idxcurnode]
@@ -47,8 +49,40 @@ class Vanilla_Gamer(Gamer):
                             self.infosets.Probability[dson] += prevprobnow
                             recursive_probs_abstract(dson,prevprobnow)
 
-        recursive_probs_abstract(startingnodeidx, prevprob = 1)
-################################################################################
+        recursive_probs_abstract(startingnodeidx, prevprob = self.infosets.Probability[startingnodeidx])
+    ################################################################################
+    # Infosets Opponents probabilities
+
+    def recursive_probs_oppo_abstract_call(self, startingnodeidx, init = False) :
+
+        if init :
+            self.infosets.OppoProbability = [0.0 for _ in range(len(self.infosets.index))]
+        
+        tot_p = 0
+        for im in self.infosets.Index_Members[startingnodeidx]:
+            tot_p += self.nodes.Nature_Prob[im]
+        self.infosets.OppoProbability[startingnodeidx] = tot_p
+
+        def recursive_probs_oppo_abstract(idxcurnode, prevprob = 1) :
+            dslists = self.infosets.Direct_Sons[idxcurnode]
+            for idslist in range(len(dslists)) : # select one action
+                if len(dslists) > 0 :
+                    dslist = dslists[idslist]
+                    if len(dslist) > 0 :
+                        for idson in range(len(dslist)) : # select one son infoset
+                            dson = dslist[idson]
+                            prevprobnow = prevprob
+                            if self.infosets.Player[idxcurnode] != selectplayer :
+                                prevprobnow = prevprob * self.infosets.Actions_Prob[idxcurnode][idslist] * self.infosets.Nature_Weight[idxcurnode][idslist][idson]
+                            if self.infosets.Player[dson] == selectplayer :
+                                self.infosets.OppoProbability[dson] += prevprobnow
+                            recursive_probs_oppo_abstract(dson,prevprobnow)
+                            
+        selectplayer = 1
+        recursive_probs_oppo_abstract(startingnodeidx, prevprob = self.infosets.OppoProbability[startingnodeidx])
+        selectplayer = 2 
+        recursive_probs_oppo_abstract(startingnodeidx, prevprob = self.infosets.OppoProbability[startingnodeidx])
+    
 '''
     def recursive_utility_call(self,startingabsidx, init = False, oppo_prob = True):
 

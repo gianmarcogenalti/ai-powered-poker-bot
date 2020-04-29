@@ -28,7 +28,6 @@ method = 'vanilla'
 monkey = Vanilla_Gamer(abs_infosets, nodes)
 monkey.tree_drop()
 #monkey.tree_climb()
-
 '''
 for i in range(len(monkey.infosets.index)):
     print(monkey.infosets.Probability[i])
