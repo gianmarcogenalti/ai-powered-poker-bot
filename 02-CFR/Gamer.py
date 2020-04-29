@@ -39,7 +39,5 @@ class Gamer() :
 
         self.strategies[info_index] = self.regret_matching(info_index)
 
-        for m in infosets.Index_Members[info_index]:
-            self.nodes.Actions_Prob[m] = self.strategies[info_index]
 
     #def print_output(self) :

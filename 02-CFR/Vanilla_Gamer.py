@@ -6,7 +6,7 @@ class Vanilla_Gamer(Gamer):
 
     def __init__(self, infosets, nodes) :
         super().__init__(infosets, nodes)
-        self.utilities   = [[] for _ in range(len(self.infosets.index))]
+        self.utilities   = np.zeros(len(self.infosets.index))
         self.cfutilities = [[] for _ in range(len(self.infosets.index))]
 
 
@@ -19,10 +19,27 @@ class Vanilla_Gamer(Gamer):
             self.recursive_probs_abstract_call(startingidx, init = first)
             firt = False
         print("The monkey dropped from the tree in ",time.time() - t0)
-'''
+
     def tree_climb(self) :
-        for i in reversed(range(1, max(self.infosets.Depth)+1)):
-'''            
+        payoffsums = np.zeros(len(self.infosets.index))
+        for dpt in reversed(range(1, max(self.infosets.Depth) + 1)):
+            for index, row in self.infosets[self.infosets.Depth == dpt].iterrows():
+                if row.Player == 1:
+                    sign = 1
+                else:
+                    sign = -1
+                for idlist in range(len(row.Direct_Sons)):
+                    dslist = row.Direct_Sons[idlist]
+                    if len(dslist) == 0:
+                        payoffsums[index] += row.Payoff_P1[idlist] * row.Actions_Prob
+                        self.utilities[index] += row.Probability_Opp*row.Actions_Prob[idlist]*sign*row.Payoff_P1[idlist]
+                        self.cfutilities[index].append(row.Probability_Opp*sign*row.Payoff_P1[idlist])
+                    else:
+                        for ds in action:
+                            payoffsums[index] += payoffsums[ds] * row.Actions_Prob
+                            self.utilities[index] += row.Probability_Opp*row.Actions_Prob[action]*sign*payoffsums[ds]
+                            self.cfutilities[index].apppend(row.Probability_Opp*payoffsums[ds])
+        print(self.utilities)
 
 ###############################################################################
     # Infosets probabilities
@@ -49,11 +66,11 @@ class Vanilla_Gamer(Gamer):
 
         recursive_probs_abstract(startingnodeidx, prevprob = 1)
 ################################################################################
-'''
-    def recursive_utility_call(self,startingabsidx, init = False, oppo_prob = True):
+
+    def recursive_utility_call(self,startingabsidx):
 
         if init:
-            self.infosets.Exp_Utility = [0.0 for _ in range(len(self.infosets.index))]
+            self.utilities = np.zeros(len(self.infoset.index))
 
         if oppo_prob:
             prob = self.infosets.Probability_Opp
@@ -72,7 +89,7 @@ class Vanilla_Gamer(Gamer):
                         recursive_utility(idson, sonut)
 
         recursive_utility(startingabsidx)
-
+'''
 ################################################################################
     def get_regrets(self, absidx):
         regrets = []
