@@ -1,6 +1,6 @@
 from loaddata2 import *
 from abstractpreparation import *
-from Vanilla_Gamer import *
+#from Vanilla_Gamer import *
 from Node_Gamer import *
 from trees2 import *
 
@@ -15,11 +15,10 @@ nodes    = loadnodes(game)
 
 # Enriching the nodes and abstract infosets dataframe
 update_nodeprob(nodes)
-print(nodes.Nature_Prob)
+maptoclust(infosets, abs_infosets)
 abstractnodes(nodes, abs_infosets, infosets)
-abstractsons(nodes, abs_infosets)
-for index,row in abs_infosets.iterrows():
-    print(row.Nature_Weight)
+abstractsons(nodes, abs_infosets, infosets)
+
 '''
 # Environment set
 T = 10
@@ -32,4 +31,4 @@ monkey.recursive_probs(nodes.index[-1])
 '''
 ## Tree rendering
 
-nodestree(nodes, "probability")
+#nodestree(nodes, "probability")

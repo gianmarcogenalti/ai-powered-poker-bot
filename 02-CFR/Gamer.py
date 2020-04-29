@@ -16,8 +16,8 @@ class Gamer() :
         self.infosets = infosets
         self.nodes = nodes
         self.t = 0
-        self.strategies = init_probabilities(infosets)[0]
-        self.cumulative_regret = init_probabilities(infosets)[1] ##PLUS
+        self.strategies = init_probabilities(self.infosets)[0]
+        self.cumulative_regret = init_probabilities(self.infosets)[1] ##PLUS
 
     def regret_matching(self, info_index) :
         new_strats = []

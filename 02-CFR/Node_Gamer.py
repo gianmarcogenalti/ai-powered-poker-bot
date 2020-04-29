@@ -16,7 +16,7 @@ class Node_Gamer(Gamer):
         self.recursive_probs(startingnodeidx)
         self.recursive_probs_oppo(startingnodeidx, "1", initialize = True)
         self.recursive_probs_oppo(startingnodeidx, "2")
-###############################################################################
+################################################################################
 
     def recursive_probs(self, idxcurnode) :
         if self.nodes.Direct_Sons[idxcurnode] != -1 :
