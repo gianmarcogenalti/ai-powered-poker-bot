@@ -8,54 +8,64 @@ class Vanilla_Gamer(Gamer):
         super().__init__(infosets, nodes)
         self.utilities   = np.zeros(len(self.infosets.index))
         self.cfutilities = [[] for _ in range(len(self.infosets.index))]
+################################################################################
+    def train(self, T):
+        t0 = time.time()
+        while self.t < T:
+            self.tree_drop()
+            print("The monkey dropped from the tree!")
+            self.tree_climb()
+            self.t += 1
+            print("The monkey climbed the tree %d times!" % self.t)
+        print("After %d seconds the monkey got bored!" % (time.time() - t0))
 
+################################################################################
+    def get_regrets(self, absidx):
+        regrets = []
+        for act in range(len(self.infosets.Actions[absidx])):
+            regrets.append(self.cfutilities[absidx][act] - self.utilities[absidx])
+        return regrets
 
 ################################################################################
     def tree_drop(self) : ## Top-Bottom of the tree
-        t0 = time.time()
         roots = self.infosets.index[self.infosets.Depth == 1]
         first = True
         for startingidx in roots:
-            self.recursive_probs_abstract_call(startingidx, init = first)
+            #self.recursive_probs_abstract_call(startingidx, init = first)
             self.recursive_probs_oppo_abstract_call(startingidx, init = first)
             first = False
-        print("The monkey dropped from the tree in ",time.time() - t0)
-<<<<<<< HEAD
 
     def tree_climb(self) :
-        payoffsums = np.zeros(len(self.infosets.index))
+        payoffsums = [0.0 for _ in range(len(self.infosets.index))]
         for dpt in reversed(range(1, max(self.infosets.Depth) + 1)):
-            for index, row in self.infosets[self.infosets.Depth == dpt].iterrows():
-                if row.Player == 1:
+            for index in self.infosets.index[self.infosets.Depth == dpt]:
+                if self.infosets.Player[index] == 1:
                     sign = 1
                 else:
                     sign = -1
-                for idlist in range(len(row.Direct_Sons)):
-                    dslist = row.Direct_Sons[idlist]
+                for idlist in range(len(self.infosets.Direct_Sons[index])):
+                    dslist = self.infosets.Direct_Sons[index][idlist]
                     if len(dslist) == 0:
-                        payoffsums[index] += row.Payoff_P1[idlist] * row.Actions_Prob
-                        self.utilities[index] += row.Probability_Opp*row.Actions_Prob[idlist]*sign*row.Payoff_P1[idlist]
-                        self.cfutilities[index].append(row.Probability_Opp*sign*row.Payoff_P1[idlist])
+                        payoffsums[index] += self.infosets.Payoff_P1[index][idlist] * self.infosets.Actions_Prob[index][idlist]
+                        self.utilities[index] += self.infosets.Probability_Opp[index]*self.infosets.Actions_Prob[index][idlist]*sign*self.infosets.Payoff_P1[index][idlist]
+                        self.cfutilities[index].append(self.infosets.Probability_Opp[index]*sign*self.infosets.Payoff_P1[index][idlist])
                     else:
-                        for ds in action:
-                            payoffsums[index] += payoffsums[ds] * row.Actions_Prob
-                            self.utilities[index] += row.Probability_Opp*row.Actions_Prob[action]*sign*payoffsums[ds]
-                            self.cfutilities[index].apppend(row.Probability_Opp*payoffsums[ds])
-        print(self.utilities)
-=======
-    '''
-        def tree_climb(self) :
-            for i in reversed(range(1, max(self.infosets.Depth)+1)):
-    '''            
->>>>>>> 3273162a9c98343866f2c38714d3b6fe2f7a562c
+                        for ds in dslist:
+                            payoffsums[index] += payoffsums[ds] * self.infosets.Actions_Prob[index][idlist]
+                            self.utilities[index] += self.infosets.Probability_Opp[index]*self.infosets.Actions_Prob[index][idlist]*sign*payoffsums[ds]
+                            self.cfutilities[index].append(self.infosets.Probability_Opp[index]*payoffsums[ds])
 
-    ###############################################################################
-    # Infosets probabilities
+                regrets = self.get_regrets(index)
+                self.update_strategies(index, regrets)
+
+
+###############################################################################
+# Infosets probabilities
     def recursive_probs_abstract_call(self, startingnodeidx, init = False) :
 
         if init :
             self.infosets.Probability =[0.0 for _ in range(len(self.infosets.index))]
-        
+
         tot_p = 0
         for im in self.infosets.Index_Members[startingnodeidx]:
             tot_p += self.nodes.Nature_Prob[im]
@@ -73,12 +83,6 @@ class Vanilla_Gamer(Gamer):
                             self.infosets.Probability[dson] += prevprobnow
                             recursive_probs_abstract(dson,prevprobnow)
 
-<<<<<<< HEAD
-        recursive_probs_abstract(startingnodeidx, prevprob = 1)
-################################################################################
-
-    def recursive_utility_call(self,startingabsidx):
-=======
         recursive_probs_abstract(startingnodeidx, prevprob = self.infosets.Probability[startingnodeidx])
     ################################################################################
     # Infosets Opponents probabilities
@@ -86,12 +90,12 @@ class Vanilla_Gamer(Gamer):
     def recursive_probs_oppo_abstract_call(self, startingnodeidx, init = False) :
 
         if init :
-            self.infosets.OppoProbability = [0.0 for _ in range(len(self.infosets.index))]
-        
+            self.infosets.Probability_Opp = [0.0 for _ in range(len(self.infosets.index))]
+
         tot_p = 0
         for im in self.infosets.Index_Members[startingnodeidx]:
             tot_p += self.nodes.Nature_Prob[im]
-        self.infosets.OppoProbability[startingnodeidx] = tot_p
+        self.infosets.Probability_Opp[startingnodeidx] = tot_p
 
         def recursive_probs_oppo_abstract(idxcurnode, prevprob = 1) :
             dslists = self.infosets.Direct_Sons[idxcurnode]
@@ -105,17 +109,16 @@ class Vanilla_Gamer(Gamer):
                             if self.infosets.Player[idxcurnode] != selectplayer :
                                 prevprobnow = prevprob * self.infosets.Actions_Prob[idxcurnode][idslist] * self.infosets.Nature_Weight[idxcurnode][idslist][idson]
                             if self.infosets.Player[dson] == selectplayer :
-                                self.infosets.OppoProbability[dson] += prevprobnow
+                                self.infosets.Probability_Opp[dson] += prevprobnow
                             recursive_probs_oppo_abstract(dson,prevprobnow)
-                            
+
         selectplayer = 1
-        recursive_probs_oppo_abstract(startingnodeidx, prevprob = self.infosets.OppoProbability[startingnodeidx])
-        selectplayer = 2 
-        recursive_probs_oppo_abstract(startingnodeidx, prevprob = self.infosets.OppoProbability[startingnodeidx])
-    
+        recursive_probs_oppo_abstract(startingnodeidx, prevprob = self.infosets.Probability_Opp[startingnodeidx])
+        selectplayer = 2
+        recursive_probs_oppo_abstract(startingnodeidx, prevprob = self.infosets.Probability_Opp[startingnodeidx])
+
 '''
     def recursive_utility_call(self,startingabsidx, init = False, oppo_prob = True):
->>>>>>> 3273162a9c98343866f2c38714d3b6fe2f7a562c
 
         if init:
             self.utilities = np.zeros(len(self.infoset.index))
@@ -138,17 +141,9 @@ class Vanilla_Gamer(Gamer):
 
         recursive_utility(startingabsidx)
 '''
-################################################################################
-    def get_regrets(self, absidx):
-        regrets = []
-        for act in range(len(self.infosets.Actions[absidx])):
-            regrets.append(self.infosets.Exp_CFUtility[absidx][act] - self.infosets.Exp_Utility[absidx])
-        return regrets
-###############################################################################
 
 
-
-
+'''
 ################################################################################
     def update_abstract(self, abs_index, regrets):
         self.update_strategies(abs_index, regrets)

@@ -166,6 +166,7 @@ def loadinfosets(game):
 
     # Builds the real df of infosets
     infosets = pd.DataFrame()
+    infosets['History'] = rawinfosets['History']
     infosets['History_Structure'] = createstringflag(rawinfosets['History'])
     infosets['Depth'] = rawinfosets['Depth']
     infosets['Payoff'] = makeArray(rawinfosets['Payoff_Vector_P1'],"float")

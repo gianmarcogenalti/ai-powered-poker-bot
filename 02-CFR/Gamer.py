@@ -24,20 +24,27 @@ class Gamer() :
         sum_regret = sum(self.cumulative_regret[info_index])
         n_actions = len(self.cumulative_regret[info_index])
         if sum_regret == 0:
-            self.strategies[info_index] = np.repeat(1/n_actions, n_actions)
+            for i in range(n_actions):
+                self.strategies[info_index][i] = 1/n_actions
         else:
             for i in range(n_actions):
-                new_strats.append(self.cumulative_regret[info_index][i]/sum_regret)
-
-        return new_strats
-
+                self.strategies[info_index][i] = self.cumulative_regret[info_index][i]/sum_regret
 
     def update_strategies(self, info_index, regrets) :
 
         for act in range(len(self.cumulative_regret[info_index])):
             self.cumulative_regret[info_index][act] = max(self.cumulative_regret[info_index][act] + regrets[act], 0)
+        self.regret_matching(info_index)
 
-        self.strategies[info_index] = self.regret_matching(info_index)
 
+    def print_output(self, game, true_infosets) :
+        filename = "output - " + game + ".txt"
+        file1 = open(filename,"w")
+        for index, row in true_infosets.iterrows():
+            line = "infoset " + row.History + " strategies"
+            clust = row.Map_Clust[0]
+            for action in range(len(row.Actions)):
+                line += " " + row.Actions[action] + "=" + str(self.strategies[clust][action])
+            file1.write(line + "\n")
 
-    #def print_output(self) :
+        file1.close()

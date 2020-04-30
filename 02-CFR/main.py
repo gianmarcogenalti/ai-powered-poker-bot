@@ -23,20 +23,17 @@ for i in range(len(abs_infosets.index)):
     print(abs_infosets.Direct_Sons[i])
 '''
 # Environment set
-T = 10
+T = 1000
 method = 'vanilla'
-monkey = Vanilla_Gamer(abs_infosets, nodes)
-monkey.tree_drop()
-<<<<<<< HEAD
-monkey.tree_climb()
 
-=======
-#monkey.tree_climb()
->>>>>>> 3273162a9c98343866f2c38714d3b6fe2f7a562c
+monkey = Vanilla_Gamer(abs_infosets, nodes)
+monkey.train(T)
+monkey.print_output(game, infosets)
 '''
-for i in range(len(monkey.infosets.index)):
-    print(monkey.infosets.Probability[i])
+for i in range(len(monkey.strategies)):
+    print(monkey.strategies[i])
 '''
+
 ## Tree rendering
 
 #nodestree(nodes, "probability")

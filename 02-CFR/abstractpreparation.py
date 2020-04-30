@@ -96,6 +96,8 @@ def abstractsons(nodes, abs_infosets, infosets):
                 for i in range(len(list)):
                     wm += list[i]*temp_prob[counter4][i]
                 single_payoff.append(wm)
+            else:
+                single_payoff.append(-1000)
             counter4+=1
 
 
