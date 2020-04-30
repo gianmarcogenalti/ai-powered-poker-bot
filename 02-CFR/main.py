@@ -23,10 +23,11 @@ for i in range(len(abs_infosets.index)):
     print(abs_infosets.Direct_Sons[i])
 '''
 # Environment set
-T = 1000
+T = 100
 method = 'vanilla'
 
 monkey = Vanilla_Gamer(abs_infosets, nodes)
+print(monkey.Probability_Opp)
 monkey.train(T)
 monkey.print_output(game, infosets)
 '''

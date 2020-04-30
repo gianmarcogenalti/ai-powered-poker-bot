@@ -8,6 +8,7 @@ class Vanilla_Gamer(Gamer):
         super().__init__(infosets, nodes)
         self.utilities   = np.zeros(len(self.infosets.index))
         self.cfutilities = [[] for _ in range(len(self.infosets.index))]
+        self.Probability_Opp = [0.0 for _ in range(len(self.infosets.index))]
 ################################################################################
     def train(self, T):
         t0 = time.time()
@@ -29,13 +30,16 @@ class Vanilla_Gamer(Gamer):
 ################################################################################
     def tree_drop(self) : ## Top-Bottom of the tree
         roots = self.infosets.index[self.infosets.Depth == 1]
-        first = True
+        #first = True
         for startingidx in roots:
             #self.recursive_probs_abstract_call(startingidx, init = first)
-            self.recursive_probs_oppo_abstract_call(startingidx, init = first)
-            first = False
+            self.recursive_probs_oppo_abstract_call(startingidx, init = True)
+            #first = False
+        print(self.Probability_Opp)
 
     def tree_climb(self) :
+        self.utilities   = np.zeros(len(self.infosets.index))
+        self.cfutilities = [[] for _ in range(len(self.infosets.index))]
         payoffsums = [0.0 for _ in range(len(self.infosets.index))]
         for dpt in reversed(range(1, max(self.infosets.Depth) + 1)):
             for index in self.infosets.index[self.infosets.Depth == dpt]:
@@ -46,15 +50,16 @@ class Vanilla_Gamer(Gamer):
                 for idlist in range(len(self.infosets.Direct_Sons[index])):
                     dslist = self.infosets.Direct_Sons[index][idlist]
                     if len(dslist) == 0:
-                        payoffsums[index] += self.infosets.Payoff_P1[index][idlist] * self.infosets.Actions_Prob[index][idlist]
-                        self.utilities[index] += self.infosets.Probability_Opp[index]*self.infosets.Actions_Prob[index][idlist]*sign*self.infosets.Payoff_P1[index][idlist]
-                        self.cfutilities[index].append(self.infosets.Probability_Opp[index]*sign*self.infosets.Payoff_P1[index][idlist])
+                        payoffsums[index] += self.infosets.Payoff_P1[index][idlist] * self.strategies[index][idlist]
+                        self.utilities[index] += self.Probability_Opp[index]*self.strategies[index][idlist]*sign*self.infosets.Payoff_P1[index][idlist]
+                        self.cfutilities[index].append(self.Probability_Opp[index]*sign*self.infosets.Payoff_P1[index][idlist])
                     else:
+                        self.cfutilities[index].append(0)
                         for ds in dslist:
-                            payoffsums[index] += payoffsums[ds] * self.infosets.Actions_Prob[index][idlist]
-                            self.utilities[index] += self.infosets.Probability_Opp[index]*self.infosets.Actions_Prob[index][idlist]*sign*payoffsums[ds]
-                            self.cfutilities[index].append(self.infosets.Probability_Opp[index]*payoffsums[ds])
-
+                            payoffsums[index] += payoffsums[ds] * self.strategies[index][idlist]
+                            self.utilities[index] += self.Probability_Opp[index]*self.strategies[index][idlist]*sign*payoffsums[ds]
+                            self.cfutilities[index][idlist] += self.Probability_Opp[index]*sign*payoffsums[ds]
+                print(self.infosets.History[index],self.utilities[index], self.strategies[index],self.cfutilities[index],"\n")
                 regrets = self.get_regrets(index)
                 self.update_strategies(index, regrets)
 
@@ -66,10 +71,10 @@ class Vanilla_Gamer(Gamer):
         if init :
             self.infosets.Probability =[0.0 for _ in range(len(self.infosets.index))]
 
-        tot_p = 0
-        for im in self.infosets.Index_Members[startingnodeidx]:
-            tot_p += self.nodes.Nature_Prob[im]
-        self.infosets.Probability[startingnodeidx] = tot_p
+            tot_p = 0
+            for im in self.infosets.Index_Members[startingnodeidx]:
+                tot_p += self.nodes.Nature_Prob[im]
+            self.infosets.Probability[startingnodeidx] = tot_p
 
         def recursive_probs_abstract(idxcurnode, prevprob = 1) :
             dslists = self.infosets.Direct_Sons[idxcurnode]
@@ -79,7 +84,7 @@ class Vanilla_Gamer(Gamer):
                     if len(dslist) > 0 :
                         for idson in range(len(dslist)) : # select one infoset
                             dson = dslist[idson]
-                            prevprobnow = prevprob * self.infosets.Actions_Prob[idxcurnode][idslist] * self.infosets.Nature_Weight[idxcurnode][idslist][idson]
+                            prevprobnow = prevprob * self.strategies[idxcurnode][idslist] * self.infosets.Nature_Weight[idxcurnode][idslist][idson]
                             self.infosets.Probability[dson] += prevprobnow
                             recursive_probs_abstract(dson,prevprobnow)
 
@@ -90,12 +95,12 @@ class Vanilla_Gamer(Gamer):
     def recursive_probs_oppo_abstract_call(self, startingnodeidx, init = False) :
 
         if init :
-            self.infosets.Probability_Opp = [0.0 for _ in range(len(self.infosets.index))]
+            self.Probability_Opp = [0.0 for _ in range(len(self.infosets.index))]
 
-        tot_p = 0
-        for im in self.infosets.Index_Members[startingnodeidx]:
-            tot_p += self.nodes.Nature_Prob[im]
-        self.infosets.Probability_Opp[startingnodeidx] = tot_p
+            tot_p = 0
+            for im in self.infosets.Index_Members[startingnodeidx]:
+                tot_p += self.nodes.Nature_Prob[im]
+            self.Probability_Opp[startingnodeidx] = tot_p
 
         def recursive_probs_oppo_abstract(idxcurnode, prevprob = 1) :
             dslists = self.infosets.Direct_Sons[idxcurnode]
@@ -106,54 +111,13 @@ class Vanilla_Gamer(Gamer):
                         for idson in range(len(dslist)) : # select one son infoset
                             dson = dslist[idson]
                             prevprobnow = prevprob
-                            if self.infosets.Player[idxcurnode] != selectplayer :
-                                prevprobnow = prevprob * self.infosets.Actions_Prob[idxcurnode][idslist] * self.infosets.Nature_Weight[idxcurnode][idslist][idson]
+                            if self.infosets.Player[idxcurnode] != selectplayer:
+                                prevprobnow = prevprob * self.strategies[idxcurnode][idslist] * self.infosets.Nature_Weight[idxcurnode][idslist][idson]
                             if self.infosets.Player[dson] == selectplayer :
-                                self.infosets.Probability_Opp[dson] += prevprobnow
+                                self.Probability_Opp[dson] += prevprobnow
                             recursive_probs_oppo_abstract(dson,prevprobnow)
 
         selectplayer = 1
-        recursive_probs_oppo_abstract(startingnodeidx, prevprob = self.infosets.Probability_Opp[startingnodeidx])
+        recursive_probs_oppo_abstract(startingnodeidx, prevprob = self.Probability_Opp[startingnodeidx])
         selectplayer = 2
-        recursive_probs_oppo_abstract(startingnodeidx, prevprob = self.infosets.Probability_Opp[startingnodeidx])
-
-'''
-    def recursive_utility_call(self,startingabsidx, init = False, oppo_prob = True):
-
-        if init:
-            self.utilities = np.zeros(len(self.infoset.index))
-
-        if oppo_prob:
-            prob = self.infosets.Probability_Opp
-        else:
-            prob = self.infosets.Probability
-
-        def recursive_utility(absidx, sonut = 0) :
-            dslists = self.infosets.Direct_Sons[absidx]
-            for idslist in range(len(dslists)) :
-                dslist = dslists[idslist]
-                if len(dslist) == 0: ## so the action number idslist leads to terminal nodes aka a single abstract payoff
-                    self.infosets.Exp_Utility[absidx] += self.infosets.Payoff_P1[idslist]*self.infosets.Actions_Prob[idslist]
-                else:
-                    for idson in range(len(dslist)): #cycling on sons
-                        self.infosets.Exp_Utility[absidx] += self.infosets.Exp_Utility[idson]*self.infosets.Actions_Prob[idslist]
-                        recursive_utility(idson, sonut)
-
-        recursive_utility(startingabsidx)
-'''
-
-
-'''
-################################################################################
-    def update_abstract(self, abs_index, regrets):
-        self.update_strategies(abs_index, regrets)
-        for i in self.infosets.Index_Members[abs_index]:
-            self.nodes.Actions_Prob[i] = self.strategies[abs_index]
-            self.recursive_probs(i)
-            utility = 0.
-            for son in self.nodes.Sons[i]:
-                if self.nodes.Type[son] == 'L':
-                    utility += self.nodes.Payoff_Vector_P1[son]*self.nodes.Probability[son]
-            self.nodes.Exp_Utility[i] = utility
-################################################################################
-'''
+        recursive_probs_oppo_abstract(startingnodeidx, prevprob = self.Probability_Opp[startingnodeidx])
