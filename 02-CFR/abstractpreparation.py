@@ -138,3 +138,10 @@ def update_nodeprob(nodes):
             #
         #
     #
+def get_back(infosets, strategies):
+    act_probs = []
+    for index,row in infosets.iterrows():
+        act_probs.append(strategies[row.Map_Clust[0]])
+    infosets['Actions_Prob'] = act_probs
+
+#def abs_depth(abs_infosets):

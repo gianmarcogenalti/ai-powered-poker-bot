@@ -1,6 +1,7 @@
 from loaddata2 import *
 from abstractpreparation import *
 from Vanilla_Gamer import *
+from MC_Gamer import *
 from trees2 import *
 
 # Choose game:
@@ -25,16 +26,25 @@ for i in range(len(abs_infosets.index)):
 # Environment set
 T = 100
 method = 'vanilla'
-
+''''
 monkey = Vanilla_Gamer(abs_infosets, nodes)
-print(monkey.Probability_Opp)
 monkey.train(T)
 monkey.print_output(game, infosets)
-'''
+print(monkey.strategies)
+
 for i in range(len(monkey.strategies)):
     print(monkey.strategies[i])
 '''
+hopper = MC_Gamer(abs_infosets, nodes)
+print(hopper.sample_actions(10, 2))
+
+
 
 ## Tree rendering
 
 #nodestree(nodes, "probability")
+'''
+get_back(infosets, monkey.strategies)
+filename = game + "_infosets.csv"
+infosets.to_csv(filename, index = False, header = True, escapechar=' ')
+'''

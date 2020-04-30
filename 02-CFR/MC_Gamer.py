@@ -1,14 +1,22 @@
 import numpy as np
 from Gamer import *
 import time
+import numpy as np
 
-class Vanilla_Gamer(Gamer):
+def init_n_actions(strategies):
+    ret = 0
+    for i in strategies:
+        ret += len(i)
+    return ret
+
+class MC_Gamer(Gamer):
 
     def __init__(self, infosets, nodes) :
         super().__init__(infosets, nodes)
         self.utilities   = np.zeros(len(self.infosets.index))
         self.cfutilities = [[] for _ in range(len(self.infosets.index))]
         self.Probability_Opp = [0.0 for _ in range(len(self.infosets.index))]
+        self.n_actions = init_n_actions(self.strategies)
 ################################################################################
     def train(self, T):
         t0 = time.time()
@@ -41,55 +49,27 @@ class Vanilla_Gamer(Gamer):
         self.utilities   = np.zeros(len(self.infosets.index))
         self.cfutilities = [[] for _ in range(len(self.infosets.index))]
         payoffsums = [0.0 for _ in range(len(self.infosets.index))]
-        for dpt in reversed(range(1, max(self.infosets.Depth) + 1)):
-            for index in self.infosets.index[self.infosets.Depth == dpt]:
-                if self.infosets.Player[index] == 1:
-                    sign = 1
-                else:
-                    sign = -1
-                for idlist in range(len(self.infosets.Direct_Sons[index])):
-                    dslist = self.infosets.Direct_Sons[index][idlist]
-                    if len(dslist) == 0:
-                        payoffsums[index] += self.infosets.Payoff_P1[index][idlist] * self.strategies[index][idlist]
-                        self.utilities[index] += self.Probability_Opp[index]*self.strategies[index][idlist]*sign*self.infosets.Payoff_P1[index][idlist]
-                        self.cfutilities[index].append(self.Probability_Opp[index]*sign*self.infosets.Payoff_P1[index][idlist])
-                    else:
-                        self.cfutilities[index].append(0)
-                        for ds in dslist:
-                            payoffsums[index] += payoffsums[ds] * self.strategies[index][idlist]
-                            self.utilities[index] += self.Probability_Opp[index]*self.strategies[index][idlist]*sign*payoffsums[ds]
-                            self.cfutilities[index][idlist] += self.Probability_Opp[index]*sign*payoffsums[ds]
-                #print(self.infosets.History[index],self.utilities[index], self.strategies[index],self.cfutilities[index],"\n")
-                regrets = self.get_regrets(index)
-                self.update_strategies(index, regrets)
 
 
-###############################################################################
-# Infosets probabilities
-    def recursive_probs_abstract_call(self, startingnodeidx, init = False) :
 
-        if init :
-            self.infosets.Probability =[0.0 for _ in range(len(self.infosets.index))]
 
-            tot_p = 0
-            for im in self.infosets.Index_Members[startingnodeidx]:
-                tot_p += self.nodes.Nature_Prob[im]
-            self.infosets.Probability[startingnodeidx] = tot_p
 
-        def recursive_probs_abstract(idxcurnode, prevprob = 1) :
-            dslists = self.infosets.Direct_Sons[idxcurnode]
-            for idslist in range(len(dslists)) : # select one action
-                if len(dslists) > 0 :
-                    dslist = dslists[idslist]
-                    if len(dslist) > 0 :
-                        for idson in range(len(dslist)) : # select one infoset
-                            dson = dslist[idson]
-                            prevprobnow = prevprob * self.strategies[idxcurnode][idslist] * self.infosets.Nature_Weight[idxcurnode][idslist][idson]
-                            self.infosets.Probability[dson] += prevprobnow
-                            recursive_probs_abstract(dson,prevprobnow)
+################################################################################
+    def sample_actions(self, n_samples, opponent):
+        proxy = [np.zeros(len(self.strategies[_])) for _ in range(len(self.strategies))]
+        for i in range(n_samples):
+            abs_index = int(np.random.choice(self.infosets.index[self.infosets.Player == opponent], 1))
+            print(abs_index)
+            act_index = int(np.random.choice(range(len(self.strategies[abs_index])), 1))
+            print(act_index)
+            proxy[abs_index][act_index] = self.strategies[abs_index][act_index]
 
-        recursive_probs_abstract(startingnodeidx, prevprob = self.infosets.Probability[startingnodeidx])
-    ################################################################################
+        indices = self.infosets.index[self.infosets.Player != opponent]
+        for i in indices:
+            proxy[i] = self.strategies[i]
+
+        return proxy
+################################################################################
     # Infosets Opponents probabilities
 
     def recursive_probs_oppo_abstract_call(self, startingnodeidx, init = False) :

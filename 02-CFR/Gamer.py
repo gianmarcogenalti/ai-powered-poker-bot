@@ -24,8 +24,9 @@ class Gamer() :
         sum_regret = sum(self.cumulative_regret[info_index])
         n_actions = len(self.cumulative_regret[info_index])
         if sum_regret == 0:
-            for i in range(n_actions):
+            for i in range(n_actions - 1):
                 self.strategies[info_index][i] = 1/n_actions
+            self.strategies[info_index][n_actions -1] = 1 - sum(self.strategies[info_index][:(n_actions-1)])
         else:
             for i in range(n_actions):
                 self.strategies[info_index][i] = self.cumulative_regret[info_index][i]/sum_regret
