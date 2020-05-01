@@ -2,6 +2,7 @@ import glob
 from loaddata3 import *
 import random
 import numpy as np
+from datetime import datetime
 
 def initialization():
     print("Welcome to the Pokerbot!\n")
@@ -33,7 +34,7 @@ def game_choice():
             print("Choice not valid! Try again.\n")
     print("Perfect, we will play %s! \n" % avgames[id][6:-13])
     rules(id)
-    return nodes,infosets
+    return nodes,infosets,avgames[j][6:-13]
 
 def play_again():
     print("Wanna play another game with me? y/n \n")
@@ -61,12 +62,13 @@ def print_rules(game):
 
 def lets_play(name):
     print("Ok %s, choose a game!\n" % name)
-    nodes,infosets = game_choice()
+    nodes,infosets,game = game_choice()
     #print(nodes,infosets)
     player = random.choice([1,2])
     print("You will be Player %d" % player)
 
-    match(player, nodes, infosets, id)
+    gamehist, infohist, esit = match(player, nodes, infosets, id)
+    save_log(gamehist, infohist, esit, name, game)
 
     again = play_again()
     return again
@@ -101,17 +103,20 @@ def explore_tree(nodes,infosets,gamehist,infohist, player, cpu_player, cpu_card)
                 except:
                     print("Cannot choose that move. Try again\n")
             gamehist = gamehist + "/P{}:{}".format(player, actions[move])
+            infohist = infohist + "/P{}:{}".format(player, actions[move])
 
         if pl == cpu_player:
             infos = maps
             move = np.random.choice(infosets.Actions[infos], p = infosets.Actions_Prob[infos])
             print("CPU plays %s!\n" % move)
             gamehist = gamehist + "/P{}:{}".format(cpu_player, move)
+            infohist = infohist + "/P{}:{}".format(cpu_player, move)
 
         if type == 'C':
             move = np.random.choice(actions, p = probs)
             print("The card on the table is now %s! \n" % move)
             gamehist = gamehist + "/C:" + move
+            infohist = infohist + "/C:" + move
 
         for index,row in nodes[nodes.History == gamehist].iterrows():
             type = row['Type']
@@ -125,11 +130,15 @@ def explore_tree(nodes,infosets,gamehist,infohist, player, cpu_player, cpu_card)
     print("CPU got in its hand %s!\n" % cpu_card)
     print(gamehist)
 
+    sign = 1 if cpu_player == 1 else -1
+    esit = sign*po1
     if po1 != 0:
         message = "You" if (po1 > 0 and player == 1) or (po1 < 0 and player == 2) else "CPU"
         print("The game has finished! %s have won with a payoff of %d\n" % (message, abs(po1)))
     else:
         print("The game ended with a Draw!\n")
+
+    return gamehist,infohist,esit
 
 
 
@@ -147,4 +156,16 @@ def match(player, nodes, infosets, game):
         gamehist = "/C:"+player_card+cpu_card
         infohist = "/?"+cpu_card
 
-    explore_tree(nodes,infosets,gamehist,infohist, player, cpu_player, cpu_card)
+    return explore_tree(nodes,infosets,gamehist,infohist, player, cpu_player, cpu_card)
+
+def save_log(gamehist, infohist, esit, name, game):
+    now = datetime.now()
+    dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+    line = dt_string + ", player = " +  name + ", game = " + game + ", cpu_infoset = " + infohist + ", actual game = " + gamehist + ", cpu_esit = " + str(esit)
+    logs = open("logs.txt","a")
+    logs.write(line + "\n")
+    logs.close()
+
+
+
+# datetime object containing current date and time

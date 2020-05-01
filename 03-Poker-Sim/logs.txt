@@ -1,0 +1,2 @@
+01/05/2020 11:54:30, player = gianmarco, game = leduc3, cpu_infoset = /?K/P1:c/P2:raise2/P1:c/C:J/P1:raise4/P2:c, actual game = /C:JK/P1:c/P2:raise2/P1:c/C:J/P1:raise4/P2:c, cpu_esit = -7.0
+01/05/2020 11:56:03, player = gianmarco, game = leduc3, cpu_infoset = /?K/P1:c/P2:raise2/P1:c/C:Q/P1:c/P2:c, actual game = /C:JK/P1:c/P2:raise2/P1:c/C:Q/P1:c/P2:c, cpu_esit = 3.0

@@ -1,0 +1,3 @@
+run poker.py
+follow instructions on the command prompt
+enjoy
