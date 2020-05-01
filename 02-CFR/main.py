@@ -27,17 +27,25 @@ for i in range(len(abs_infosets.index)):
 # Environment set
 T = 100
 method = 'vanilla'
+<<<<<<< HEAD
 
 monkey = Vanilla_Gamer(abs_infosets, nodes)
 monkey.train(T)
 monkey.print_output(game, infosets)
+=======
+monkey = Vanilla_Gamer(abs_infosets, nodes)
+monkey.train(T)
+monkey.print_output(game, infosets)
+print(monkey.strategies)
+''''
+>>>>>>> 2c0f8f01e50aac84e5b7760a1e0c5bc32008684b
 
 for i in range(len(monkey.strategies)):
     print(monkey.strategies[i])
-'''
 hopper = MC_Gamer(abs_infosets, nodes)
 print(hopper.infosets.Payoff_P1)
 
+'''
 
 
 ## Tree rendering
