@@ -46,8 +46,6 @@ class MC_Gamer(Gamer):
         print(self.Probability_Opp)
 
     def tree_climb(self) :
-        self.utilities   = np.zeros(len(self.infosets.index))
-        self.cfutilities = [[] for _ in range(len(self.infosets.index))]
         payoffsums = [0.0 for _ in range(len(self.infosets.index))]
 
 
@@ -69,6 +67,29 @@ class MC_Gamer(Gamer):
             proxy[i] = self.strategies[i]
 
         return proxy
+
+    def get_terminals(self, proxy):
+        reachables = []
+        cumpayoff = [0.0 for _ in range(len(self.infosets.index))]
+        terminals = []
+        def recursive_terminals(idxucurnode):
+            dslists = self.infosets[idxcurnode].Direct_Sons
+            for idlist in range(len(dslists)):
+                dslist = dslists[idlist]
+                if proxy[idlist] > 0.0:
+                    if len(dslist) > 0:
+                        for idson in range(len(dslist)):
+                            son = dslist[idson]
+                            reachables.append(idson)
+                            recursive_terminals(idson)
+                    else:
+                        if idxcurnode not in terminals:
+                            terminals.append(idxcurnode)
+                        cumpayoff[idxcurnode] += self.infosets.[idxcurnode]
+
+
+
+
 ################################################################################
     # Infosets Opponents probabilities
 

@@ -18,6 +18,7 @@ maptoclust(infosets, abs_infosets)
 abstractnodes(nodes, abs_infosets, infosets)
 abstractsons(nodes, abs_infosets, infosets)
 abstractdads(abs_infosets)
+abs_depth(abs_infosets)
 '''
 for i in range(len(abs_infosets.index)):
     print(abs_infosets.Dads[i])
@@ -26,17 +27,16 @@ for i in range(len(abs_infosets.index)):
 # Environment set
 T = 100
 method = 'vanilla'
-''''
+
 monkey = Vanilla_Gamer(abs_infosets, nodes)
 monkey.train(T)
 monkey.print_output(game, infosets)
-print(monkey.strategies)
 
 for i in range(len(monkey.strategies)):
     print(monkey.strategies[i])
 '''
 hopper = MC_Gamer(abs_infosets, nodes)
-print(hopper.sample_actions(10, 2))
+print(hopper.infosets.Payoff_P1)
 
 
 

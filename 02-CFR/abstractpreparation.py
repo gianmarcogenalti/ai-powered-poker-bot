@@ -144,4 +144,11 @@ def get_back(infosets, strategies):
         act_probs.append(strategies[row.Map_Clust[0]])
     infosets['Actions_Prob'] = act_probs
 
-#def abs_depth(abs_infosets):
+def abs_depth(abs_infosets):
+    depths = []
+    for index,row in abs_infosets.iterrows():
+        np = row.History.count("P")
+        nc = row.History.count("C")
+        depths.append(np + nc + 1)
+
+    abs_infosets['Depth'] = depths
