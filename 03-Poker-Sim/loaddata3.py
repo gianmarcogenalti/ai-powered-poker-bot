@@ -203,7 +203,7 @@ def loadnodes(game):
     nodes['Type'] = rawnodes['Type']
     nodes['Actions'] = makeArray2(rawnodes['Actions'], "string")
     nodes['Actions_Prob'] = makeArray2(rawnodes['Actions_Prob'], "float")
-    nodes['Payoff'] = makeArray2(rawnodes['Payoff_Vector_P1'],"float")
+    nodes['Payoff'] = rawnodes['Payoff_P1']
     nodes['Player'] = rawnodes['Player']
     nodes['Depth'] = rawnodes['Depth']
     nodes['Map'] = rawnodes['Map']
