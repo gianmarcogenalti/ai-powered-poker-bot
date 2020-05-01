@@ -29,12 +29,13 @@ class Vanilla_Gamer(Gamer):
 
 ################################################################################
     def tree_drop(self) : ## Top-Bottom of the tree
-        roots = self.infosets.index[self.infosets.Depth == 1]
+        #roots = self.infosets.index[self.infosets.Depth == 1]
         #first = True
-        for startingidx in roots:
+        #for startingidx in roots:
             #self.recursive_probs_abstract_call(startingidx, init = first)
-            self.recursive_probs_oppo_abstract_call(startingidx, init = True)
+            #self.recursive_probs_oppo_abstract_call(startingidx, init = True)
             #first = False
+        self.probs_oppo_abstract_call()
         print(self.Probability_Opp)
 
     def tree_climb(self) :
@@ -121,3 +122,34 @@ class Vanilla_Gamer(Gamer):
         recursive_probs_oppo_abstract(startingnodeidx, prevprob = self.Probability_Opp[startingnodeidx])
         selectplayer = 2
         recursive_probs_oppo_abstract(startingnodeidx, prevprob = self.Probability_Opp[startingnodeidx])
+    
+    def probs_oppo_abstract_call(self) : 
+        self.Probability_Opp = [0.0 for _ in range(len(self.infosets.index))]
+        self.Probability_P1 = [0.0 for _ in range(len(self.infosets.index))]
+        self.Probability_P2 = [0.0 for _ in range(len(self.infosets.index))]
+        roots = self.infosets.index[self.infosets.Depth == 1]
+        for startingidx in roots:
+            tot_p = 0
+            for im in self.infosets.Index_Members[startingidx]:
+                tot_p += self.nodes.Nature_Prob[im]
+            self.Probability_Opp[startingidx] = tot_p
+            self.Probability_P1[startingidx] = tot_p
+            self.Probability_P2[startingidx] = tot_p
+        for depth in range(1,max(self.infosets['Depth']) + 1):
+            icurinfosets = list(self.infosets.index[self.infosets['Depth'] == depth])
+            for icurinfo in icurinfosets :
+                dslists = self.infosets.Direct_Sons[icurinfo]
+                for idslist in range(len(dslists)) : # select one action
+                    dslist = dslists[idslist]
+                    for idson in range(len(dslist)) : # select one son infoset
+                        dson = dslist[idson]
+                        if self.infosets.Player[icurinfo] == 1 :
+                            self.Probability_P1[dson] += self.Probability_P1[icurinfo] * self.strategies[icurinfo][idslist] * self.infosets.Nature_Weight[icurinfo][idslist][idson]
+                            self.Probability_P2[dson] += self.Probability_P2[icurinfo]
+                        else :
+                            self.Probability_P2[dson] += self.Probability_P2[icurinfo] * self.strategies[icurinfo][idslist] * self.infosets.Nature_Weight[icurinfo][idslist][idson]
+                            self.Probability_P1[dson] += self.Probability_P1[icurinfo]
+                        if self.infosets.Player[dson] == 1 :
+                            self.Probability_Opp[dson] = self.Probability_P2[dson]
+                        else :
+                            self.Probability_Opp[dson] = self.Probability_P1[dson]
