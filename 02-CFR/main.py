@@ -1,12 +1,12 @@
 from loaddata2 import *
 from abstractpreparation import *
 from Vanilla_Gamer import *
-from MC_Gamer import *
+#from MC_Gamer import *
 from trees2 import *
 
 # Choose game:
 
-game = "leduc3"
+game = "leduc5"
 
 # Loads the csv and gets the proper infosets
 infosets = loadinfosets(game)
@@ -21,31 +21,24 @@ abstractdads(abs_infosets)
 abs_depth(abs_infosets)
 '''
 for i in range(len(abs_infosets.index)):
-    print(abs_infosets.Dads[i])
-    print(abs_infosets.Direct_Sons[i])
+    print(abs_infosets.Nature_Weight[i])
 '''
 # Environment set
-T = 100
+T = 10
+
 method = 'vanilla'
-<<<<<<< HEAD
-
 monkey = Vanilla_Gamer(abs_infosets, nodes)
 monkey.train(T)
 monkey.print_output(game, infosets)
-=======
-monkey = Vanilla_Gamer(abs_infosets, nodes)
-monkey.train(T)
-monkey.print_output(game, infosets)
-print(monkey.strategies)
-''''
->>>>>>> 2c0f8f01e50aac84e5b7760a1e0c5bc32008684b
-
-for i in range(len(monkey.strategies)):
-    print(monkey.strategies[i])
-hopper = MC_Gamer(abs_infosets, nodes)
-print(hopper.infosets.Payoff_P1)
-
+#print(monkey.strategies)
 '''
+method = 'montecarlo'
+cricket = MC_Gamer(abs_infosets, nodes)
+cricket.sample_actions(100, 2)
+cricket.tree_drop(proxy = True)
+cricket.get_terminals()
+'''
+
 
 
 ## Tree rendering

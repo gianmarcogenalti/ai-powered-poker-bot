@@ -17,11 +17,12 @@ class Gamer() :
         self.nodes = nodes
         self.t = 0
         self.strategies = init_probabilities(self.infosets)[0]
-        self.cumulative_regret = init_probabilities(self.infosets)[1] ##PLUS
+        self.cumulative_regret = init_probabilities(self.infosets)[1]
+        self.cumulative_regret_plus = init_probabilities(self.infosets)[1]
 
     def regret_matching(self, info_index) :
         new_strats = []
-        sum_regret = sum(self.cumulative_regret[info_index])
+        sum_regret = sum(self.cumulative_regret_plus[info_index])
         n_actions = len(self.cumulative_regret[info_index])
         if sum_regret == 0:
             for i in range(n_actions - 1):
@@ -29,12 +30,14 @@ class Gamer() :
             self.strategies[info_index][n_actions -1] = 1 - sum(self.strategies[info_index][:(n_actions-1)])
         else:
             for i in range(n_actions):
-                self.strategies[info_index][i] = self.cumulative_regret[info_index][i]/sum_regret
+                self.strategies[info_index][i] = self.cumulative_regret_plus[info_index][i]/sum_regret
 
     def update_strategies(self, info_index, regrets) :
 
         for act in range(len(self.cumulative_regret[info_index])):
-            self.cumulative_regret[info_index][act] = max(self.cumulative_regret[info_index][act] + regrets[act], 0)
+            self.cumulative_regret[info_index][act] +=  regrets[act]
+            self.cumulative_regret_plus[info_index][act] = max(self.cumulative_regret[info_index][act], 0)
+        #print(self.cumulative_regret[info_index], self.cumulative_regret_plus[info_index])
         self.regret_matching(info_index)
 
 
