@@ -1,8 +1,5 @@
 
 
-
-
-
 class CounterfactualRegretMinimizationBase:
 
     def __init__(self, chance_sampling = False, nodes):
@@ -57,42 +54,42 @@ class CounterfactualRegretMinimizationBase:
 
     def _cfr_utility_recursive(self, state, reach_a, reach_b):
         children_states_utilities = {}
-        if state.is_terminal():
+        if self.nodes.Type[node]=="L":
             # evaluate terminal node according to the game result
-            return state.evaluation()
-        if state.is_chance():
+            return self.nodes.Payoff_P1[node]
+        if self.nodes.Type[node]=="C":
             if self.chance_sampling:
                 # if node is a chance node, lets sample one child node and proceed normally
                 return self._cfr_utility_recursive(state.sample_one(), reach_a, reach_b)
             else:
-                chance_outcomes = {state.play(action) for action in state.actions}
-                return state.chance_prob() * sum([self._cfr_utility_recursive(outcome, reach_a, reach_b) for outcome in chance_outcomes])
+                chance_outcomes = {self.nodes.index[ds] for ds in self.nodes.Direct_Sons[node]}
+                return self.nodes.Actions_Prob[node]* sum([self._cfr_utility_recursive(outcome, reach_a, reach_b) for outcome in chance_outcomes])
         # sum up all utilities for playing actions in our game state
         value = 0.
-        for action in state.actions:
-            child_reach_a = reach_a * (self.sigma[state.inf_set()][action] if state.to_move == A else 1)
+        for idaction in range(len(self.nodes.Actions[node])):
+            child_reach_a = reach_a * (self.sigma[self.nodes.Map[node]][idaction] if self.nodes.Player[node] == 1 else 1)
             child_reach_b = reach_b * (self.sigma[state.inf_set()][action] if state.to_move == -A else 1)
             # value as if child state implied by chosen action was a game tree root
-            child_state_utility = self._cfr_utility_recursive(state.play(action), child_reach_a, child_reach_b)
+            child_state_utility = self._cfr_utility_recursive(self.nodes.Direct_Sons[node][idaction], child_reach_a, child_reach_b)
             # value computation for current node
-            value +=  self.sigma[state.inf_set()][action] * child_state_utility
+            value +=  self.sigma[self.nodes.Map[node]][idaction] * child_state_utility
             # values for chosen actions (child nodes) are kept here
-            children_states_utilities[action] = child_state_utility
+            children_states_utilities[idaction] = child_state_utility
 
         # we are computing regrets for both players simultaneously, therefore we need to relate reach,reach_opponent to the player acting
         # in current node, for player A, it is different than for player B
-        (cfr_reach, reach) = (reach_b, reach_a) if state.to_move == A else (reach_a, reach_b)
+        (cfr_reach, reach) = (reach_b, reach_a) if self.nodes.Player[node] == 1 else (reach_a, reach_b)
 
-        for action in state.actions:
+        for idaction in range(len(self.nodes.Actions[node])):
             # we multiply regret by -1 for player B, this is because value is computed from player A perspective
             # again we need that perspective switch
-            action_cfr_regret = state.to_move * cfr_reach * (children_states_utilities[action] - value)
-            self._cumulate_cfr_regret(state.inf_set(), action, action_cfr_regret)
-            self._cumulate_sigma(state.inf_set(), action, reach * self.sigma[state.inf_set()][action])
+            action_cfr_regret = self.Player[node] * cfr_reach * (children_states_utilities[idaction] - value)
+            self._cumulate_cfr_regret(self.nodes.Map[node], idaction, action_cfr_regret)
+            self._cumulate_sigma(self.nodes.Map[node], idaction, reach * self.sigma[self.nodes.Map[node]][idaction])
         if self.chance_sampling:
             # update sigma according to cumulative regrets - we can do it here because we are using chance sampling
             # and so we only visit single game_state from an information set (chance is sampled once)
-            self._update_sigma(state.inf_set())
+            self._update_sigma(self.nodes.Map[node])
         return value
 
 
