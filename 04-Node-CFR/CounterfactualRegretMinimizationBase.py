@@ -68,7 +68,7 @@ class CounterfactualRegretMinimizationBase:
         value = 0.
         for idaction in range(len(self.nodes.Actions[node])):
             child_reach_a = reach_a * (self.sigma[self.nodes.Map[node]][idaction] if self.nodes.Player[node] == 1 else 1)
-            child_reach_b = reach_b * (self.sigma[state.inf_set()][action] if state.to_move == -A else 1)
+            child_reach_a = reach_a * (self.sigma[self.nodes.Map[node]][idaction] if self.nodes.Player[node] == 2 else 1)
             # value as if child state implied by chosen action was a game tree root
             child_state_utility = self._cfr_utility_recursive(self.nodes.Direct_Sons[node][idaction], child_reach_a, child_reach_b)
             # value computation for current node
@@ -96,20 +96,11 @@ class CounterfactualRegretMinimizationBase:
 
     def __value_of_the_game_state_recursive(self, node):
         value = 0.
-        if node.is_terminal():
-            return node.evaluation()
-        for action in node.actions:
-            value +=  self.nash_equilibrium[node.inf_set()][action] * self.__value_of_the_game_state_recursive(node.play(action))
+        if self.nodes.Type[node]=="L":
+            return   self.nodes.Payoff_P1[node]
+        for idaction in range(len(self.nodes.Actions[node])):
+            value +=  self.nash_equilibrium[self.nodes.Map[node]][idaction] * self.__value_of_the_game_state_recursive(self.nodes.Direct_Sons[node][idaction])
         return value
 
 
-
-
-    def __value_of_the_game_state_recursive(self, node):
-        value = 0.
-        if node.is_terminal():
-            return node.evaluation()
-        for action in node.actions:
-            value +=  self.nash_equilibrium[node.inf_set()][action] * self.__value_of_the_game_state_recursive(node.play(action))
-        return value
 
