@@ -1,15 +1,14 @@
 
 
 class CounterfactualRegretMinimizationBase:
-
-    def __init__(self, chance_sampling = False, nodes):
-        self.root = nodes.index[-1]
-        self.sigma = init_sigma(root)
+    def __init__(self, chance_sampling = False, nodes, abs_infosets):
+        self.root               = nodes.index[-1]
+        self.sigma              = init_sigma(root)
         self.cumulative_regrets = init_empty_node_maps(root)
-        self.cumulative_sigma = init_empty_node_maps(root)
-        self.nash_equilibrium = init_empty_node_maps(root)
-        self.chance_sampling = chance_sampling
-        self.nodes=nodes
+        self.cumulative_sigma   = init_empty_node_maps(root)
+        self.nash_equilibrium   = init_empty_node_maps(root)
+        self.chance_sampling    = chance_sampling
+        self.nodes              = nodes
 
     def _update_sigma(self, i):
         rgrt_sum = sum(filter(lambda x : x > 0, self.cumulative_regrets[i].values()))
@@ -112,4 +111,3 @@ class CounterfactualRegretMinimizationBase:
         for action in node.actions:
             value +=  self.nash_equilibrium[node.inf_set()][action] * self.__value_of_the_game_state_recursive(node.play(action))
         return value
-

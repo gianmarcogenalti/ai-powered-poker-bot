@@ -24,7 +24,10 @@ def game_choice():
     print("Digit the number correspondent of the game you'd like to play!\n")
     j = True
     while j:
-        id = int(input(''))
+        try:
+            id = int(input(''))
+        except:
+            id = 'alo'
         try:
             infosets = loadinfosets(avgames[id][:-13])
             nodes = loadnodes(avgames[id][:-13])
@@ -34,7 +37,7 @@ def game_choice():
             print("Choice not valid! Try again.\n")
     print("Perfect, we will play %s! \n" % avgames[id][6:-13])
     rules(id)
-    return nodes,infosets,avgames[j][6:-13]
+    return nodes,infosets,avgames[id][6:-13]
 
 def play_again():
     print("Wanna play another game with me? y/n \n")
@@ -96,7 +99,10 @@ def explore_tree(nodes,infosets,gamehist,infohist, player, cpu_player, cpu_card)
                 print("%d) %s\n" % (i, actions[i]))
             isok = True
             while isok:
-                move = int(input(''))
+                try:
+                    move = int(input(''))
+                except:
+                    move = 'not'
                 try:
                     print("You have chosen %s!\n" % actions[move])
                     isok = False

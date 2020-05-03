@@ -9,14 +9,14 @@ from conditions import *
 # Merges the infosets according to the specified mergeGroup
 def mergeInfosets(infosets,mergeGroup,mergeGroupPay) :
     newinfosets = pd.DataFrame()
-    
+
     #preallocates
     pdkeys = ['MapPh1','Map','History_Structure','Depth','Payoff','Player','Actions','Probability','Real_Parents']
     for pdkey in pdkeys :
         newinfosets[pdkey] = [[] for i in range(len(mergeGroup))]
-        
+
     infosets['Map'] = infosets['MapPh1']
-    
+
     # Transfers information
     for img in range(len(mergeGroup)) :
         newinfosets['MapPh1'][img] = mergeGroup[img]
@@ -27,16 +27,16 @@ def mergeInfosets(infosets,mergeGroup,mergeGroupPay) :
         newinfosets['Player'][img] = infosets['Player'].loc[mergeGroup[img][0]]
         newinfosets['Actions'][img] = infosets['Actions'].loc[mergeGroup[img][0]]
         newinfosets['Probability'][img] = sum(infosets['Probability'].loc[mergeGroup[img]])
-    
+
     # Updates final map
     if infosets['Map'][0] != [] :
         for maprow in range(len(newinfosets['MapPh1'])) :
             for maprowel in newinfosets['MapPh1'][maprow] :
                 newinfosets['Map'][maprow] += infosets['Map'][maprowel]
-    
+
     # Updates payoffs
     newinfosets['Payoff'] = mergeGroupPay
-    
+
     # Updates Sons
     for img in range(len(mergeGroup)) :
         for imgi in mergeGroup[img] :
@@ -45,7 +45,7 @@ def mergeInfosets(infosets,mergeGroup,mergeGroupPay) :
                 parnmg = infosets['MapPh1'][pari]
                 if not parnmg in newinfosets['Real_Parents'][img] :
                     newinfosets['Real_Parents'][img].append(parnmg)
-        
+
     return newinfosets
 
 def payoffAverage(toMerge,infosets) :
@@ -65,7 +65,7 @@ def payoffAverage(toMerge,infosets) :
 
 # Calls kmeans algorithm
 def kmeanscall(toMerge,infosets) :
-    k = round(math.sqrt(len(toMerge))) # k in kmeans
+    k = round(len(toMerge)**(3/4)) # k in kmeans
     pv = list()
     [pv.append(infosets['Payoff'][mg]) for mg in toMerge]
     mg = np.array(pv)
@@ -83,11 +83,11 @@ def kmeanscall(toMerge,infosets) :
 
 # Merges infosets into clusters
 def cluster(infosets, infoloss) :
-    
+
     # List of lists: inner lists are to be merged together
     mergeGroup = []
     mergeGroupPay = []
-    
+
     # Updates the mergeGroup with the indexes at idxinfo (at same depth)
     def updateMergeGroup(idxinfo,mergeGroup,mergeGroupPay) :
         while idxinfo != [] :
@@ -100,7 +100,7 @@ def cluster(infosets, infoloss) :
                     if infoloss or samepayoff(infosets['Payoff'][idxstart], infosets['Payoff'][idxcheck]):
                         toMerge.append(idxcheck)
             for tm in toMerge :
-                idxinfo.remove(tm) # removes the mergeGroup from the list of indexes 
+                idxinfo.remove(tm) # removes the mergeGroup from the list of indexes
             toMerge.append(idxstart)
             if not infoloss :
                 mergeGroup.append(toMerge) # updates
@@ -114,11 +114,10 @@ def cluster(infosets, infoloss) :
                         mergeGroup.append(cg)
                         mergeGroupPay.append(cp)
         return mergeGroup, mergeGroupPay
-    
+
     # The groups that are to be merged are saved in mergeGroup
     for depth in range(1,max(infosets['Depth']) + 1):
         mergeGroup, mergeGroupPay = updateMergeGroup(list(infosets.index[infosets['Depth'] == depth]), mergeGroup,mergeGroupPay)
-    
+
     # Then we get a new dataframe of merged infosets
     return mergeInfosets(infosets,mergeGroup,mergeGroupPay)
-    
