@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+=======
+# -*- coding: utf-8 -*-
+"""
+Created on Sun May  3 17:12:04 2020
+
+@author: Francesco
+"""
+>>>>>>> 14076f81137543af7c6236dee3a7b89282127e9a
 
 class VanillaCFR(CounterfactualRegretMinimizationBase):
     def __init__(self, root):
