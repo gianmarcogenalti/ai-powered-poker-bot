@@ -84,11 +84,6 @@ class MC_Gamer(Gamer):
                             self.cfutilities[icurinfo].append(self.infosets.Payoff_P1[icurinfo][idslist] * sign)
                             if (icurinfo not in terminals) and depth in player_depths:
                                 terminals.append(icurinfo)
-                            for d in range(len(dads[icurinfo])):
-                                print(d)
-                                print(dad_actions[icurinfo][d])
-                                self.utilities[dads[icurinfo][d]] += dad_probs[icurinfo][d] * self.utilities[icurinfo] * sign
-                                self.cfutilities[dads[icurinfo][d]][dad_actions[icurinfo][d]] += self.utilities[icurinfo]*sign
                         else:
                             self.cfutilities[icurinfo].append(0)
                             for idson in range(len(dslist)) : # select one son infoset
@@ -119,30 +114,30 @@ class MC_Gamer(Gamer):
         self.cfutilities = [[] for _ in range(len(self.infosets.index))]
         #payoffsums = [0.0 for _ in range(len(self.infosets.index))]
         sign = 1 if player == 1 else -1
-        #dpt_player = self.infosets.Depth[self.infosets.Player == player]
+        player_indices = self.infosets.index[self.infosets.Player == player]
         for dpt in reversed(range(1, max(self.infosets.Depth) + 1)):
             if dpt == 1:
                 dpt_indices = [self.root]
             else:
                 dpt_indices = self.infosets.index[self.infosets.Depth == dpt]
             for index in dpt_indices:
-                    self.utilities[index] = 0.0
-                    for idlist in range(len(self.infosets.Direct_Sons[index])):
-                        dslist = self.infosets.Direct_Sons[index][idlist]
-                        if len(dslist) == 0:
-                            payoffsums[index] += self.infosets.Payoff_P1[index][idlist] * self.strategies[index][idlist]
-                            #self.utilities[index] += self.Probability_Opp[index]*self.strategies[index][idlist]*sign*self.infosets.Payoff_P1[index][idlist]
-                            if iteration:
-                                self.cfutilities[index].append(self.Probability_Opp[index]*sign*self.infosets.Payoff_P1[index][idlist])
-                        else:
-                            if iteration:
-                                self.cfutilities[index].append(0)
-                            for idson in range(len(dslist)):
-                                ds = dslist[idson]
-                                payoffsums[index] += payoffsums[ds] * self.strategies[index][idlist] * self.infosets.Nature_Weight[index][idlist][idson]
+                self.utilities[index] = 0.0
+                for idlist in range(len(self.infosets.Direct_Sons[index])):
+                    dslist = self.infosets.Direct_Sons[index][idlist]
+                    if len(dslist) == 0:
+                        if index in player_indices:
+                            self.utilities[index] += self.infosets.Payoff_P1[index][idlist] * self.proxy[index][idlist]
+                        elif self.proxy[index][idlist] > 0.:
+                            self.utilities[index] += self.infosets.Payoff_P1[index][idlist]
+                        #self.utilities[index] += self.Probability_Opp[index]*self.strategies[index][idlist]*sign*self.infosets.Payoff_P1[index][idlist]
+                        self.cfutilities[index].append(self.Probability_Opp[index]*sign*self.infosets.Payoff_P1[index][idlist])
+                    else:
+                        self.cfutilities[index].append(0)
+                        for idson in range(len(dslist)):
+                            ds = dslist[idson]
+                            payoffsums[index] += payoffsums[ds] * self.strategies[index][idlist] * self.infosets.Nature_Weight[index][idlist][idson]
                                 #self.utilities[index] += self.Probability_Opp[index]*self.strategies[index][idlist]*sign*payoffsums[ds]
-                                if iteration:
-                                    self.cfutilities[index][idlist] += self.Probability_Opp[index]*sign*payoffsums[ds]
+                            self.cfutilities[index][idlist] += self.Probability_Opp[index]*sign*payoffsums[ds]
                     #print(self.infosets.History[index],self.utilities[index], self.strategies[index],self.cfutilities[index],"\n")
                     if iteration:
                         self.utilities[index] = payoffsums[index]*self.Probability_Opp[index]*sign
