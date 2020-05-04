@@ -178,8 +178,20 @@ def save_log(gamehist, infohist, esit, name, game):
     logs.close()
 
 def simulate_matches():
-    nodes, info1, info2, n = oppo_choose()
-    print(n)
+    nodes, info1, info2, n, cards = oppo_choose()
+    cum_P1 = 0.
+    #now = datetime.now()
+    #dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+    #logs = open("head2head.txt","a")
+    for i in range(2*n):
+        esitP1, gamehist1, gamehist2 = play_against(nodes, info1, info2, cards)
+        #line = dt_string + ", player = " +  name + ", game = " + game + ", cpu_infoset = " + infohist + ", actual game = " + gamehist + ", cpu_esit = " + str(esit)
+        cum_P1 += esitP1
+    #logs.write(line + "\n")
+    #logs.close()
+    return cum_P1
+
+
 
 
 def oppo_choose():
@@ -190,7 +202,61 @@ def oppo_choose():
         print("They play different games!\n")
         nodes2, infosets2, name2 = game_choice(play = False)
     print("How many matches should they play? (they will play 2*n singles)\n")
-    n = round(float(input('')))
+    n = int(input(''))
+    last = len(nodes1.index) - 1
+    cards = ['9', 'T', 'J', 'Q', 'K', '9', 'T', 'J', 'Q', 'K']
+    m = 2*n
+    print("Ok, they will play against %d times!\n" % m)
+    return nodes1, infosets1, infosets2, n, cards
 
-    print("Ok, they will play against %d times!\n" % 2*n)
-    return nodes1, infosets1, infosets2, n
+def play_against(nodes, info1, info2, cards):
+    gamehist = give_cards(cards)
+    esit1, gamehist1 = machine_plays(nodes, info1, info2, gamehist)
+    esit2, gamehist2 = machine_plays(nodes, info2, info1, gamehist)
+    esitP1 = esit1 - esit2
+    return esitP1, gamehist1, gamehist2
+
+def give_cards(cards):
+    card1 = random.choice(cards)
+    card2 = random.choice(cards)
+    gamehist = "/C:"+ card1 + card2
+    #infohist1 = "/"+ card1 +"?"
+    #infohist2 = "/?"+ card2
+    return gamehist #infohist1, infohist2
+
+def machine_plays(nodes, infosets1, infosets2, gamehist):
+    for index,row in nodes[nodes.History == gamehist].iterrows():
+        type = row['Type']
+        pl = int(row.Player)
+        actions = row.Actions
+        probs = row.Actions_Prob
+        infos = row.Map
+    while type != 'L':
+        if pl == 1:
+            #print(infosets2.Actions[infos])
+            move1 = np.random.choice(infosets1.Actions[infos], p = infosets1.Actions_Prob[infos])
+            #print(move)
+            gamehist = gamehist + "/P{}:{}".format(pl, move1)
+            #infohist = infohist + "/P{}:{}".format(pl, move)
+        if pl == 2:
+            #print(infosets2.Actions[infos])
+            move2 = np.random.choice(infosets2.Actions[infos], p = infosets2.Actions_Prob[infos])
+            #print(move)
+            gamehist = gamehist + "/P{}:{}".format(pl, move2)
+
+            #infohist = infohist + "/P{}:{}".format(pl, move)
+        if type == 'C':
+            movec = np.random.choice(actions, p = probs)
+            gamehist = gamehist + "/C:" + movec
+            #infohist = infohist + "/C:" + move
+
+        for index,row in nodes[nodes.History == gamehist].iterrows():
+            type = row['Type']
+            pl = int(row.Player)
+            actions = row.Actions
+            probs = row.Actions_Prob
+            infos = row.Map
+            po1 = row.Payoff_Vector_P1[0]
+        #
+        #print(type)
+    return po1, gamehist
