@@ -16,3 +16,9 @@
 01/05/2020 14:28:50, player = gianmarco, game = leduc3, cpu_infoset = /Q?/P1:raise2/P2:raise2/P1:f, actual game = /C:QK/P1:raise2/P2:raise2/P1:f, cpu_esit = -3.0
 01/05/2020 14:29:05, player = gianmarco, game = leduc3, cpu_infoset = /?J/P1:raise2/P2:raise2/P1:c/C:T/P1:c/P2:c, actual game = /C:JJ/P1:raise2/P2:raise2/P1:c/C:T/P1:c/P2:c, cpu_esit = -0.0
 01/05/2020 14:29:16, player = gianmarco, game = leduc3, cpu_infoset = /Q?/P1:raise2/P2:raise2/P1:f, actual game = /C:QQ/P1:raise2/P2:raise2/P1:f, cpu_esit = -3.0
+04/05/2020 14:01:35, player = gianmarco, game = leduc5, cpu_infoset = /?J/P1:raise2/P2:raise2/P1:c/C:9/P1:c/P2:c, actual game = /C:KJ/P1:raise2/P2:raise2/P1:c/C:9/P1:c/P2:c, cpu_esit = -5.0
+04/05/2020 14:17:58, player = gianmarco, game = leduc3, cpu_infoset = /?J/P1:raise2/P2:raise2/P1:c/C:Q/P1:c/P2:c, actual game = /C:KJ/P1:raise2/P2:raise2/P1:c/C:Q/P1:c/P2:c, cpu_esit = -5.0
+04/05/2020 14:18:06, player = gianmarco, game = vanilla_nash_leduc5, cpu_infoset = /?K/P1:raise2/P2:f, actual game = /C:JK/P1:raise2/P2:f, cpu_esit = -1.0
+04/05/2020 14:22:38, player = gianmarco, game = public_chance_sigma_leduc5, cpu_infoset = /?J/P1:raise2/P2:raise2/P1:c/C:T/P1:c/P2:raise4/P1:c, actual game = /C:QJ/P1:raise2/P2:raise2/P1:c/C:T/P1:c/P2:raise4/P1:c, cpu_esit = -9.0
+04/05/2020 14:22:58, player = gianmarco, game = public_chance_nash_leduc5, cpu_infoset = /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c/P2:raise4/P1:raise4/P2:c, actual game = /C:KQ/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c/P2:raise4/P1:raise4/P2:c, cpu_esit = 13.0
+04/05/2020 14:24:05, player = gianmarco, game = leduc5, cpu_infoset = /?Q/P1:c/P2:raise2/P1:f, actual game = /C:JQ/P1:c/P2:raise2/P1:f, cpu_esit = 1.0

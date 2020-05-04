@@ -1,35 +1,32 @@
-<<<<<<< HEAD
-=======
-# -*- coding: utf-8 -*-
-"""
-Created on Sun May  3 17:12:04 2020
-
-@author: Francesco
-"""
->>>>>>> 14076f81137543af7c6236dee3a7b89282127e9a
+from CounterfactualRegretMinimizationBase import *
+import time
 
 class VanillaCFR(CounterfactualRegretMinimizationBase):
-    def __init__(self, root):
-        super().__init__(root = root, chance_sampling = False)
+    def __init__(self, nodes):
+        super().__init__(nodes, chance_sampling = False)
 
 
 
     def run(self, iterations = 1):
+        t0 = time.time()
         for _ in range(0, iterations):
+            print("Iteration %d" % _)
             self._cfr_utility_recursive(self.root, 1, 1)
             # since we do not update sigmas in each information set while traversing, we need to
             # traverse the tree to perform to update it now
             self.__update_sigma_recursively(self.root)
+        print("Execution time: %d" % (time.time() - t0))
+
 
 
 
     def __update_sigma_recursively(self, node):
         # stop traversal at terminal node
-        if node.is_terminal():
+        if self.nodes.Type[node] == 'L':
             return
         # omit chance
-        if not node.is_chance():
-            self._update_sigma(node.inf_set())
+        if not self.nodes.Type[node] == 'C':
+            self._update_sigma(self.nodes.Abs_Map[node])
         # go to subtrees
-        for k in node.children:
-            self.__update_sigma_recursively(node.children[k])
+        for ds in self.nodes.Direct_Sons[node]:
+            self.__update_sigma_recursively(ds)

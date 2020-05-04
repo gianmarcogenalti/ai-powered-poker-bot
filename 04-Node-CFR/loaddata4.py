@@ -3,7 +3,7 @@ import numpy as np
 import time
 import re
 
-folderpath = ""
+folderpath = "..\\Import-files\\"
 
 # Converts string of array data ("[1.0, 2.0, 3.0]") to the specified array format
 def makeArray(text,targetType):
@@ -128,17 +128,17 @@ def loadabstract(game):
 
     # Builds the real df of infosets
     infosets = pd.DataFrame()
-    infosets['MapPh1']                  = makeArray(rawinfosets['MapPh1'], "int")
+    #infosets['MapPh1']                  = makeArray(rawinfosets['MapPh1'], "int")
     infosets['Map']                     = makeArray(rawinfosets['Map'], "int")
-    infosets['History_Structure']       = rawinfosets['History_Structure']
-    infosets['Depth']                   = rawinfosets['Depth']
-    infosets['Payoff']                  = makeArray(rawinfosets['Payoff'], "float")
-    infosets['Player']                  = rawinfosets['Player']
-    infosets['Actions']                 = makeArray(rawinfosets['Actions'], "string")
-    infosets['Probability']             = rawinfosets['Probability']
-    infosets['Real_Parents']            = makeArray(rawinfosets['Real_Parents'],"int")
-    infosets['History']                 = rawinfosets['History']
-    infosets['All_Histories']           = makeArray(rawinfosets['All_Histories'], "string")
+    #infosets['History_Structure']       = rawinfosets['History_Structure']
+    #infosets['Depth']                   = rawinfosets['Depth']
+    #infosets['Payoff']                  = makeArray(rawinfosets['Payoff'], "float")
+    #infosets['Player']                  = rawinfosets['Player']
+    #infosets['Actions']                 = makeArray(rawinfosets['Actions'], "string")
+    #infosets['Probability']             = rawinfosets['Probability']
+    #infosets['Real_Parents']            = makeArray(rawinfosets['Real_Parents'],"int")
+    #infosets['History']                 = rawinfosets['History']
+    #infosets['All_Histories']           = makeArray(rawinfosets['All_Histories'], "string")
 
 
     return infosets
@@ -159,27 +159,27 @@ def loadinfosets(game):
                      'Direct_Parents':str,
                      'Actions':str,
                      'Payoff_Vector_P1':str,
-                     'Probability':float,
-                     'Actions_Prob': str}
+                     'Probability':float }
 
     # Loads the dataframes
-    print(game)
     rawinfosets = pd.read_csv(folderpath + game + "_infosets.csv", dtype = datastructure)
 
     # Builds the real df of infosets
     infosets = pd.DataFrame()
     infosets['History'] = rawinfosets['History']
+    infosets['History_Structure'] = createstringflag(rawinfosets['History'])
+    infosets['Depth'] = rawinfosets['Depth']
+    infosets['Payoff'] = makeArray(rawinfosets['Payoff_Vector_P1'],"float")
     infosets['Player'] = rawinfosets['Player']
+    infosets['Real_Parents'] = makeArray(rawinfosets['Direct_Parents'],"int")
     infosets['Actions'] = makeArray(rawinfosets['Actions'],"string")
-    infosets['Actions_Prob'] = makeArray(rawinfosets['Actions_Prob'], "float")
+    infosets['Probability'] = rawinfosets['Probability']
+    infosets['Index_Members'] = makeArray(rawinfosets['Index_Members'], "int")
 
     return infosets
 
 def loadnodes(game):
-    if "leduc5" in game:
-        game = "leduc5"
-    if "leduc3" in game:
-        game = "leduc3"
+
     global folderpath
     # Defines the data structure of the csv from parsing
     datastructure = {'History':str,
@@ -199,7 +199,7 @@ def loadnodes(game):
                     }
 
     # Loads the dataframes
-    rawnodes = pd.read_csv(folderpath + "Games\\" + game + "_nodes.csv", dtype = datastructure)
+    rawnodes = pd.read_csv(folderpath + game + "_nodes.csv", dtype = datastructure)
 
     # Builds the real df of nodes
     nodes = pd.DataFrame()
@@ -207,7 +207,7 @@ def loadnodes(game):
     nodes['Type'] = rawnodes['Type']
     nodes['Actions'] = makeArray2(rawnodes['Actions'], "string")
     nodes['Actions_Prob'] = makeArray2(rawnodes['Actions_Prob'], "float")
-    nodes['Payoff'] = rawnodes['Payoff_P1']
+    nodes['Payoff'] = makeArray2(rawnodes['Payoff_Vector_P1'],"float")
     nodes['Player'] = rawnodes['Player']
     nodes['Depth'] = rawnodes['Depth']
     nodes['Map'] = rawnodes['Map']

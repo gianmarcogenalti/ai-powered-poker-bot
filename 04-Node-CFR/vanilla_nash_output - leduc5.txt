@@ -1,0 +1,780 @@
+infoset /9?/P1:c/P2:c/C:K/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /K?/P1:c/P2:c/C:Q nash_equilibriums raise4=0.5 c=0.5
+infoset /K?/P1:c/P2:c/C:Q/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /K?/P1:c/P2:c/C:T nash_equilibriums raise4=0.5 c=0.5
+infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /K?/P1:c/P2:c/C:K nash_equilibriums raise4=0.5 c=0.5
+infoset /K?/P1:c/P2:c/C:J nash_equilibriums raise4=0.5 c=0.5
+infoset /T?/P1:c/P2:c/C:Q/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /9?/P1:raise2/P2:raise2/P1:c/C:9/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /9?/P1:c/P2:c/C:9 nash_equilibriums raise4=0.5 c=0.5
+infoset /K?/P1:raise2/P2:raise2/P1:c/C:K/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /Q?/P1:raise2/P2:raise2/P1:c/C:K/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /9?/P1:raise2/P2:c/C:J/P1:c/P2:raise4 nash_equilibriums raise4=0.9926484018264841 c=0.0033333333333333322 f=0.004018264840182645
+infoset /K?/P1:raise2/P2:raise2/P1:c/C:9 nash_equilibriums raise4=0.5 c=0.5
+infoset /9?/P1:c/P2:c/C:J/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /J?/P1:c/P2:raise2/P1:c/C:Q/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /Q?/P1:raise2/P2:raise2/P1:c/C:Q/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /9?/P1:c/P2:c/C:T nash_equilibriums raise4=0.5 c=0.5
+infoset /K?/P1:raise2/P2:raise2/P1:c/C:K nash_equilibriums raise4=0.5 c=0.5
+infoset /K?/P1:raise2/P2:raise2/P1:c/C:J nash_equilibriums raise4=0.5 c=0.5
+infoset /T?/P1:c/P2:c/C:9/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:c/P2:raise2/P1:c/C:K/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /K?/P1:raise2/P2:raise2/P1:c/C:Q nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:c/P2:c/C:T/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /K?/P1:raise2/P2:raise2/P1:c/C:T nash_equilibriums raise4=0.5 c=0.5
+infoset /9?/P1:c/P2:c/C:K nash_equilibriums raise4=0.5 c=0.5
+infoset /9?/P1:c/P2:c/C:J nash_equilibriums raise4=0.5 c=0.5
+infoset /Q?/P1:c/P2:c/C:K/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:raise2/P2:c/C:Q/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /Q?/P1:raise2/P2:c/C:Q nash_equilibriums raise4=0.5 c=0.5
+infoset /9?/P1:c/P2:c/C:J/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:c/P2:c/C:J/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /Q?/P1:c/P2:raise2/P1:c/C:J/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /9?/P1:c/P2:c/C:Q/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /T?/P1:c/P2:c/C:J nash_equilibriums raise4=0.5 c=0.5
+infoset /T?/P1:c/P2:c/C:K nash_equilibriums raise4=0.5 c=0.5
+infoset /T?/P1:c/P2:c/C:Q nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:c/P2:raise2/P1:c/C:Q/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /T?/P1:c/P2:c/C:T nash_equilibriums raise4=0.5 c=0.5
+infoset /T?/P1:raise2/P2:raise2/P1:c/C:J/P1:c/P2:raise4 nash_equilibriums raise4=0.9933333333333333 c=0.0033333333333333353 f=0.0033333333333333353
+infoset /K?/P1:raise2/P2:raise2/P1:c/C:J/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:T/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /J?/P1:raise2/P2:c/C:J/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /J?/P1:c/P2:c/C:Q/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /K?/P1:c/P2:raise2/P1:c/C:T/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /T?/P1:c/P2:raise2/P1:c/C:J/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /9?/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c/P2:raise4 nash_equilibriums raise4=0.9933333333333333 c=0.0033333333333333353 f=0.0033333333333333353
+infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:c/P2:c/C:K/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /K?/P1:c/P2:raise2/P1:c/C:9/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /K?/P1:raise2/P2:c/C:Q/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /T?/P1:c/P2:c/C:T/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /9?/P1:raise2/P2:raise2/P1:c/C:T/P1:c/P2:raise4 nash_equilibriums raise4=0.9933333333333333 c=0.0033333333333333353 f=0.0033333333333333353
+infoset /9?/P1:c/P2:c/C:T/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /T?/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c/P2:raise4 nash_equilibriums raise4=0.9933333333333333 c=0.0033333333333333353 f=0.0033333333333333353
+infoset /Q?/P1:c/P2:raise2/P1:c/C:9/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /T?/P1:c/P2:raise2/P1:c/C:T/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /K?/P1:c/P2:raise2/P1:c/C:K/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /9?/P1:raise2/P2:c/C:9/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /K?/P1:c/P2:c/C:K/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /J?/P1:c/P2:raise2/P1:c/C:9/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /J?/P1:raise2/P2:raise2 nash_equilibriums c=0.5 f=0.5
+infoset /T?/P1:raise2/P2:raise2 nash_equilibriums c=0.995 f=0.005
+infoset /T? nash_equilibriums raise2=0.5 c=0.5
+infoset /K?/P1:c/P2:c/C:J/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /K?/P1:c/P2:c/C:J/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /K?/P1:raise2/P2:c/C:9/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:raise2/P2:raise2/P1:c/C:T/P1:c/P2:raise4 nash_equilibriums raise4=0.9933333333333333 c=0.0033333333333333353 f=0.0033333333333333353
+infoset /T?/P1:c/P2:raise2/P1:c/C:9/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /Q?/P1:c/P2:c/C:J/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /Q?/P1:raise2/P2:c/C:Q/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /9?/P1:c/P2:c/C:Q nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:K nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:J nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:T nash_equilibriums raise4=0.016925919040758436 c=0.9830740809592415
+infoset /9?/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:raise4/P2:raise4 nash_equilibriums c=0.995 f=0.005
+infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:c/P2:c/C:Q/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:raise2/P2:c/C:J/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /K?/P1:c/P2:raise2/P1:c/C:T/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:raise2/P2:raise2/P1:c/C:Q/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /J?/P1:raise2/P2:c/C:9 nash_equilibriums raise4=0.5 c=0.5
+infoset /T?/P1:c/P2:raise2/P1:c/C:9/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /Q?/P1:raise2/P2:c/C:J/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /K?/P1:c/P2:raise2/P1:c/C:9 nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:c/P2:c/C:9 nash_equilibriums raise4=0.5 c=0.5
+infoset /9?/P1:raise2/P2:raise2/P1:c/C:J/P1:raise4/P2:raise4 nash_equilibriums c=0.005 f=0.995
+infoset /K?/P1:c/P2:raise2/P1:c/C:J nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:raise2/P2:c/C:Q nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:c/P2:c/C:J nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:c/P2:c/C:K nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:raise2/P2:c/C:T nash_equilibriums raise4=0.005 c=0.995
+infoset /J?/P1:raise2/P2:c/C:J nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:raise2/P2:c/C:K nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:c/P2:c/C:T nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:c/P2:raise2/P1:c/C:J/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:c/P2:c/C:Q nash_equilibriums raise4=0.5 c=0.5
+infoset /K?/P1:c/P2:raise2/P1:c/C:Q nash_equilibriums raise4=0.5 c=0.5
+infoset /T?/P1:raise2/P2:c/C:T/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /Q?/P1:raise2/P2:raise2/P1:c/C:9/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /K?/P1:c/P2:raise2/P1:c/C:T nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:raise2/P2:raise2/P1:c/C:9/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /T?/P1:c/P2:c/C:T/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /T?/P1:raise2/P2:raise2/P1:c/C:Q/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:9 nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:raise2/P2:raise2/P1:c/C:J nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:raise2/P2:raise2/P1:c/C:K nash_equilibriums raise4=0.5 c=0.5
+infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:T/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /K?/P1:c/P2:raise2/P1:c/C:Q/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:raise2/P2:raise2/P1:c/C:Q nash_equilibriums raise4=0.5 c=0.5
+infoset /9?/P1:raise2/P2:c/C:9 nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:raise2/P2:raise2/P1:c/C:T nash_equilibriums raise4=0.021986254295532602 c=0.9780137457044673
+infoset /9?/P1:raise2/P2:c/C:T/P1:c/P2:raise4 nash_equilibriums raise4=0.9926484018264841 c=0.0033333333333333322 f=0.004018264840182645
+infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /T?/P1:c/P2:c/C:K/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /9?/P1:c/P2:c/C:T/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /J?/P1:c/P2:c/C:T/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /K?/P1:c/P2:c/C:9/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /Q?/P1:raise2/P2:raise2/P1:c/C:9/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /T?/P1:c/P2:c/C:J/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /9?/P1:raise2/P2:c/C:K nash_equilibriums raise4=0.005 c=0.995
+infoset /9?/P1:raise2/P2:c/C:J nash_equilibriums raise4=0.005 c=0.995
+infoset /9?/P1:raise2/P2:c/C:T nash_equilibriums raise4=0.005 c=0.995
+infoset /J?/P1:raise2/P2:raise2/P1:c/C:9 nash_equilibriums raise4=0.5 c=0.5
+infoset /9?/P1:raise2/P2:c/C:Q nash_equilibriums raise4=0.005 c=0.995
+infoset /J? nash_equilibriums raise2=0.5 c=0.5
+infoset /Q?/P1:c/P2:c/C:K/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /T?/P1:raise2/P2:raise2/P1:c/C:K/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /K?/P1:c/P2:c/C:9 nash_equilibriums raise4=0.5 c=0.5
+infoset /K?/P1:c/P2:raise2/P1:c/C:K nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /9?/P1:c/P2:raise2/P1:c/C:T/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:c/P2:raise2/P1:c/C:9/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /K?/P1:raise2/P2:c/C:K/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /T?/P1:c/P2:raise2/P1:c/C:T/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /Q?/P1:c/P2:raise2 nash_equilibriums raise2=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /9?/P1:raise2/P2:raise2/P1:c/C:J/P1:c/P2:raise4 nash_equilibriums raise4=0.9933333333333333 c=0.0033333333333333353 f=0.0033333333333333353
+infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /Q?/P1:c/P2:raise2/P1:c/C:K/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /T?/P1:raise2/P2:c/C:9/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /T?/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:raise4/P2:raise4 nash_equilibriums c=0.995 f=0.005
+infoset /9?/P1:c/P2:raise2/P1:c/C:9/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /9?/P1:c/P2:raise2/P1:raise2/P2:c/C:9 nash_equilibriums raise4=0.5 c=0.5
+infoset /K?/P1:c/P2:raise2 nash_equilibriums raise2=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /T?/P1:c/P2:raise2/P1:raise2/P2:c/C:9 nash_equilibriums raise4=0.5 c=0.5
+infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:9 nash_equilibriums raise4=0.5 c=0.5
+infoset /Q?/P1:raise2/P2:c/C:T/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /9?/P1:raise2/P2:raise2/P1:c/C:9 nash_equilibriums raise4=0.5 c=0.5
+infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:9 nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:c/P2:c/C:9/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /9?/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c/P2:raise4 nash_equilibriums raise4=0.9933333333333333 c=0.0033333333333333353 f=0.0033333333333333353
+infoset /9?/P1:c/P2:raise2/P1:c/C:T nash_equilibriums raise4=0.5 c=0.5
+infoset /Q?/P1:raise2/P2:raise2 nash_equilibriums c=0.5 f=0.5
+infoset /9?/P1:c/P2:raise2/P1:c/C:Q nash_equilibriums raise4=0.5 c=0.5
+infoset /9?/P1:c/P2:c/C:9/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:c/P2:raise2/P1:c/C:T nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:raise2/P2:c/C:K/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /9?/P1:raise2/P2:c/C:K/P1:c/P2:raise4 nash_equilibriums raise4=0.9926484018264841 c=0.0033333333333333322 f=0.004018264840182645
+infoset /T?/P1:c/P2:c/C:Q/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /9?/P1:c/P2:raise2/P1:c/C:K nash_equilibriums raise4=0.5 c=0.5
+infoset /9?/P1:c/P2:raise2/P1:c/C:J nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:raise2/P2:raise2/P1:c/C:T/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /K?/P1:raise2/P2:raise2/P1:c/C:Q/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /9?/P1:raise2/P2:raise2/P1:c/C:9/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /K?/P1:c/P2:c/C:T/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /T?/P1:c/P2:c/C:J/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /9?/P1:c/P2:raise2/P1:c/C:9 nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:raise2/P2:c/C:Q/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /T?/P1:raise2/P2:raise2/P1:c/C:J/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:c/P2:c/C:J/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /Q?/P1:raise2/P2:c/C:9/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /T?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q nash_equilibriums raise4=0.016925919040758436 c=0.9830740809592415
+infoset /9?/P1:raise2/P2:raise2/P1:c/C:J nash_equilibriums raise4=0.021986254295532602 c=0.9780137457044673
+infoset /T?/P1:c/P2:raise2/P1:raise2/P2:c/C:T nash_equilibriums raise4=0.5 c=0.5
+infoset /Q?/P1:raise2/P2:c/C:T/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /9?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q nash_equilibriums raise4=0.016925919040758436 c=0.9830740809592415
+infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:J nash_equilibriums raise4=0.5 c=0.5
+infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:K nash_equilibriums raise4=0.5 c=0.5
+infoset /9?/P1:c/P2:raise2/P1:raise2/P2:c/C:T nash_equilibriums raise4=0.016925919040758436 c=0.9830740809592415
+infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q nash_equilibriums raise4=0.5 c=0.5
+infoset /9?/P1:c/P2:raise2/P1:raise2/P2:c/C:J nash_equilibriums raise4=0.016925919040758436 c=0.9830740809592415
+infoset /9?/P1:c/P2:raise2/P1:raise2/P2:c/C:K nash_equilibriums raise4=0.016925919040758436 c=0.9830740809592415
+infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:T nash_equilibriums raise4=0.5 c=0.5
+infoset /T?/P1:c/P2:raise2/P1:raise2/P2:c/C:K nash_equilibriums raise4=0.016925919040758436 c=0.9830740809592415
+infoset /T?/P1:c/P2:raise2/P1:raise2/P2:c/C:J nash_equilibriums raise4=0.016925919040758436 c=0.9830740809592415
+infoset /T?/P1:raise2/P2:raise2/P1:c/C:9/P1:c/P2:raise4 nash_equilibriums raise4=0.9933333333333333 c=0.0033333333333333353 f=0.0033333333333333353
+infoset /9?/P1:raise2/P2:raise2/P1:c/C:T nash_equilibriums raise4=0.021986254295532602 c=0.9780137457044673
+infoset /T?/P1:c/P2:raise2/P1:c/C:9 nash_equilibriums raise4=0.5 c=0.5
+infoset /T?/P1:raise2/P2:c/C:K/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:T/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:T/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /9?/P1:c/P2:c/C:9/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /T?/P1:c/P2:raise2/P1:c/C:K/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /9?/P1:c/P2:raise2/P1:c/C:J/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:raise2/P2:c/C:K/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /9?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c/P2:raise4 nash_equilibriums raise4=0.9933333333333333 c=0.0033333333333333353 f=0.0033333333333333353
+infoset /K?/P1:c/P2:c/C:9/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /Q?/P1:c/P2:raise2/P1:c/C:Q/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:T/P1:c/P2:raise4 nash_equilibriums raise4=0.9933333333333333 c=0.0033333333333333353 f=0.0033333333333333353
+infoset /Q?/P1:raise2/P2:c/C:J/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:raise2/P2:c/C:9/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /T?/P1:c/P2:raise2/P1:c/C:J nash_equilibriums raise4=0.5 c=0.5
+infoset /T?/P1:c/P2:raise2/P1:c/C:K nash_equilibriums raise4=0.5 c=0.5
+infoset /K?/P1:raise2/P2:raise2/P1:c/C:J/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /9?/P1:c/P2:raise2/P1:c/C:Q/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:c/P2:raise2 nash_equilibriums raise2=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /T?/P1:c/P2:raise2/P1:c/C:Q nash_equilibriums raise4=0.5 c=0.5
+infoset /9?/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:raise4/P2:raise4 nash_equilibriums c=0.995 f=0.005
+infoset /K?/P1:raise2/P2:c/C:Q/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /T?/P1:c/P2:raise2/P1:c/C:T nash_equilibriums raise4=0.5 c=0.5
+infoset /Q?/P1:c/P2:raise2/P1:c/C:J nash_equilibriums raise4=0.5 c=0.5
+infoset /Q?/P1:c/P2:raise2/P1:c/C:J/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /K?/P1:c/P2:raise2/P1:c/C:9/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:raise2/P2:raise2/P1:c/C:K/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /9?/P1:raise2/P2:c/C:Q/P1:raise4/P2:raise4 nash_equilibriums c=0.995 f=0.005
+infoset /9?/P1:raise2/P2:raise2/P1:c/C:K nash_equilibriums raise4=0.021986254295532602 c=0.9780137457044673
+infoset /T?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c/P2:raise4 nash_equilibriums raise4=0.9933333333333333 c=0.0033333333333333353 f=0.0033333333333333353
+infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /Q?/P1:raise2/P2:raise2/P1:c/C:Q/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /9?/P1:c/P2:raise2/P1:c/C:K/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /T?/P1:raise2/P2:c/C:K/P1:raise4/P2:raise4 nash_equilibriums c=0.995 f=0.005
+infoset /T?/P1:c/P2:raise2/P1:raise2/P2:c/C:T/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /9?/P1:raise2/P2:raise2/P1:c/C:K/P1:raise4/P2:raise4 nash_equilibriums c=0.005 f=0.995
+infoset /K?/P1:raise2/P2:c/C:K/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /Q?/P1:c/P2:c/C:Q/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /T?/P1:raise2/P2:c/C:Q/P1:raise4/P2:raise4 nash_equilibriums c=0.995 f=0.005
+infoset /T?/P1:c/P2:raise2/P1:raise2/P2:c/C:9/P1:c/P2:raise4 nash_equilibriums raise4=0.9933333333333333 c=0.0033333333333333353 f=0.0033333333333333353
+infoset /T?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:raise4/P2:raise4 nash_equilibriums c=0.995 f=0.005
+infoset /K?/P1:raise2/P2:raise2/P1:c/C:Q/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /9?/P1:c/P2:c/C:K/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /K?/P1:raise2/P2:c/C:9/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /Q?/P1:c/P2:raise2/P1:c/C:T/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /K?/P1:raise2/P2:raise2/P1:c/C:9/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /T?/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:raise4/P2:raise4 nash_equilibriums c=0.995 f=0.005
+infoset /9?/P1:raise2/P2:raise2/P1:c/C:T/P1:raise4/P2:raise4 nash_equilibriums c=0.005 f=0.995
+infoset /T?/P1:c/P2:raise2/P1:raise2/P2:c/C:T/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /9?/P1:c/P2:raise2/P1:c/C:J/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /9?/P1:raise2/P2:raise2/P1:c/C:Q nash_equilibriums raise4=0.021986254295532602 c=0.9780137457044673
+infoset /9?/P1:raise2/P2:c/C:K/P1:raise4/P2:raise4 nash_equilibriums c=0.995 f=0.005
+infoset /9?/P1:raise2/P2:raise2/P1:c/C:K/P1:c/P2:raise4 nash_equilibriums raise4=0.9933333333333333 c=0.0033333333333333353 f=0.0033333333333333353
+infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:9/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /T?/P1:raise2/P2:raise2/P1:c/C:T/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /Q?/P1:raise2/P2:raise2/P1:c/C:K/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /Q?/P1:raise2/P2:raise2/P1:c/C:J/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /T?/P1:raise2/P2:c/C:Q/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /9?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:raise4/P2:raise4 nash_equilibriums c=0.995 f=0.005
+infoset /J?/P1:c/P2:raise2/P1:c/C:T/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /Q?/P1:c/P2:raise2/P1:c/C:T/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /9?/P1:c/P2:raise2/P1:c/C:Q/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /Q?/P1:raise2/P2:raise2/P1:c/C:T/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /T?/P1:raise2/P2:c/C:J nash_equilibriums raise4=0.005 c=0.995
+infoset /T?/P1:raise2/P2:c/C:K nash_equilibriums raise4=0.005 c=0.995
+infoset /T?/P1:raise2/P2:c/C:T nash_equilibriums raise4=0.5 c=0.5
+infoset /T?/P1:raise2/P2:c/C:Q nash_equilibriums raise4=0.005 c=0.995
+infoset /T?/P1:raise2/P2:raise2/P1:c/C:9 nash_equilibriums raise4=0.021986254295532602 c=0.9780137457044673
+infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /T?/P1:c/P2:c/C:9 nash_equilibriums raise4=0.5 c=0.5
+infoset /K?/P1:raise2/P2:c/C:J/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:raise2/P2:raise2/P1:c/C:Q/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /K?/P1:raise2/P2:c/C:T/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /Q?/P1:c/P2:raise2/P1:c/C:K/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /T?/P1:raise2/P2:raise2/P1:c/C:T nash_equilibriums raise4=0.5 c=0.5
+infoset /T?/P1:raise2/P2:raise2/P1:c/C:Q nash_equilibriums raise4=0.021986254295532602 c=0.9780137457044673
+infoset /T?/P1:raise2/P2:raise2/P1:c/C:J nash_equilibriums raise4=0.021986254295532602 c=0.9780137457044673
+infoset /T?/P1:raise2/P2:raise2/P1:c/C:K nash_equilibriums raise4=0.021986254295532602 c=0.9780137457044673
+infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:9/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /K?/P1:c/P2:raise2/P1:c/C:Q/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /T?/P1:raise2/P2:raise2/P1:c/C:9/P1:raise4/P2:raise4 nash_equilibriums c=0.005 f=0.995
+infoset /K?/P1:c/P2:c/C:T/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /T?/P1:raise2/P2:c/C:9 nash_equilibriums raise4=0.005 c=0.995
+infoset /K?/P1:raise2/P2:raise2/P1:c/C:T/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /9?/P1:raise2/P2:c/C:J/P1:raise4/P2:raise4 nash_equilibriums c=0.995 f=0.005
+infoset /J?/P1:raise2/P2:raise2/P1:c/C:K/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /Q?/P1:raise2/P2:raise2/P1:c/C:T/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /T?/P1:c/P2:c/C:9/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:J nash_equilibriums raise4=0.5 c=0.5
+infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:K nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:c/P2:raise2/P1:c/C:Q nash_equilibriums raise4=0.5 c=0.5
+infoset /Q?/P1:raise2/P2:raise2/P1:c/C:J/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:T nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:c/P2:raise2/P1:c/C:J nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:c/P2:raise2/P1:c/C:K nash_equilibriums raise4=0.5 c=0.5
+infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q nash_equilibriums raise4=0.5 c=0.5
+infoset /T?/P1:c/P2:raise2/P1:c/C:Q/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:c/P2:raise2/P1:c/C:9 nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:raise2/P2:c/C:T/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /K?/P1:c/P2:raise2/P1:c/C:J/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /Q?/P1:c/P2:c/C:T/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /Q?/P1:raise2/P2:c/C:Q/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /Q?/P1:c/P2:c/C:J/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:raise2/P2:c/C:T/P1:raise4/P2:raise4 nash_equilibriums c=0.995 f=0.005
+infoset /K?/P1:c/P2:raise2/P1:c/C:J/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /9?/P1:raise2/P2:raise2 nash_equilibriums c=0.995 f=0.005
+infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:9/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:9/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:raise2/P2:raise2/P1:c/C:J/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:9/P1:raise4/P2:raise4 nash_equilibriums c=0.995 f=0.005
+infoset /Q?/P1:c/P2:c/C:9 nash_equilibriums raise4=0.5 c=0.5
+infoset /9?/P1:c/P2:raise2 nash_equilibriums raise2=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /K?/P1:raise2/P2:raise2 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:c/P2:c/C:K/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:T/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /T?/P1:raise2/P2:c/C:J/P1:raise4/P2:raise4 nash_equilibriums c=0.995 f=0.005
+infoset /K?/P1:c/P2:raise2/P1:c/C:K/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:c/P2:raise2/P1:c/C:K/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /Q?/P1:c/P2:c/C:Q nash_equilibriums raise4=0.5 c=0.5
+infoset /Q?/P1:c/P2:c/C:T nash_equilibriums raise4=0.5 c=0.5
+infoset /Q?/P1:c/P2:c/C:K nash_equilibriums raise4=0.5 c=0.5
+infoset /Q?/P1:c/P2:c/C:J nash_equilibriums raise4=0.5 c=0.5
+infoset /K?/P1:raise2/P2:raise2/P1:c/C:9/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /T?/P1:c/P2:raise2/P1:c/C:K/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /9?/P1:raise2/P2:raise2/P1:c/C:Q/P1:c/P2:raise4 nash_equilibriums raise4=0.9933333333333333 c=0.0033333333333333353 f=0.0033333333333333353
+infoset /T?/P1:raise2/P2:c/C:T/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /9?/P1:c/P2:raise2/P1:raise2/P2:c/C:9/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /9?/P1:c/P2:raise2/P1:raise2/P2:c/C:9/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /T?/P1:c/P2:raise2 nash_equilibriums raise2=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /9?/P1:c/P2:raise2/P1:c/C:T/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /9?/P1:c/P2:raise2/P1:raise2/P2:c/C:T/P1:c/P2:raise4 nash_equilibriums raise4=0.9933333333333333 c=0.0033333333333333353 f=0.0033333333333333353
+infoset /K?/P1:raise2/P2:c/C:T nash_equilibriums raise4=0.5 c=0.5
+infoset /K?/P1:raise2/P2:c/C:Q nash_equilibriums raise4=0.5 c=0.5
+infoset /J?/P1:raise2/P2:raise2/P1:c/C:9/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /T?/P1:raise2/P2:c/C:J/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /K? nash_equilibriums raise2=0.5 c=0.5
+infoset /K?/P1:raise2/P2:c/C:K nash_equilibriums raise4=0.5 c=0.5
+infoset /K?/P1:raise2/P2:c/C:J nash_equilibriums raise4=0.5 c=0.5
+infoset /Q?/P1:raise2/P2:c/C:K nash_equilibriums raise4=0.5 c=0.5
+infoset /Q?/P1:raise2/P2:c/C:J nash_equilibriums raise4=0.5 c=0.5
+infoset /Q?/P1:raise2/P2:c/C:K/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /K?/P1:c/P2:c/C:Q/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /Q?/P1:raise2/P2:c/C:T nash_equilibriums raise4=0.5 c=0.5
+infoset /T?/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c/P2:raise4 nash_equilibriums raise4=0.9933333333333333 c=0.0033333333333333353 f=0.0033333333333333353
+infoset /T?/P1:raise2/P2:raise2/P1:c/C:K/P1:c/P2:raise4 nash_equilibriums raise4=0.9933333333333333 c=0.0033333333333333353 f=0.0033333333333333353
+infoset /9?/P1:raise2/P2:c/C:Q/P1:c/P2:raise4 nash_equilibriums raise4=0.9926484018264841 c=0.0033333333333333322 f=0.004018264840182645
+infoset /T?/P1:c/P2:c/C:K/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:9/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /Q?/P1:raise2/P2:c/C:9 nash_equilibriums raise4=0.5 c=0.5
+infoset /Q?/P1:raise2/P2:c/C:K/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /9? nash_equilibriums raise2=0.5 c=0.5
+infoset /K?/P1:raise2/P2:c/C:9 nash_equilibriums raise4=0.5 c=0.5
+infoset /Q?/P1:c/P2:raise2/P1:c/C:Q/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /Q?/P1:c/P2:c/C:Q/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /J?/P1:raise2/P2:raise2/P1:c/C:J/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /T?/P1:c/P2:raise2/P1:c/C:J/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /T?/P1:raise2/P2:c/C:9/P1:c/P2:raise4 nash_equilibriums raise4=0.9926484018264841 c=0.0033333333333333322 f=0.004018264840182645
+infoset /Q?/P1:c/P2:raise2/P1:c/C:9 nash_equilibriums raise4=0.5 c=0.5
+infoset /Q?/P1:raise2/P2:raise2/P1:c/C:K nash_equilibriums raise4=0.5 c=0.5
+infoset /Q?/P1:raise2/P2:raise2/P1:c/C:J nash_equilibriums raise4=0.5 c=0.5
+infoset /T?/P1:raise2/P2:raise2/P1:c/C:T/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /Q?/P1:raise2/P2:raise2/P1:c/C:Q nash_equilibriums raise4=0.5 c=0.5
+infoset /T?/P1:c/P2:raise2/P1:c/C:Q/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /Q?/P1:raise2/P2:raise2/P1:c/C:T nash_equilibriums raise4=0.5 c=0.5
+infoset /Q?/P1:c/P2:raise2/P1:c/C:T nash_equilibriums raise4=0.5 c=0.5
+infoset /Q?/P1:c/P2:raise2/P1:c/C:Q nash_equilibriums raise4=0.5 c=0.5
+infoset /Q?/P1:c/P2:raise2/P1:c/C:K nash_equilibriums raise4=0.5 c=0.5
+infoset /9?/P1:c/P2:raise2/P1:c/C:K/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /Q?/P1:raise2/P2:raise2/P1:c/C:9 nash_equilibriums raise4=0.5 c=0.5
+infoset /K?/P1:c/P2:c/C:K/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /9?/P1:raise2/P2:raise2/P1:c/C:Q/P1:raise4/P2:raise4 nash_equilibriums c=0.005 f=0.995
+infoset /K?/P1:raise2/P2:c/C:J/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /K?/P1:raise2/P2:c/C:T/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /Q?/P1:c/P2:c/C:9/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /Q?/P1:c/P2:c/C:T/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /9?/P1:raise2/P2:c/C:T/P1:raise4/P2:raise4 nash_equilibriums c=0.995 f=0.005
+infoset /J?/P1:raise2/P2:c/C:9/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /Q?/P1:c/P2:c/C:9/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /J?/P1:c/P2:c/C:9/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /9?/P1:c/P2:raise2/P1:raise2/P2:c/C:T/P1:raise4/P2:raise4 nash_equilibriums c=0.995 f=0.005
+infoset /K?/P1:raise2/P2:raise2/P1:c/C:T/P1:c/P2:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /9?/P1:c/P2:raise2/P1:c/C:9/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /J?/P1:c/P2:raise2/P1:c/C:T/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /K?/P1:raise2/P2:raise2/P1:c/C:K/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /9?/P1:c/P2:c/C:Q/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /Q?/P1:raise2/P2:c/C:9/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /Q? nash_equilibriums raise2=0.5 c=0.5
+infoset /J?/P1:c/P2:raise2/P1:c/C:J/P1:c/P2:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /T?/P1:raise2/P2:raise2/P1:c/C:Q/P1:c/P2:raise4 nash_equilibriums raise4=0.9933333333333333 c=0.0033333333333333353 f=0.0033333333333333353
+infoset /Q?/P1:c/P2:raise2/P1:c/C:9/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /T?/P1:c/P2:raise2/P1:raise2/P2:c/C:9/P1:raise4/P2:raise4 nash_equilibriums c=0.995 f=0.005
+infoset /9?/P1:raise2/P2:c/C:9/P1:raise4/P2:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?9/P1:c/P2:raise2/P1:raise2/P2:c/C:9/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?9/P1:c/P2:raise2/P1:c/C:9/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?T/P1:raise2/P2:c/C:T/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?9/P1:raise2/P2:c/C:J/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.005 f=0.995
+infoset /?9/P1:raise2/P2:raise2/P1:c/C:9/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?J/P1:c/P2:c/C:K/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?9/P1:c/P2:c/C:K/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?9/P1:c/P2:raise2/P1:c/C:J/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?9/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.995 f=0.005
+infoset /?9/P1:raise2/P2:c/C:Q/P1:c nash_equilibriums raise4=0.995 c=0.005
+infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?9/P1:raise2/P2:raise2/P1:c/C:9/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?K/P1:c/P2:raise2/P1:c/C:Q/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?Q/P1:c/P2:raise2/P1:c/C:Q/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?J/P1:raise2/P2:c/C:J/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?Q/P1:c/P2:raise2/P1:c/C:J/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?9/P1:raise2/P2:c/C:9/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:9/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?K/P1:raise2/P2:raise2/P1:c/C:K/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?Q/P1:c/P2:raise2/P1:c/C:K/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?J/P1:c nash_equilibriums raise2=0.5 c=0.5
+infoset /?Q/P1:c/P2:raise2/P1:c/C:T/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?J/P1:raise2/P2:c/C:9/P1:raise4 nash_equilibriums raise4=0.0033333333333333335 c=0.9928616352201258 f=0.0038050314465408815
+infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:T/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?9/P1:raise2/P2:raise2/P1:c/C:K/P1:c nash_equilibriums raise4=0.9848827586206896 c=0.015117241379310399
+infoset /?9/P1:c/P2:raise2/P1:c/C:T/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?9/P1:c/P2:raise2/P1:raise2/P2:c/C:9/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?Q/P1:c/P2:raise2/P1:c/C:K/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?K/P1:raise2/P2:raise2/P1:c/C:9/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:c/P2:raise2/P1:c/C:Q/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?9/P1:c/P2:raise2/P1:c/C:T/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?9/P1:c/P2:c/C:J/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?J/P1:c/P2:raise2/P1:c/C:9/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?9/P1:raise2 nash_equilibriums raise2=0.003333333333333333 c=0.9914730848861283 f=0.0051935817805383025
+infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:T/P1:c nash_equilibriums raise4=0.9848050458715596 c=0.015194954128440373
+infoset /?Q/P1:c/P2:raise2/P1:c/C:J/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?9/P1:c/P2:raise2/P1:raise2 nash_equilibriums c=0.5 f=0.5
+infoset /?9/P1:c/P2:raise2/P1:c/C:J/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?J/P1:raise2/P2:c/C:J/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:c/P2:raise2/P1:c/C:9/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?K/P1:c nash_equilibriums raise2=0.5 c=0.5
+infoset /?9/P1:raise2/P2:raise2/P1:c/C:T/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.005 f=0.995
+infoset /?9/P1:c/P2:c/C:9/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?K/P1:c/P2:c/C:K/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?Q/P1:c/P2:raise2/P1:c/C:9/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?9/P1:raise2/P2:raise2/P1:c/C:T/P1:raise4 nash_equilibriums raise4=0.0033333333333333344 c=0.9857788971600596 f=0.010887769506606991
+infoset /?J/P1:c/P2:c/C:Q/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?9/P1:raise2/P2:c/C:J/P1:raise4 nash_equilibriums raise4=0.0033333333333333335 c=0.9928616352201258 f=0.0038050314465408815
+infoset /?K/P1:raise2/P2:raise2/P1:c/C:K/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?Q/P1:raise2/P2:raise2/P1:c/C:9/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?T/P1:c/P2:raise2/P1:c/C:K/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?Q/P1:c/P2:raise2/P1:raise2 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:c/P2:raise2/P1:raise2/P2:c/C:9/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.995 f=0.005
+infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:9/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?Q/P1:c/P2:raise2/P1:c/C:T/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:9/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?T/P1:c/P2:c/C:J/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?K/P1:raise2/P2:c/C:Q/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?K/P1:raise2/P2:raise2/P1:c/C:9/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?J/P1:raise2/P2:c/C:K/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?J/P1:raise2/P2:raise2/P1:c/C:J/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?J/P1:c/P2:raise2/P1:c/C:T/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?Q/P1:raise2/P2:raise2/P1:c/C:T/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?T/P1:raise2/P2:raise2/P1:c/C:K/P1:raise4 nash_equilibriums raise4=0.0033333333333333344 c=0.9857788971600596 f=0.010887769506606991
+infoset /?T/P1:c/P2:raise2/P1:c/C:9/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:raise2/P2:raise2/P1:c/C:J/P1:c nash_equilibriums raise4=0.9848827586206896 c=0.015117241379310399
+infoset /?J/P1:c/P2:c/C:K/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?J/P1:raise2/P2:raise2/P1:c/C:9/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?T/P1:c/P2:raise2/P1:raise2/P2:c/C:T/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?Q/P1:raise2/P2:c/C:9/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?J/P1:c/P2:raise2/P1:c/C:J/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:raise2/P2:c/C:K/P1:c nash_equilibriums raise4=0.995 c=0.005
+infoset /?J/P1:c/P2:c/C:J/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?T/P1:raise2/P2:raise2/P1:c/C:9/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.005 f=0.995
+infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:T/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:9/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.995 f=0.005
+infoset /?9/P1:raise2/P2:raise2/P1:c/C:Q/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.005 f=0.995
+infoset /?J/P1:raise2/P2:c/C:K/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?9/P1:raise2/P2:raise2/P1:c/C:J/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.005 f=0.995
+infoset /?J/P1:c/P2:raise2/P1:c/C:Q/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?9/P1:c/P2:raise2/P1:c/C:Q/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?9/P1:raise2/P2:raise2/P1:c/C:Q/P1:raise4 nash_equilibriums raise4=0.0033333333333333344 c=0.9857788971600596 f=0.010887769506606991
+infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?K/P1:raise2/P2:raise2/P1:c/C:J/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?9/P1:raise2/P2:c/C:K/P1:c nash_equilibriums raise4=0.995 c=0.005
+infoset /?J/P1:raise2/P2:raise2/P1:c/C:K/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:c/P2:raise2/P1:c/C:9/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?J/P1:raise2/P2:c/C:K/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?9/P1:c/P2:raise2/P1:c/C:9/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?Q/P1:raise2/P2:raise2/P1:c/C:Q/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?T/P1:c nash_equilibriums raise2=0.5 c=0.5
+infoset /?Q/P1:raise2/P2:raise2/P1:c/C:K/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?9/P1:c/P2:c/C:9/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?K/P1:c/P2:c/C:9/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?T/P1:raise2/P2:c/C:Q/P1:c nash_equilibriums raise4=0.995 c=0.005
+infoset /?J/P1:raise2/P2:raise2/P1:c/C:J/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?T/P1:raise2/P2:raise2/P1:c/C:Q/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.005 f=0.995
+infoset /?9/P1:c/P2:c/C:T/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?Q/P1:raise2/P2:raise2/P1:c/C:K/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?9/P1:c/P2:raise2/P1:raise2/P2:c/C:T/P1:c nash_equilibriums raise4=0.9848050458715596 c=0.015194954128440373
+infoset /?K/P1:c/P2:raise2/P1:c/C:T/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?K/P1:raise2/P2:raise2/P1:c/C:Q/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?9/P1:c/P2:c/C:Q/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?T/P1:raise2/P2:c/C:9/P1:raise4 nash_equilibriums raise4=0.0033333333333333335 c=0.9928616352201258 f=0.0038050314465408815
+infoset /?Q/P1:c/P2:raise2/P1:c/C:K/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?K/P1:c/P2:raise2/P1:c/C:Q/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?Q/P1:raise2/P2:raise2/P1:c/C:9/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?T/P1:raise2/P2:raise2/P1:c/C:Q/P1:c nash_equilibriums raise4=0.9848827586206896 c=0.015117241379310399
+infoset /?9/P1:raise2/P2:c/C:9/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?K/P1:c/P2:c/C:K/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?T/P1:raise2/P2:raise2/P1:c/C:9/P1:c nash_equilibriums raise4=0.9848827586206896 c=0.015117241379310399
+infoset /?K/P1:c/P2:raise2/P1:c/C:J/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:T/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?J/P1:raise2/P2:raise2/P1:c/C:9/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.005 f=0.995
+infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?K/P1:c/P2:raise2/P1:c/C:J/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?9/P1:c/P2:raise2/P1:c/C:Q/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?T/P1:c/P2:c/C:K/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?9/P1:raise2/P2:c/C:9/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?9/P1:raise2/P2:raise2/P1:c/C:9/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?K/P1:raise2/P2:c/C:T/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?K/P1:c/P2:raise2/P1:c/C:9/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?K/P1:raise2/P2:raise2/P1:c/C:T/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?Q/P1:raise2/P2:c/C:T/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?J/P1:raise2/P2:c/C:Q/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?9/P1:c/P2:c/C:J/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?T/P1:c/P2:c/C:J/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?K/P1:raise2/P2:c/C:9/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?T/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c nash_equilibriums raise4=0.9848050458715596 c=0.015194954128440373
+infoset /?9/P1:raise2/P2:raise2/P1:c/C:K/P1:raise4 nash_equilibriums raise4=0.0033333333333333344 c=0.9857788971600596 f=0.010887769506606991
+infoset /?J/P1:c/P2:c/C:K/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?K/P1:raise2/P2:raise2/P1:c/C:J/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?Q/P1:c/P2:c/C:K/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?T/P1:raise2/P2:c/C:T/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?J/P1:raise2/P2:raise2/P1:c/C:Q/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?Q/P1:c/P2:raise2/P1:c/C:J/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?T/P1:raise2/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.005 f=0.995
+infoset /?K/P1:c/P2:c/C:9/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?J/P1:raise2/P2:raise2/P1:c/C:K/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?T/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c nash_equilibriums raise4=0.9848050458715596 c=0.015194954128440373
+infoset /?K/P1:c/P2:raise2/P1:c/C:T/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?J/P1:c/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:raise2/P2:c/C:Q/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?J/P1:raise2/P2:raise2/P1:c/C:T/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:c/P2:raise2/P1:raise2/P2:c/C:9/P1:raise4 nash_equilibriums raise4=0.0033333333333333353 c=0.9819487224597615 f=0.014717944206905167
+infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:raise4 nash_equilibriums raise4=0.0033333333333333353 c=0.9819487224597615 f=0.014717944206905167
+infoset /?T/P1:raise2/P2:raise2/P1:c/C:T/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:c/P2:c/C:9/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:c/P2:raise2/P1:raise2 nash_equilibriums c=0.5 f=0.5
+infoset /?Q/P1:c/P2:c/C:T/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:c/P2:c/C:Q/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?T/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c nash_equilibriums raise4=0.9848050458715596 c=0.015194954128440373
+infoset /?T/P1:raise2/P2:raise2/P1:c/C:T/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?J/P1:c/P2:raise2/P1:c/C:9/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?T/P1:c/P2:c/C:J/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?T/P1:c/P2:raise2/P1:c/C:Q/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?9/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.995 f=0.005
+infoset /?Q/P1:c/P2:c/C:J/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?J/P1:c/P2:c/C:9/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?K/P1:raise2/P2:c/C:J/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?9/P1:c/P2:raise2/P1:c/C:J/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?Q/P1:c/P2:c/C:9/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?T/P1:raise2/P2:raise2/P1:c/C:K/P1:c nash_equilibriums raise4=0.9848827586206896 c=0.015117241379310399
+infoset /?Q/P1:raise2/P2:c/C:K/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:c/P2:raise2/P1:raise2/P2:c/C:9/P1:c nash_equilibriums raise4=0.9848050458715596 c=0.015194954128440373
+infoset /?T/P1:c/P2:raise2/P1:c/C:K/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?J/P1:c/P2:raise2/P1:c/C:9/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?K/P1:c/P2:c/C:J/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?Q/P1:raise2/P2:c/C:Q/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?K/P1:raise2/P2:c/C:K/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:T/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?J/P1:raise2/P2:raise2/P1:c/C:T/P1:c nash_equilibriums raise4=0.9848827586206896 c=0.015117241379310399
+infoset /?J/P1:raise2/P2:raise2/P1:c/C:9/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?9/P1:raise2/P2:c/C:K/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.005 f=0.995
+infoset /?T/P1:raise2/P2:c/C:9/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.005 f=0.995
+infoset /?Q/P1:c/P2:c/C:K/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?9/P1:c nash_equilibriums raise2=0.5 c=0.5
+infoset /?J/P1:c/P2:raise2/P1:c/C:T/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?K/P1:c/P2:c/C:T/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?9/P1:c/P2:c/C:T/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:c/P2:c/C:K/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?Q/P1:c/P2:raise2/P1:c/C:Q/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:c/P2:c/C:K/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?Q/P1:raise2/P2:raise2/P1:c/C:T/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?K/P1:c/P2:raise2/P1:c/C:9/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?J/P1:c/P2:raise2/P1:c/C:Q/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?J/P1:raise2/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?J/P1:raise2/P2:raise2/P1:c/C:Q/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?T/P1:c/P2:raise2/P1:c/C:T/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?J/P1:c/P2:raise2/P1:c/C:J/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?K/P1:c/P2:c/C:Q/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?Q/P1:raise2/P2:raise2/P1:c/C:J/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?J/P1:raise2/P2:c/C:J/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:T/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?9/P1:c/P2:raise2/P1:raise2/P2:c/C:T/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.995 f=0.005
+infoset /?K/P1:raise2/P2:c/C:J/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?Q/P1:raise2/P2:c/C:T/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?J/P1:c/P2:raise2/P1:c/C:Q/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?Q/P1:c/P2:c/C:J/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?K/P1:raise2/P2:raise2/P1:c/C:T/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?K/P1:raise2/P2:raise2/P1:c/C:Q/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?K/P1:c/P2:raise2/P1:raise2 nash_equilibriums c=0.5 f=0.5
+infoset /?Q/P1:raise2/P2:raise2/P1:c/C:T/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?Q/P1:c/P2:c/C:9/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?T/P1:raise2/P2:raise2/P1:c/C:Q/P1:raise4 nash_equilibriums raise4=0.0033333333333333344 c=0.9857788971600596 f=0.010887769506606991
+infoset /?J/P1:c/P2:c/C:9/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?K/P1:raise2/P2:raise2/P1:c/C:T/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?Q/P1:c/P2:raise2/P1:c/C:9/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?K/P1:raise2/P2:raise2/P1:c/C:K/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?9/P1:c/P2:raise2/P1:c/C:T/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?Q/P1:c/P2:raise2/P1:c/C:T/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?Q/P1:raise2/P2:raise2/P1:c/C:K/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?T/P1:raise2/P2:c/C:K/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?K/P1:raise2/P2:c/C:T/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?K/P1:raise2 nash_equilibriums raise2=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?K/P1:c/P2:raise2/P1:c/C:K/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?J/P1:c/P2:c/C:9/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?J/P1:c/P2:raise2/P1:c/C:J/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?T/P1:c/P2:raise2/P1:c/C:J/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?9/P1:raise2/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.005 f=0.995
+infoset /?9/P1:c/P2:raise2/P1:raise2/P2:c/C:9/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?9/P1:c/P2:c/C:9/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?T/P1:raise2/P2:c/C:J/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.005 f=0.995
+infoset /?9/P1:raise2/P2:c/C:Q/P1:raise4 nash_equilibriums raise4=0.0033333333333333335 c=0.9928616352201258 f=0.0038050314465408815
+infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?K/P1:c/P2:raise2/P1:c/C:T/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?J/P1:c/P2:raise2/P1:c/C:T/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?T/P1:c/P2:raise2/P1:c/C:K/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?Q/P1:raise2/P2:c/C:9/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?9/P1:c/P2:c/C:J/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?K/P1:raise2/P2:c/C:T/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?9/P1:c/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?K/P1:c/P2:c/C:J/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?9/P1:c/P2:raise2/P1:raise2/P2:c/C:T/P1:raise4 nash_equilibriums raise4=0.0033333333333333353 c=0.9819487224597615 f=0.014717944206905167
+infoset /?J/P1:raise2/P2:c/C:9/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?K/P1:c/P2:raise2/P1:c/C:K/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?9/P1:raise2/P2:raise2/P1:c/C:J/P1:raise4 nash_equilibriums raise4=0.0033333333333333344 c=0.9857788971600596 f=0.010887769506606991
+infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:9/P1:raise4 nash_equilibriums raise4=0.0033333333333333353 c=0.9819487224597615 f=0.014717944206905167
+infoset /?9/P1:raise2/P2:raise2/P1:c/C:Q/P1:c nash_equilibriums raise4=0.9848827586206896 c=0.015117241379310399
+infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?K/P1:c/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?9/P1:raise2/P2:c/C:K/P1:raise4 nash_equilibriums raise4=0.0033333333333333335 c=0.9928616352201258 f=0.0038050314465408815
+infoset /?K/P1:raise2/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?J/P1:c/P2:c/C:T/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?J/P1:raise2/P2:c/C:T/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?Q/P1:c/P2:c/C:K/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?9/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c nash_equilibriums raise4=0.9848050458715596 c=0.015194954128440373
+infoset /?J/P1:raise2/P2:c/C:T/P1:c nash_equilibriums raise4=0.995 c=0.005
+infoset /?T/P1:c/P2:raise2/P1:c/C:Q/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?Q/P1:raise2 nash_equilibriums raise2=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?T/P1:c/P2:raise2/P1:c/C:T/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?K/P1:raise2/P2:c/C:K/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?K/P1:raise2/P2:c/C:J/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?Q/P1:raise2/P2:c/C:J/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?Q/P1:c/P2:c/C:9/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?J/P1:raise2/P2:raise2/P1:c/C:K/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?T/P1:raise2/P2:c/C:9/P1:c nash_equilibriums raise4=0.995 c=0.005
+infoset /?K/P1:c/P2:c/C:K/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?J/P1:c/P2:raise2/P1:c/C:K/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?J/P1:raise2/P2:c/C:T/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.005 f=0.995
+infoset /?Q/P1:c/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?9/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c nash_equilibriums raise4=0.9848050458715596 c=0.015194954128440373
+infoset /?Q/P1:raise2/P2:raise2/P1:c/C:J/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?9/P1:raise2/P2:raise2/P1:c/C:K/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.005 f=0.995
+infoset /?T/P1:raise2/P2:c/C:J/P1:c nash_equilibriums raise4=0.995 c=0.005
+infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?T/P1:c/P2:raise2/P1:c/C:J/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:9/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?Q/P1:c/P2:c/C:Q/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?Q/P1:raise2/P2:c/C:K/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?T/P1:c/P2:c/C:T/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:c/P2:raise2/P1:c/C:J/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?T/P1:raise2/P2:raise2/P1:c/C:J/P1:raise4 nash_equilibriums raise4=0.0033333333333333344 c=0.9857788971600596 f=0.010887769506606991
+infoset /?J/P1:c/P2:c/C:T/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?K/P1:c/P2:raise2/P1:c/C:9/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?Q/P1:raise2/P2:c/C:9/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?T/P1:raise2/P2:c/C:K/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.005 f=0.995
+infoset /?Q/P1:raise2/P2:c/C:T/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:c/P2:raise2/P1:raise2/P2:c/C:T/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?K/P1:c/P2:c/C:9/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?J/P1:raise2/P2:raise2/P1:c/C:T/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?T/P1:raise2/P2:c/C:T/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?Q/P1:raise2/P2:raise2/P1:c/C:9/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?9/P1:raise2/P2:raise2/P1:c/C:T/P1:c nash_equilibriums raise4=0.9848827586206896 c=0.015117241379310399
+infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?9/P1:c/P2:c/C:Q/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?T/P1:raise2/P2:raise2/P1:c/C:T/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?K/P1:c/P2:raise2/P1:c/C:J/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?Q/P1:raise2/P2:c/C:J/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:T/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?J/P1:c/P2:raise2/P1:raise2 nash_equilibriums c=0.5 f=0.5
+infoset /?J/P1:raise2 nash_equilibriums raise2=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?Q/P1:raise2/P2:raise2/P1:c/C:Q/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?K/P1:raise2/P2:c/C:K/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?Q/P1:c/P2:c/C:T/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?J/P1:c/P2:c/C:T/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?Q/P1:raise2/P2:raise2/P1:c/C:Q/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?J/P1:raise2/P2:raise2/P1:c/C:J/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?K/P1:raise2/P2:c/C:9/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?9/P1:c/P2:c/C:K/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?J/P1:c/P2:raise2/P1:c/C:K/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?Q/P1:c/P2:c/C:J/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:raise2/P2:c/C:J/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?T/P1:raise2/P2:raise2/P1:c/C:K/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.005 f=0.995
+infoset /?9/P1:c/P2:raise2/P1:c/C:K/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?J/P1:c/P2:c/C:J/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:T/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?Q/P1:c/P2:c/C:T/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?J/P1:c/P2:raise2/P1:c/C:K/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?T/P1:c/P2:c/C:T/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?9/P1:c/P2:raise2/P1:c/C:K/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?Q/P1:raise2/P2:raise2/P1:c/C:J/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:9/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?9/P1:c/P2:c/C:K/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?9/P1:c/P2:raise2/P1:c/C:9/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:c/P2:c/C:9/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?K/P1:raise2/P2:raise2/P1:c/C:Q/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:raise2/P2:raise2/P1:c/C:J/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.005 f=0.995
+infoset /?9/P1:c/P2:raise2/P1:c/C:Q/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?K/P1:raise2/P2:raise2/P1:c/C:J/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?K/P1:c/P2:raise2/P1:c/C:K/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?J/P1:raise2/P2:c/C:9/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.005 f=0.995
+infoset /?Q/P1:c/P2:c/C:Q/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?J/P1:c/P2:c/C:J/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?9/P1:raise2/P2:c/C:T/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.005 f=0.995
+infoset /?K/P1:raise2/P2:c/C:9/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?K/P1:c/P2:c/C:J/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:raise2 nash_equilibriums raise2=0.003333333333333333 c=0.9914730848861283 f=0.0051935817805383025
+infoset /?K/P1:c/P2:raise2/P1:c/C:Q/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:c/P2:c/C:Q/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?K/P1:c/P2:c/C:T/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?T/P1:raise2/P2:raise2/P1:c/C:9/P1:raise4 nash_equilibriums raise4=0.0033333333333333344 c=0.9857788971600596 f=0.010887769506606991
+infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:9/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?Q/P1:c nash_equilibriums raise2=0.5 c=0.5
+infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?Q/P1:raise2/P2:c/C:Q/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?Q/P1:raise2/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?9/P1:raise2/P2:raise2/P1:c/C:J/P1:c nash_equilibriums raise4=0.9848827586206896 c=0.015117241379310399
+infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:9/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?T/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:raise4 nash_equilibriums raise4=0.0033333333333333353 c=0.9819487224597615 f=0.014717944206905167
+infoset /?9/P1:raise2/P2:c/C:T/P1:c nash_equilibriums raise4=0.995 c=0.005
+infoset /?9/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.995 f=0.005
+infoset /?K/P1:c/P2:c/C:Q/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?9/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c nash_equilibriums raise4=0.9848050458715596 c=0.015194954128440373
+infoset /?J/P1:raise2/P2:raise2/P1:c/C:Q/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?T/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:raise4 nash_equilibriums raise4=0.0033333333333333353 c=0.9819487224597615 f=0.014717944206905167
+infoset /?Q/P1:raise2/P2:c/C:K/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?T/P1:c/P2:raise2/P1:c/C:T/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:c/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?K/P1:raise2/P2:c/C:Q/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?9/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:raise4 nash_equilibriums raise4=0.0033333333333333353 c=0.9819487224597615 f=0.014717944206905167
+infoset /?9/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:raise4 nash_equilibriums raise4=0.0033333333333333353 c=0.9819487224597615 f=0.014717944206905167
+infoset /?9/P1:raise2/P2:c/C:T/P1:raise4 nash_equilibriums raise4=0.0033333333333333335 c=0.9928616352201258 f=0.0038050314465408815
+infoset /?K/P1:c/P2:c/C:T/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?J/P1:c/P2:c/C:Q/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?T/P1:c/P2:c/C:9/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?Q/P1:c/P2:raise2/P1:c/C:Q/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?9/P1:raise2/P2:c/C:J/P1:c nash_equilibriums raise4=0.995 c=0.005
+infoset /?T/P1:c/P2:c/C:T/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:T/P1:raise4 nash_equilibriums raise4=0.33333333333333337 c=0.33333333333333337 f=0.33333333333333337
+infoset /?T/P1:c/P2:raise2/P1:raise2/P2:c/C:T/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?9/P1:c/P2:c/C:T/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?Q/P1:raise2/P2:c/C:J/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?9/P1:c/P2:raise2/P1:c/C:K/P1:raise4 nash_equilibriums raise4=0.3333333333333333 c=0.3333333333333333 f=0.3333333333333333
+infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?T/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5
+infoset /?J/P1:raise2/P2:c/C:Q/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?K/P1:raise2/P2:raise2/P1:c/C:9/P1:c nash_equilibriums raise4=0.5 c=0.5
+infoset /?9/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:raise4 nash_equilibriums raise4=0.0033333333333333353 c=0.9819487224597615 f=0.014717944206905167
+infoset /?Q/P1:c/P2:raise2/P1:c/C:9/P1:c/P2:raise4/P1:raise4 nash_equilibriums c=0.5 f=0.5

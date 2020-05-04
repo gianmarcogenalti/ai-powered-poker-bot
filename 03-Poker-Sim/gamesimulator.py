@@ -6,17 +6,21 @@ from datetime import datetime
 
 def initialization():
     print("Welcome to the Pokerbot!\n")
-    print("Wanna play some matches? y/n\n")
+    print("Wanna play or watch some matches?\n")
+    for i in [0,1]:
+        mat = "play" if i == 0 else "watch"
+        print("%d) %s \n" % (i,mat))
     play = input('')
-    if play == "y":
+    if play == "0":
         print("What's your name?\n")
         name = input('\n')
         return True,name
     else:
-        print("Maybe another time!\n")
+        print("Ok, you'll watch some games!\n")
         return False, "noname"
 
-def game_choice():
+
+def game_choice(play = True):
     avgames = glob.glob("**/*_infosets.csv")
     print("Available games are: \n")
     for i in range(len(avgames)):
@@ -31,12 +35,13 @@ def game_choice():
         try:
             infosets = loadinfosets(avgames[id][:-13])
             nodes = loadnodes(avgames[id][:-13])
-            print(nodes.Actions_Prob[45][0])
+            #print(nodes.Actions_Prob[45][0])
             j = False
         except:
             print("Choice not valid! Try again.\n")
-    print("Perfect, we will play %s! \n" % avgames[id][6:-13])
-    rules(id)
+    if play:
+        print("Perfect, we will play %s! \n" % avgames[id][6:-13])
+        rules(id)
     return nodes,infosets,avgames[id][6:-13]
 
 def play_again():
@@ -172,6 +177,20 @@ def save_log(gamehist, infohist, esit, name, game):
     logs.write(line + "\n")
     logs.close()
 
+def simulate_matches():
+    nodes, info1, info2, n = oppo_choose()
+    print(n)
 
 
-# datetime object containing current date and time
+def oppo_choose():
+    print("Choose two opponent which play the same game!\n")
+    nodes1, infosets1, name1 = game_choice(play = False)
+    nodes2, infosets2, name2 = game_choice(play = False)
+    while len(nodes1.index)!= len(nodes2.index):
+        print("They play different games!\n")
+        nodes2, infosets2, name2 = game_choice(play = False)
+    print("How many matches should they play? (they will play 2*n singles)\n")
+    n = round(float(input('')))
+
+    print("Ok, they will play against %d times!\n" % 2*n)
+    return nodes1, infosets1, infosets2, n
