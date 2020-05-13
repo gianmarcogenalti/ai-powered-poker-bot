@@ -28,16 +28,17 @@ class MC_Gamer(Gamer):
         t0 = time.time()
         while self.t < T:
                 self.waterlilies_select(1)
-                print("The first frog selected the waterlilies!")
+                #print("The first frog selected the waterlilies!")
                 self.waterlilies_jumps(2)
-                print("The second frog jumped on the waterlilies!")
+                #print("The second frog jumped on the waterlilies!")
                 self.waterlilies_select(2)
-                print("The second frog selected other waterlilies!")
+                #print("The second frog selected other waterlilies!")
                 self.waterlilies_jumps(1)
-                print("The first frog jumped on the other waterlilies!")
+                #print("The first frog jumped on the other waterlilies!")
                 self.t += 1
-                print("The frogs had %d challenges!" % self.t)
-        print("After %d challenges the frogs got bored!" % (time.time() - t0))
+                if not self.t % 10:
+                    print("The frogs had %d challenges!" % self.t)
+        print("After %d seconds the frogs got bored!" % (time.time() - t0))
 
 ################################################################################
     def get_regrets(self, absidx):
@@ -58,127 +59,47 @@ class MC_Gamer(Gamer):
             indices = self.infosets.index[self.infosets.Player != opponent]
             for i in indices:
                 self.proxy[i] = self.strategies[i]
+
 ################################################################################
 
-    def waterlilies_jumps(self, player):
-        sign = 1 if player == 1 else -1
-        #payoff = [0.0 for _ in range(len(self.infosets.index))]
-        terminals = []
-        dads = [[] for _ in range(len(self.infosets.index))]
-        dad_probs = [[] for _ in range(len(self.infosets.index))]
-        dad_actions = [[] for _ in range(len(self.infosets.index))]
-        player_depths = self.infosets.Depth[self.infosets.Player == player]
-        for depth in range(1,max(self.infosets['Depth']) + 1):
-            if depth == 1:
-                icurinfosets = [self.root]
-            else:
-                icurinfosets = list(self.infosets.index[self.infosets['Depth'] == depth])
-            for icurinfo in icurinfosets :
-                print(icurinfo)
-                dslists = self.infosets.Direct_Sons[icurinfo]
-                for idslist in range(len(dslists)) : # select one action
-                    dslist = dslists[idslist]
-                    if self.proxy[icurinfo][idslist] > 0.0:
-                        if len(dslist) == 0:
-                            self.utilities[icurinfo] += self.infosets.Payoff_P1[icurinfo][idslist] * self.proxy[icurinfo][idslist] * sign
-                            self.cfutilities[icurinfo].append(self.infosets.Payoff_P1[icurinfo][idslist] * sign)
-                            if (icurinfo not in terminals) and depth in player_depths:
-                                terminals.append(icurinfo)
-                        else:
-                            self.cfutilities[icurinfo].append(0)
-                            for idson in range(len(dslist)) : # select one son infoset
-                                dson = dslist[idson]
-                                '''
-                                if self.infosets.Player[icurinfo] == 1 :
-                                    self.Probability_P1[dson] += self.Probability_P1[icurinfo] * self.strategies[icurinfo][idslist] * self.infosets.Nature_Weight[icurinfo][idslist][idson]
-                                    self.Probability_P2[dson] += self.Probability_P2[icurinfo] * self.infosets.Nature_Weight[icurinfo][idslist][idson]
-                                else :
-                                    self.Probability_P2[dson] += self.Probability_P2[icurinfo] * self.strategies[icurinfo][idslist] * self.infosets.Nature_Weight[icurinfo][idslist][idson]
-                                    self.Probability_P1[dson] += self.Probability_P1[icurinfo] * self.infosets.Nature_Weight[icurinfo][idslist][idson]
-                                if self.infosets.Player[dson] == 1 :
-                                    self.Probability_Opp[dson] = self.Probability_P2[dson]
-                                else :
-                                    self.Probability_Opp[dson] = self.Probability_P1[dson]
-                                '''
-                                dads[dson].append(icurinfo)
-                                dad_probs[dson].append(self.proxy[icurinfo][idslist]*self.infosets.Nature_Weight[icurinfo][idslist][idson])
-                                dad_actions[dson].append(idslist)
-
-        for t in terminals:
-            regrets = get_regrets(t, payoff)
-            update_strategies(t, regrets)
-################################################################################
-
-    def tree_climb(self, player) :
+    def waterlilies_jumps(self, player) :
         self.utilities   = np.zeros(len(self.infosets.index))
         self.cfutilities = [[] for _ in range(len(self.infosets.index))]
         #payoffsums = [0.0 for _ in range(len(self.infosets.index))]
         sign = 1 if player == 1 else -1
         player_indices = self.infosets.index[self.infosets.Player == player]
-        for dpt in reversed(range(1, max(self.infosets.Depth) + 1)):
-            if dpt == 1:
-                dpt_indices = [self.root]
-            else:
-                dpt_indices = self.infosets.index[self.infosets.Depth == dpt]
-            for index in dpt_indices:
+        terminals = []
+        stopit = False
+        for index in reversed(range(len(self.infosets.index))):
+            if not stopit:
+                if self.infosets.Depth[index] == 1:
+                    index = self.root
+                    stopit = True
                 self.utilities[index] = 0.0
                 for idlist in range(len(self.infosets.Direct_Sons[index])):
                     dslist = self.infosets.Direct_Sons[index][idlist]
                     if len(dslist) == 0:
                         if index in player_indices:
-                            self.utilities[index] += self.infosets.Payoff_P1[index][idlist] * self.proxy[index][idlist]
+                            self.utilities[index] += self.infosets.Payoff_P1[index][idlist] * self.proxy[index][idlist] * sign
+                            self.cfutilities[index].append(self.infosets.Payoff_P1[index][idlist] * sign)
+                            terminals.append(index)
                         elif self.proxy[index][idlist] > 0.:
                             self.utilities[index] += self.infosets.Payoff_P1[index][idlist]
-                        #self.utilities[index] += self.Probability_Opp[index]*self.strategies[index][idlist]*sign*self.infosets.Payoff_P1[index][idlist]
-                        self.cfutilities[index].append(self.Probability_Opp[index]*sign*self.infosets.Payoff_P1[index][idlist])
+                            self.cfutilities[index].append(self.infosets.Payoff_P1[index][idlist])
                     else:
                         self.cfutilities[index].append(0)
-                        for idson in range(len(dslist)):
-                            ds = dslist[idson]
-                            payoffsums[index] += payoffsums[ds] * self.strategies[index][idlist] * self.infosets.Nature_Weight[index][idlist][idson]
-                                #self.utilities[index] += self.Probability_Opp[index]*self.strategies[index][idlist]*sign*payoffsums[ds]
-                            self.cfutilities[index][idlist] += self.Probability_Opp[index]*sign*payoffsums[ds]
-                    #print(self.infosets.History[index],self.utilities[index], self.strategies[index],self.cfutilities[index],"\n")
-                    if iteration:
-                        self.utilities[index] = payoffsums[index]*self.Probability_Opp[index]*sign
-                        regrets = self.get_regrets(index)
-                        self.update_strategies(index, regrets)
+                        if index in player_indices:
+                            for idson in range(len(dslist)):
+                                ds = dslist[idson]
+                                self.utilities[index] += self.utilities[ds] * self.proxy[index][idlist] * self.infosets.Nature_Weight[index][idlist][idson] * sign
+                                self.cfutilities[index][idlist] += self.utilities[ds] * self.infosets.Nature_Weight[index][idlist][idson] * sign
+                        elif self.proxy[index][idlist] > 0.:
+                            for idson in range(len(dslist)):
+                                ds = dslist[idson]
+                                self.utilities[index] += self.utilities[ds] * self.infosets.Nature_Weight[index][idlist][idson]
+                                self.cfutilities[index][idlist] += self.utilities[ds] * self.infosets.Nature_Weight[index][idlist][idson]
 
+        for t in terminals:
+            regrets = self.get_regrets(t)
+            self.update_strategies(t, regrets)
 ################################################################################
-    # Infosets Opponents probabilities
-    def tree_drop(self, proxy = False) :
-        if proxy:
-            strat = self.proxy
-            self.terminals = []
-        else:
-            strat = self.strategies
-        self.Probability_Opp = [0.0 for _ in range(len(self.infosets.index))]
-        self.Probability_P1 = [0.0 for _ in range(len(self.infosets.index))]
-        self.Probability_P2 = [0.0 for _ in range(len(self.infosets.index))]
-        roots = self.infosets.index[self.infosets.Depth == 1]
-        for startingidx in roots:
-            tot_p = 0
-            for im in self.infosets.Index_Members[startingidx]:
-                tot_p += self.nodes.Nature_Prob[im]
-            self.Probability_Opp[startingidx] = tot_p
-            self.Probability_P1[startingidx] = tot_p
-            self.Probability_P2[startingidx] = tot_p
-        for depth in range(1,max(self.infosets['Depth']) + 1):
-            icurinfosets = list(self.infosets.index[self.infosets['Depth'] == depth])
-            for icurinfo in icurinfosets :
-                dslists = self.infosets.Direct_Sons[icurinfo]
-                for idslist in range(len(dslists)) : # select one action
-                    dslist = dslists[idslist]
-                    if len(dslist) > 0:
-                        for idson in range(len(dslist)) : # select one son infoset
-                            dson = dslist[idson]
-                            if self.infosets.Player[icurinfo] == 1 :
-                                self.Probability_P1[dson] += self.Probability_P1[icurinfo] * strat[icurinfo][idslist] * self.infosets.Nature_Weight[icurinfo][idslist][idson]
-                                self.Probability_P2[dson] += self.Probability_P2[icurinfo] * self.infosets.Nature_Weight[icurinfo][idslist][idson]
-                            else :
-                                self.Probability_P2[dson] += self.Probability_P2[icurinfo] * strat[icurinfo][idslist] * self.infosets.Nature_Weight[icurinfo][idslist][idson]
-                                self.Probability_P1[dson] += self.Probability_P1[icurinfo] * self.infosets.Nature_Weight[icurinfo][idslist][idson]
-                            if self.infosets.Player[dson] == 1 :
-                                self.Probability_Opp[dson] = self.Probability_P2[dson]
-                            else :
-                                self.Probability_Opp[dson] = self.Probability_P1[dson]

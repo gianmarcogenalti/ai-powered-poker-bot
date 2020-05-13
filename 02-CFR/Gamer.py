@@ -17,6 +17,8 @@ class Gamer() :
         self.nodes = nodes
         self.t = 0
         self.strategies = init_probabilities(self.infosets)[0]
+        self.cumulative_strategies = init_probabilities(self.infosets)[1]
+        self.nash_equilibrium = init_probabilities(self.infosets)[1]
         self.cumulative_regret = init_probabilities(self.infosets)[1]
         self.cumulative_regret_plus = init_probabilities(self.infosets)[1]
 
@@ -27,10 +29,14 @@ class Gamer() :
         if sum_regret == 0:
             for i in range(n_actions - 1):
                 self.strategies[info_index][i] = 1/n_actions
+                self.cumulative_strategies[info_index][i] += 1/n_actions
             self.strategies[info_index][n_actions -1] = 1 - sum(self.strategies[info_index][:(n_actions-1)])
+            self.cumulative_strategies[info_index][n_actions - 1] += self.strategies[info_index][n_actions-1]
         else:
             for i in range(n_actions):
                 self.strategies[info_index][i] = self.cumulative_regret_plus[info_index][i]/sum_regret
+                self.cumulative_strategies[info_index][i] += self.strategies[info_index][i]
+
 
     def update_strategies(self, info_index, regrets) :
 
@@ -39,6 +45,17 @@ class Gamer() :
             self.cumulative_regret_plus[info_index][act] = max(self.cumulative_regret[info_index][act], 0)
         #print(self.cumulative_regret[info_index], self.cumulative_regret_plus[info_index])
         self.regret_matching(info_index)
+
+    def compute_nash(self):
+        for i in range(len(self.infosets.index)):
+            counter = 0
+            last = range(len(self.cumulative_strategies[i]))[-1]
+            sm = sum(self.cumulative_strategies[i])
+            for a in self.cumulative_strategies[i]:
+                print(float(a/sm))
+                self.nash_equilibrium[i][counter] = format(float(a/sm), '.2f') if counter != last else 1-sum(self.nash_equilibrium[i])
+                counter += 1
+
 
 
     def print_output(self, game, true_infosets) :

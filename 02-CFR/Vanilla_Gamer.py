@@ -17,7 +17,7 @@ class Vanilla_Gamer(Gamer):
         while self.t < T:
             self.tree_drop()
             print("The monkey dropped from the tree!")
-            self.check_probs()
+            #self.check_probs()
             self.tree_climb()
             self.t += 1
             print("The monkey climbed the tree %d times!" % self.t)
@@ -107,5 +107,5 @@ class Vanilla_Gamer(Gamer):
             sm = 0.0
             for i in indices:
                 sm += self.Probability_Opp[i]
-            print(sm)
+            #print(sm)
         #

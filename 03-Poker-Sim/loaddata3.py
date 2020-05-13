@@ -17,7 +17,16 @@ def makeArray(text,targetType):
             if targetType == "string" :
                 ret.append(textwb.split("', '"))
             elif targetType == "float" :
-                ret.append(list(map(float, np.array(textwb.split(", ")))))
+                toapp = np.array(textwb.split(", "))
+                for i in range(len(toapp)):
+                    print(toapp[i])
+                    print(type(toapp[i]))
+                    if toapp[i] == np.str_('0.'):
+                        toapp[i] = '0.0'
+                    if toapp[i] == np.str_('1.'):
+                        toapp[i] = '1.0'
+                    print(toapp[i])
+                ret.append(list(map(float, toapp)))
             elif targetType == "int" :
                 ret.append(list(map(int, np.array(textwb.split(", ")))))
         else :
@@ -38,6 +47,7 @@ def makeArray2(text,targetType):
                 if targetType == "string" :
                     ret.append(textwb.split("', '"))
                 elif targetType == "float" :
+
                     ret.append(list(map(float, np.array(textwb.split(", ")))))
                 elif targetType == "int" :
                     ret.append(list(map(int, np.array(textwb.split(", ")))))
