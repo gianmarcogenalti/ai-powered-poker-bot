@@ -5,7 +5,7 @@ def init_probabilities(infosets):
     regrets = [[] for _ in range(len(infosets.index))]
     for index,row in infosets.iterrows():
         n_actions = len(row.Actions)
-        regrets[index] = np.zeros(n_actions)
+        regrets[index] = list(np.zeros(n_actions))
         for pr_act in range(n_actions):
             probabilities[index].append(1/n_actions)
     infosets['Actions_Prob'] = probabilities
@@ -53,7 +53,7 @@ class Gamer() :
             sm = sum(self.cumulative_strategies[i])
             for a in self.cumulative_strategies[i]:
                 print(float(a/sm))
-                self.nash_equilibrium[i][counter] = format(float(a/sm), '.2f') if counter != last else 1-sum(self.nash_equilibrium[i])
+                self.nash_equilibrium[i][counter] = float(a/sm) if counter != last else 1-sum(self.nash_equilibrium[i])
                 counter += 1
 
 
