@@ -24,13 +24,13 @@ for i in range(len(abs_infosets.index)):
     print(abs_infosets.Depth[i], abs_infosets.Player[i])
 '''
 # Environment set
-T = 1
+T = 100
 
 method = 'vanilla'
 monkey = Vanilla_Gamer(abs_infosets, nodes)
 monkey.train(T)
 monkey.compute_nash()
-print(monkey.nash_equilibrium)
+#print(monkey.nash_equilibrium)
 monkey.print_output(game, infosets)
 #print(monkey.strategies)
 '''

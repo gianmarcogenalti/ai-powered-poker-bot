@@ -7,3 +7,4 @@ if not play and name == "noname":
     print(simulate_matches())
 
 print("\n\n\n\n\n\n\nThank You!")
+
