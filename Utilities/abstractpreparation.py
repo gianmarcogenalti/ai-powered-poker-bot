@@ -33,13 +33,6 @@ def abstractnodes(nodes, abs_infosets, infosets):
     abs_infosets['Index_Members'] = members
     nodes['Exp_Utility']          = exp_U
 
-def nodeblueprint(nodes, abs_infosets):
-    actprobs = [[] for _ in range(len(nodes.index))]
-    for index,row in nodes.iterrows():
-        actprobs[index] = abs_infosets.Actions_Prob[row.Abstract_Map]
-    nodes['Actions_Prob'] = actprobs
-
-
 def maptoclust(infosets,abs_infosets):
     map = [[] for _ in range(len(infosets.index))]
     for index,row in abs_infosets.iterrows():
@@ -130,19 +123,23 @@ def abstractdads(abs_infosets):
 
 
 def update_nodeprob(nodes):
-    nodes['Probability'] = [1.00] * len(nodes.index)
+    nodes['Nature_Prob'] = [1.00] * len(nodes.index)
     for dpt in range(max(nodes.Depth)+1):
         for index,row in nodes[nodes.Depth == dpt].iterrows():
             if row.Direct_Sons != -1:
                 counter = 0
                 for ds in row.Direct_Sons:
-                    nodes.Probability[ds] = nodes.Probability[index] * row.Actions_Prob[counter]
+                    if nodes.Type[index] == 'C':
+                        nodes.Nature_Prob[ds] = nodes.Nature_Prob[index] * row.Actions_Prob[counter]
+                    else:
+                        nodes.Nature_Prob[ds] = nodes.Nature_Prob[index]
                     counter = counter + 1
                 #
             #
         #
     #
-def get_back(infosets, strategies):
+def get_back(infosets, abs_infosets, strategies):
+    abs_infosets['Actions_Prob'] = strategies
     act_probs = []
     for index,row in infosets.iterrows():
         act_probs.append(strategies[row.Map_Clust[0]])
@@ -156,3 +153,21 @@ def abs_depth(abs_infosets):
         depths.append(np  + 1)
 
     abs_infosets['Depth'] = depths
+
+
+def nodeblueprint(nodes, abs_infosets):
+    actprobs = [[] for _ in range(len(nodes.index))]
+    for index,row in nodes.iterrows():
+        actprobs[index] = abs_infosets.Actions_Prob[row.Abstract_Map]
+    nodes['Actions_Prob'] = actprobs
+
+def absnature(nodes, infosets,abs_infosets):
+    nature_w = [[] for _ in range(len(abs_infosets.index))]
+    for index, row in abs_infosets.iterrows():
+        sm = 0
+        for member in row.Index_Members:
+            sm += nodes.Nature_Prob[member]
+        for member in row.Index_Members:
+            nature_w[index].append(nodes.Nature_Prob[member]/sm)
+
+    abs_infosets['Nature_Prob'] = nature_w

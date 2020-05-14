@@ -1,15 +1,6 @@
 import numpy as np
+import Utilities as U
 
-def init_probabilities(infosets):
-    probabilities = [[] for _ in range(len(infosets.index))]
-    regrets = [[] for _ in range(len(infosets.index))]
-    for index,row in infosets.iterrows():
-        n_actions = len(row.Actions)
-        regrets[index] = list(np.zeros(n_actions))
-        for pr_act in range(n_actions):
-            probabilities[index].append(1/n_actions)
-    infosets['Actions_Prob'] = probabilities
-    return probabilities, regrets
 
 class Gamer() :
     def __init__(self, infosets, nodes, verbose) :
@@ -17,11 +8,11 @@ class Gamer() :
         self.infosets = infosets
         self.nodes = nodes
         self.t = 0
-        self.strategies = init_probabilities(self.infosets)[0]
-        self.cumulative_strategies = init_probabilities(self.infosets)[1]
-        self.nash_equilibrium = init_probabilities(self.infosets)[1]
-        self.cumulative_regret = init_probabilities(self.infosets)[1]
-        self.cumulative_regret_plus = init_probabilities(self.infosets)[1]
+        self.strategies = U.init_probabilities(self.infosets)[0]
+        self.cumulative_strategies = U.init_probabilities(self.infosets)[1]
+        self.nash_equilibrium = U.init_probabilities(self.infosets)[1]
+        self.cumulative_regret = U.init_probabilities(self.infosets)[1]
+        self.cumulative_regret_plus = U.init_probabilities(self.infosets)[1]
 
     def regret_matching(self, info_index) :
         new_strats = []

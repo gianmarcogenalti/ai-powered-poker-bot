@@ -1,5 +1,6 @@
 import time
 import pandas as pd
+#import Parsing
 from Parsing.dataframeparsing import infosetdf, nodesdf
 from Parsing.df_reinforcement import *
 from Parsing.probabilities import *
@@ -103,5 +104,3 @@ def parsing(game = 'leduc5', verbose = False, tocsv = False):
         print('Parsing Execution time: ', time.time() - t0)
 
     return nodes,infosets
-
-parsing("leduc3")

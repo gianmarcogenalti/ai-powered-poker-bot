@@ -3,13 +3,7 @@ from CFR.Gamer import *
 import time
 import numpy as np
 import math
-'''
-def init_n_actions(strategies):
-    ret = 0
-    for i in strategies:
-        ret += len(i)
-    return ret
-'''
+
 class MC_Gamer(Gamer):
 
     def __init__(self, infosets, nodes, verbose) :

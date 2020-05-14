@@ -1,10 +1,12 @@
 from Clustering.clusterinfosets import *
+import Utilities as U
 import time
 
 def abstractgeneration(infosets, verbose = False):
     t0 = time.time()
+    # We initialize the abstract structure 
     abs_infosets = pd.DataFrame()
-    abs_infosets['History_Structure'] = infosets['History']
+    abs_infosets['History_Structure'] = U.createstringflag(infosets['History'])
     abs_infosets['Depth'] = infosets['Depth']
     abs_infosets['Payoff'] = infosets['Payoff_Vector_P1']
     abs_infosets['Player'] = infosets['Player']
@@ -16,10 +18,8 @@ def abstractgeneration(infosets, verbose = False):
 
     # Merges infosets without loss of information
     abs_infosets = cluster(abs_infosets, infoloss = False)
-
     # Properly clusters infosets
     abs_infosets = cluster(abs_infosets, infoloss = True)
-
     # Collects the initial data left behind
     abs_infosets = infosetstoprint(abs_infosets,infosets)
 
@@ -27,5 +27,6 @@ def abstractgeneration(infosets, verbose = False):
     #infosets.to_csv("..\\Import-files\\clust_"+game+".csv", index = False, header = True)
     if verbose:
         print(abs_infosets)
-        print("Execution time: %d" %  time.time()-t0)
+        dt = time.time() - t0
+        print("Execution time: %f" % dt)
     return abs_infosets
