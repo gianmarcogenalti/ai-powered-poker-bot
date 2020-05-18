@@ -10,7 +10,7 @@ from CFR.MC_Gamer import *
 # Choose game:
 def cfr(nodes, infosets, abs_infosets, game, method = 'vanilla', T = 100, verbose = False):
 # Enriching the nodes and abstract infosets dataframe
-    U.update_nodeprob(nodes)
+    U.update_natureprob(nodes)
     U.maptoclust(infosets, abs_infosets)
     U.abstractnodes(nodes, abs_infosets, infosets)
     U.abstractsons(nodes, abs_infosets, infosets)

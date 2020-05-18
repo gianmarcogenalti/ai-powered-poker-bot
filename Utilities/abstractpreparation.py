@@ -122,7 +122,7 @@ def abstractdads(abs_infosets):
     abs_infosets['Dads'] = dads
 
 
-def update_nodeprob(nodes):
+def update_natureprob(nodes):
     nodes['Nature_Prob'] = [1.00] * len(nodes.index)
     for dpt in range(max(nodes.Depth)+1):
         for index,row in nodes[nodes.Depth == dpt].iterrows():
@@ -138,6 +138,7 @@ def update_nodeprob(nodes):
             #
         #
     #
+    nodes['Probability'] = nodes['Nature_Prob']
 def get_back(infosets, abs_infosets, strategies):
     abs_infosets['Actions_Prob'] = strategies
     act_probs = []
@@ -158,7 +159,8 @@ def abs_depth(abs_infosets):
 def nodeblueprint(nodes, abs_infosets):
     actprobs = [[] for _ in range(len(nodes.index))]
     for index,row in nodes.iterrows():
-        actprobs[index] = abs_infosets.Actions_Prob[row.Abstract_Map]
+        if row.Type == 'N':
+            actprobs[index] = abs_infosets.Actions_Prob[row.Abstract_Map]
     nodes['Actions_Prob'] = actprobs
 
 def absnature(nodes, infosets,abs_infosets):
@@ -171,3 +173,46 @@ def absnature(nodes, infosets,abs_infosets):
             nature_w[index].append(nodes.Nature_Prob[member]/sm)
 
     abs_infosets['Nature_Prob'] = nature_w
+
+def nodetoclust(nodes, infosets, abs_infosets):
+    map = [[] for _ in range(len(nodes.index))]
+    for index, row in nodes.iterrows():
+        if row.Type == 'N':
+            maptoinf = row.Map
+            maptoclust = infosets.Map_Clust[maptoinf][0]
+        else:
+            maptoclust = -999999
+        #print(maptoclust)
+        map[index]= (maptoclust)
+
+    nodes['Abs_Map'] = map
+
+def chance_to_infoset(nodes, abs_infosets):
+    chances = nodes[nodes.Type == 'C']
+    nmax = len(abs_infosets.index)
+    counter = 0
+    for index,crow in chances.iterrows():
+        nodes.Abs_Map[index] = nmax + counter
+        counter += 1
+        cdf = pd.DataFrame([index], columns = ['Map'])
+        abs_infosets = abs_infosets.append(cdf, ignore_index=True)
+
+    return abs_infosets
+
+def update_infoprob(infosets, nodes):
+    prob = [0] * len(infosets.index)
+    for index, row in infosets.iterrows():
+        for map in row.Index_Members:
+            prob[index] = prob[index] + nodes.Probability[map]
+        #
+    #
+    infosets['Probability'] = prob
+
+def prob_leaf(nodes) :
+    sum = 0
+    for index,row in nodes.iterrows():
+        if row.Type == 'L':
+            sum = sum + row.Probability
+        #
+    #
+    print('Leaves sum to: ', sum)

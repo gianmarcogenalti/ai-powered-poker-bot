@@ -10,12 +10,10 @@ from Subgames.TreePartitioner import *
 def subgameresolver(nodes, infosets, abs_infosets):
     U.nodeblueprint(nodes,abs_infosets)
     U.absnature(nodes,infosets,abs_infosets)
+    #abs_infosets = U.chance_to_infoset(nodes, abs_infosets)
     #print(abs_infosets.Actions_Prob)
 
-    part = TreePartitioner(abs_infosets)
-    part.coparents()
-    part.infotonodes()
-    #print('Parents: ',part.info_roots)
-    #print('Sons: ', part.info_sons)
-    #print('Node Parents: ', part.node_roots)
-    #print('Node Sons: ', part.node_sons)
+    part = TreePartitioner(abs_infosets, depth_lim = True, max_depth = 5)
+    part.subgamegenerator()
+    print(part.info_subgames)
+    print(part.info_roots)

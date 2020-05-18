@@ -1,6 +1,7 @@
 import time
 import pandas as pd
 #import Parsing
+import Utilities as U
 from Parsing.dataframeparsing import infosetdf, nodesdf
 from Parsing.df_reinforcement import *
 from Parsing.probabilities import *
@@ -81,11 +82,11 @@ def parsing(game = 'leduc5', verbose = False, tocsv = False):
     if verbose:
         print('actions added to infosets!\n')
 
-    update_nodeprob(nodes) # adding probabilities of chance nodes
+    U.update_natureprob(nodes) # adding probabilities of chance nodes
     if verbose:
         print('probabilities added to nodes!\n')
 
-    update_infoprob(infosets,nodes) # updating infosets' probabilities by sum of nodes' Probabilities
+    U.update_infoprob(infosets,nodes) # updating infosets' probabilities by sum of nodes' Probabilities
     if verbose:
         print('infosets probabilities updated!')
 

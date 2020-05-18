@@ -1,21 +1,3 @@
-def update_nodeprob(nodes):
-    nodes['Probability'] = [1.00] * len(nodes.index)
-    for dpt in range(max(nodes.Depth)+1):
-        for index,row in nodes[nodes.Depth == dpt].iterrows():
-            if row.Direct_Sons != -1:
-                counter = 0
-                for ds in row.Direct_Sons:
-                    if nodes.Player[index] == 0:
-                        nodes.Probability[ds] = nodes.Probability[index] * row.Actions_Prob[counter]
-                    else:
-                        nodes.Probability[ds] = nodes.Probability[index]
-                    counter = counter + 1
-                #
-            #
-        #
-    #
-
-
 ## THIS WORKS USING NONTERMINAL NODES
 def update_infoprob(infosets, nodes):
     prob = [0] * len(infosets.index)

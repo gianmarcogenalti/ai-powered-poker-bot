@@ -34,11 +34,9 @@ sr.subgameresolver(nodes, infosets, abs_infosets)
 t4 = time.time()
 print("Subgames Resolved : Done in %f seconds" % (t4 - t3))
 
-for i, row in abs_infosets.iterrows():
-    print(row.Nature_Prob)
 
 #for index, row in abs_infosets.iterrows():
-    #print(row.Index_Members)
+    #print(row.Depth, row.Player)
 
 
 

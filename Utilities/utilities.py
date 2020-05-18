@@ -57,3 +57,10 @@ def createstringflag(hist):
             res.append(flagsize)
 
     return res
+
+def mult_intersection(lst1, lst2):
+    lst3 = [list(filter(lambda x: x in lst1, sublist)) for sublist in lst2]
+    return lst3
+
+def intersection(lst1, lst2):
+    return list(set(lst1) & set(lst2))

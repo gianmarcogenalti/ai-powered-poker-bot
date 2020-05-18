@@ -1,68 +1,60 @@
+import Utilities as U
+
 class TreePartitioner:
 
-    def __init__(self,abs_infosets):
+    def __init__(self,abs_infosets, depth_lim = False, max_depth = 100):
         self.infosets = abs_infosets
-        self.isroot = [False for i in range(len(self.infosets.index))]
-        self.info_roots = []
-        #self.info_sons = []
-        self.info_subgames = []
-        self.node_roots = []
-        #self.node_sons = []
-
-    def infotonodes(self):
-        for rootlist in self.info_roots:
-            temp = []
-            for root in rootlist:
-                for im in self.infosets.Index_Members[root]:
-                    temp.append(im)
-            self.node_roots.append(temp)
-        '''
-        for sonslist in self.info_sons:
-            temp = []
-            for son in sonslist:
-                for im in self.infosets.Index_Members[son]:
-                    temp.append(im)
-            self.node_sons.append(temp)
-        '''
+        self.info_roots = [[] for _ in range(len(self.infosets.index))]
+        self.isroot = [False for _ in range(len(self.infosets.index))]
+        self.info_subgames = [[] for _ in range(len(self.infosets.index))]
+        self.depth_subgames = [[] for _ in range(len(self.infosets.index))]
+        self.subgameid = [[] for _ in range(len(self.infosets.index))]
+        self.depth_limited = depth_lim
+        if depth_lim:
+            self.max_depth = max_depth
+            self.subgamedepth = [0 for _ in range(len(self.infosets.index))]
+            self.subgameplayer = [0 for _ in range(len(self.infosets.index))]
 
 
+    def subgamegenerator(self):
+        counter = 0
+        for index, row in self.infosets.iterrows():
+            if not self.isroot[index]:
+                if self.depth_limited:
+                    self.subgamedepth[counter] = self.infosets.Depth[index]
+                    self.subgameplayer[counter] = self.infosets.Player[index]
+                self.rooter(index, counter)
+                counter += 1
+        self.info_subgames = [x for x in self.info_subgames if x != []]
+        self.info_roots = [x for x in self.info_roots if x != []]
 
-    def coparents(self):
-        for d in range(max(self.infosets.Depth)):
-            for index, row in self.infosets.iterrows():
-                if self.isroot[index] == False:
-                    self.isroot[index] = True
-                    coroots, sonroots = self.rooter(index)
-                    self.info_roots.append(coroots)
-                    #self.info_sons.append(sonroots)
 
-
-
-    def rooter(self, froot):
-        coroots = [froot]
-        queueroots = [froot]
-        sonroots = []
-        while queueroots :
-            root = queueroots.pop(0)
-            for idlist in range(len(self.infosets.Direct_Sons[root])):
-                dslist = self.infosets.Direct_Sons[root][idlist]
-                if len(dslist) > 0:
-                    for idson in range(len(dslist)):
-                        dson = dslist[idson]
-                        sonroots.append(dson)
-                        for daddylist in self.infosets.Dads[dson]:
-                            if isinstance(daddylist, int):
-                                if not self.isroot[daddylist] and self.infosets.Player[daddylist] == self.infosets.Player[root]:
-                                    self.isroot[daddylist] = True
-                                    coroots.append(daddylist)
-                            else:
-                                for daddy in daddylist:
-                                    if not self.isroot[daddy] and self.infosets.Player[daddy] == self.infosets.Player[root]:
-                                        self.isroot[daddy] ==True
-                                        coroots.append(daddy)
-                                        queueroots.append(daddy)
-                        #self.rooter(dson)
-        #
-        return coroots, sonroots
-
-    #def exp_utilities(self):
+    def rooter(self,index, counter):
+        if index not in self.info_subgames[counter]:
+            self.subgameid[index].append(counter)
+            self.info_subgames[counter].append(index)
+            #self.depth_subgames[counter].append(self.infosets.Depth[index])
+            for idlist in range(len(self.infosets.Direct_Sons[index])):
+                dslist = self.infosets.Direct_Sons[index][idlist]
+                for idson in range(len(dslist)):
+                    ds = dslist[idson]
+                    if self.depth_limited and (self.infosets.Depth[ds] <= self.subgamedepth[counter] + self.max_depth): #and self.infosets.Player[index] != self.infosets.Player[self.info_roots[counter][0]]):
+                        if not (self.infosets.Depth[ds] == self.subgamedepth[counter] + self.max_depth and self.infosets.Player[ds] == self.subgameplayer[counter]):
+                                self.rooter(ds, counter)
+                    elif not self.depth_limited:
+                        self.rooter(ds, counter)
+                    if ds in self.info_roots[counter]:
+                        self.info_roots[counter].remove(ds)
+            if not bool(U.intersection(self.infosets.Dads[index],self.info_subgames[counter])):
+                self.isroot[index] = True
+                self.info_roots[counter].append(index)
+            else:
+                for dad in self.infosets.Dads[index]:
+                    self.rooter(dad, counter)
+'''
+    def tree_pruning(self, max_depth):
+        for idlist in range(len(self.depth_subgames)):
+            root_depth = min(self.depth_subgames[idlist])
+            print(root_depth)
+            for idis in range(len(self.info_subgames[idlist])):
+    '''
