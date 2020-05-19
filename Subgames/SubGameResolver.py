@@ -9,7 +9,7 @@ class SubGameResolver:
         self.R = U.init_probabilities(abs_infosets)[1]
         self.R_plus = U.init_probabilities(abs_infosets)[1]
 
-   def  new_strategy(self, root):
+    def  new_strategy(self, root):
        for absInfo in root:
            mixed=0
            for idaction in range(len( self.infosets.Actions[absInfo])):

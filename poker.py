@@ -5,7 +5,7 @@ import Clustering as abstraction
 import CFR as blueprint
 import Subgames as sr
 
-game = sys.argv[1]
+game = "leduc5" # sys.argv[1]
 
 try:
     cfrmethod = sys.argv[2]
