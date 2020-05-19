@@ -35,8 +35,8 @@ t4 = time.time()
 print("Subgames Resolved : Done in %f seconds" % (t4 - t3))
 
 
-#for index, row in abs_infosets.iterrows():
-    #print(row.Depth, row.Player)
+#for index, row in nodes.iterrows():
+    #print(row)
 
 
 
