@@ -1,288 +1,288 @@
-infoset /J?/P1:raise2/P2:raise2/P1:c/C:J strategies raise4=1.0 c=0.0
-infoset /J?/P1:raise2/P2:raise2/P1:c/C:K strategies raise4=0.5 c=0.5
-infoset /K?/P1:c/P2:c/C:Q strategies raise4=0.5 c=0.5
-infoset /K?/P1:c/P2:c/C:Q/P1:c/P2:raise4 strategies raise4=0.0 c=0.0 f=1.0
-infoset /Q?/P1:c/P2:raise2/P1:c/C:J/P1:c/P2:raise4 strategies raise4=0.0 c=0.0 f=1.0
-infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /J?/P1:raise2/P2:raise2/P1:c/C:J/P1:c/P2:raise4 strategies raise4=0.5 c=0.5000000000000001 f=0.0
-infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c/P2:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /J?/P1:raise2/P2:raise2/P1:c/C:Q strategies raise4=0.5 c=0.5
-infoset /K?/P1:c/P2:c/C:K strategies raise4=1.0 c=0.0
-infoset /K?/P1:c/P2:c/C:J strategies raise4=0.5 c=0.5
-infoset /K?/P1:raise2/P2:raise2 strategies c=1.0 f=0.0
-infoset /K?/P1:raise2/P2:raise2/P1:c/C:K/P1:c/P2:raise4 strategies raise4=0.5 c=0.5000000000000001 f=0.0
-infoset /J?/P1:c/P2:c/C:K/P1:c/P2:raise4 strategies raise4=0.0 c=0.0 f=1.0
-infoset /Q?/P1:raise2/P2:raise2/P1:c/C:K/P1:c/P2:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /K?/P1:c/P2:raise2/P1:c/C:K/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /J?/P1:c/P2:raise2/P1:c/C:K/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /K?/P1:c/P2:raise2/P1:c/C:Q/P1:c/P2:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /J?/P1:c/P2:raise2/P1:c/C:Q/P1:c/P2:raise4 strategies raise4=0.0 c=0.0 f=1.0
-infoset /Q?/P1:raise2/P2:raise2/P1:c/C:Q/P1:c/P2:raise4 strategies raise4=0.5 c=0.5000000000000001 f=0.0
-infoset /K?/P1:raise2/P2:raise2/P1:c/C:K strategies raise4=1.0 c=0.0
-infoset /K?/P1:raise2/P2:raise2/P1:c/C:J strategies raise4=0.5 c=0.5
-infoset /Q?/P1:c/P2:c/C:Q strategies raise4=1.0 c=0.0
-infoset /J?/P1:c/P2:raise2/P1:c/C:K/P1:c/P2:raise4 strategies raise4=0.0 c=0.0 f=1.0
-infoset /Q?/P1:c/P2:c/C:K strategies raise4=0.5 c=0.5
-infoset /Q?/P1:c/P2:c/C:J strategies raise4=0.5 c=0.5
-infoset /K?/P1:raise2/P2:raise2/P1:c/C:Q strategies raise4=0.5 c=0.5
-infoset /K?/P1:c/P2:raise2/P1:c/C:Q/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /Q?/P1:c/P2:c/C:K/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /Q?/P1:raise2/P2:raise2/P1:c/C:Q/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /J?/P1:raise2/P2:c/C:Q/P1:c/P2:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /J? strategies raise2=0.55 c=0.44999999999999996
-infoset /J?/P1:c/P2:c/C:J/P1:c/P2:raise4 strategies raise4=0.4999999999999997 c=0.5000000000000002 f=0.0
-infoset /Q?/P1:c/P2:raise2/P1:c/C:J/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /Q?/P1:c/P2:c/C:K/P1:c/P2:raise4 strategies raise4=0.0 c=0.0 f=1.0
-infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c/P2:raise4 strategies raise4=0.4999999999999999 c=0.5000000000000001 f=0.0
-infoset /K?/P1:raise2/P2:c/C:K/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /K?/P1:raise2/P2:c/C:Q strategies raise4=0.5 c=0.5
-infoset /K?/P1:c/P2:c/C:K/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /K?/P1:raise2/P2:raise2/P1:c/C:Q/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /Q?/P1:c/P2:c/C:Q/P1:c/P2:raise4 strategies raise4=0.4999999999999997 c=0.5000000000000002 f=0.0
-infoset /J?/P1:c/P2:raise2/P1:c/C:Q/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c/P2:raise4 strategies raise4=0.4999999999999999 c=0.5000000000000001 f=0.0
-infoset /K? strategies raise2=0.55 c=0.44999999999999996
-infoset /K?/P1:raise2/P2:raise2/P1:c/C:J/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /K?/P1:raise2/P2:c/C:J strategies raise4=0.5 c=0.5
-infoset /J?/P1:raise2/P2:c/C:J/P1:c/P2:raise4 strategies raise4=0.03710503057899591 c=0.962894969421004 f=0.0
-infoset /J?/P1:c/P2:c/C:Q/P1:c/P2:raise4 strategies raise4=0.0 c=0.0 f=1.0
-infoset /K?/P1:raise2/P2:c/C:K/P1:c/P2:raise4 strategies raise4=0.03710503057899591 c=0.962894969421004 f=0.0
-infoset /Q?/P1:raise2/P2:c/C:K strategies raise4=0.5 c=0.5
-infoset /Q?/P1:raise2/P2:c/C:J strategies raise4=0.5 c=0.5
-infoset /Q?/P1:c/P2:raise2 strategies raise2=0.9183421684288042 c=0.08165783157119581 f=0.0
-infoset /Q?/P1:raise2/P2:c/C:K/P1:c/P2:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /K?/P1:c/P2:c/C:Q/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /Q?/P1:raise2/P2:c/C:Q strategies raise4=0.5834330499093627 c=0.41656695009063727
-infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c/P2:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /K?/P1:raise2/P2:raise2/P1:c/C:Q/P1:c/P2:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c/P2:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /J?/P1:c/P2:c/C:K strategies raise4=0.5 c=0.5
-infoset /Q?/P1:raise2/P2:c/C:K/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /K?/P1:raise2/P2:c/C:J/P1:c/P2:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /Q?/P1:c/P2:raise2/P1:c/C:K/P1:c/P2:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /Q?/P1:raise2/P2:raise2/P1:c/C:K/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /Q?/P1:raise2/P2:raise2/P1:c/C:J/P1:c/P2:raise4 strategies raise4=0.3333333333333333 c=0.3333333333333333 f=0.33333333333333337
-infoset /Q?/P1:c/P2:raise2/P1:c/C:Q/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c/P2:raise4 strategies raise4=0.3333333333333333 c=0.3333333333333333 f=0.33333333333333337
-infoset /K?/P1:c/P2:c/C:K/P1:c/P2:raise4 strategies raise4=0.4999999999999997 c=0.5000000000000002 f=0.0
-infoset /K?/P1:c/P2:raise2 strategies raise2=0.9183421684288042 c=0.08165783157119581 f=0.0
-infoset /Q?/P1:c/P2:c/C:Q/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /K?/P1:c/P2:raise2/P1:c/C:Q strategies raise4=0.5 c=0.5
-infoset /J?/P1:raise2/P2:raise2/P1:c/C:J/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /K?/P1:raise2/P2:c/C:Q/P1:c/P2:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /Q?/P1:raise2/P2:c/C:Q/P1:c/P2:raise4 strategies raise4=0.03710503057899591 c=0.962894969421004 f=0.0
-infoset /J?/P1:raise2/P2:c/C:K/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /K?/P1:c/P2:raise2/P1:c/C:K/P1:c/P2:raise4 strategies raise4=0.32941176470588235 c=0.6705882352941176 f=0.0
-infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c/P2:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /Q?/P1:raise2/P2:raise2 strategies c=1.0 f=0.0
-infoset /Q?/P1:raise2/P2:raise2/P1:c/C:K strategies raise4=0.5 c=0.5
-infoset /Q?/P1:raise2/P2:raise2/P1:c/C:J strategies raise4=0.5 c=0.5
-infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c/P2:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /K?/P1:raise2/P2:raise2/P1:c/C:K/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /Q?/P1:raise2/P2:raise2/P1:c/C:Q strategies raise4=1.0 c=0.0
-infoset /J?/P1:raise2/P2:raise2 strategies c=1.0 f=0.0
-infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /K?/P1:raise2/P2:c/C:J/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /J?/P1:raise2/P2:raise2/P1:c/C:Q/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /K?/P1:c/P2:c/C:J/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /K?/P1:c/P2:c/C:J/P1:c/P2:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /Q?/P1:c/P2:raise2/P1:c/C:Q strategies raise4=0.6945544554455445 c=0.3054455445544555
-infoset /Q?/P1:c/P2:raise2/P1:c/C:K strategies raise4=0.5 c=0.5
-infoset /Q?/P1:c/P2:raise2/P1:c/C:J strategies raise4=0.5 c=0.5
-infoset /J?/P1:raise2/P2:c/C:Q/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /J?/P1:c/P2:c/C:J/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:J strategies raise4=0.5 c=0.5
-infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:K strategies raise4=0.5 c=0.5
-infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q strategies raise4=1.0 c=0.0
-infoset /J?/P1:c/P2:c/C:K/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /J?/P1:raise2/P2:raise2/P1:c/C:K/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /Q?/P1:c/P2:c/C:J/P1:c/P2:raise4 strategies raise4=0.0 c=0.0 f=1.0
-infoset /J?/P1:raise2/P2:raise2/P1:c/C:K/P1:c/P2:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:K strategies raise4=0.5 c=0.5
-infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:J strategies raise4=1.0 c=0.0
-infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q strategies raise4=0.5 c=0.5
-infoset /J?/P1:c/P2:c/C:Q/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /J?/P1:raise2/P2:c/C:J/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /J?/P1:raise2/P2:raise2/P1:c/C:Q/P1:c/P2:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:J strategies raise4=0.5 c=0.5
-infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:K strategies raise4=1.0 c=0.0
-infoset /J?/P1:c/P2:raise2/P1:c/C:Q strategies raise4=0.5 c=0.5
-infoset /K?/P1:raise2/P2:c/C:K strategies raise4=0.5834330499093627 c=0.41656695009063727
-infoset /Q?/P1:raise2/P2:raise2/P1:c/C:J/P1:raise4/P2:raise4 strategies c=0.0 f=1.0
-infoset /Q?/P1:raise2/P2:c/C:J/P1:c/P2:raise4 strategies raise4=0.3333333333333333 c=0.3333333333333333 f=0.33333333333333337
-infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c/P2:raise4 strategies raise4=0.4999999999999999 c=0.5000000000000001 f=0.0
-infoset /J?/P1:c/P2:raise2/P1:c/C:J strategies raise4=0.6945544554455445 c=0.3054455445544555
-infoset /J?/P1:c/P2:raise2/P1:c/C:K strategies raise4=0.5 c=0.5
-infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q strategies raise4=0.5 c=0.5
-infoset /K?/P1:c/P2:raise2/P1:c/C:K strategies raise4=0.6945544554455445 c=0.3054455445544555
-infoset /K?/P1:c/P2:raise2/P1:c/C:J strategies raise4=0.5 c=0.5
-infoset /J?/P1:raise2/P2:c/C:K/P1:c/P2:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /J?/P1:raise2/P2:c/C:Q strategies raise4=0.5 c=0.5
-infoset /J?/P1:c/P2:c/C:J strategies raise4=1.0 c=0.0
-infoset /Q?/P1:c/P2:raise2/P1:c/C:K/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /Q?/P1:c/P2:raise2/P1:c/C:Q/P1:c/P2:raise4 strategies raise4=0.32941176470588235 c=0.6705882352941176 f=0.0
-infoset /J?/P1:raise2/P2:c/C:J strategies raise4=0.5834330499093627 c=0.41656695009063727
-infoset /J?/P1:raise2/P2:c/C:K strategies raise4=0.5 c=0.5
-infoset /J?/P1:c/P2:raise2/P1:c/C:J/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /J?/P1:c/P2:c/C:Q strategies raise4=0.5 c=0.5
-infoset /K?/P1:c/P2:raise2/P1:c/C:J/P1:c/P2:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /Q?/P1:raise2/P2:c/C:J/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:raise4/P2:raise4 strategies c=0.0 f=1.0
-infoset /Q?/P1:raise2/P2:c/C:Q/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /Q?/P1:c/P2:c/C:J/P1:raise4/P2:raise4 strategies c=0.0 f=1.0
-infoset /Q? strategies raise2=0.55 c=0.44999999999999996
-infoset /J?/P1:c/P2:raise2/P1:c/C:J/P1:c/P2:raise4 strategies raise4=0.32941176470588235 c=0.6705882352941176 f=0.0
-infoset /K?/P1:raise2/P2:raise2/P1:c/C:J/P1:c/P2:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /J?/P1:c/P2:raise2 strategies raise2=0.3206744082848824 c=0.6793255917151176 f=0.0
-infoset /K?/P1:c/P2:raise2/P1:c/C:J/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /K?/P1:raise2/P2:c/C:Q/P1:raise4/P2:raise4 strategies c=1.0 f=0.0
-infoset /?Q/P1:c/P2:raise2/P1:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?J/P1:raise2/P2:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?J/P1:c/P2:raise2/P1:c/C:Q/P1:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /?J/P1:raise2/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?Q/P1:raise2/P2:raise2/P1:c/C:Q/P1:raise4 strategies raise4=0.49999999999999983 c=0.5000000000000001 f=0.0
-infoset /?J/P1:c/P2:raise2/P1:c/C:J/P1:c strategies raise4=0.0 c=1.0
-infoset /?Q/P1:raise2/P2:raise2/P1:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?Q/P1:raise2/P2:raise2/P1:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=0.0 f=1.0
-infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /?K/P1:c/P2:raise2/P1:c/C:K/P1:c strategies raise4=0.0 c=1.0
-infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?J/P1:raise2/P2:c/C:J/P1:c strategies raise4=0.4934557894236448 c=0.5065442105763551
-infoset /?K/P1:raise2/P2:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:raise4 strategies raise4=0.3333333333333333 c=0.3333333333333333 f=0.33333333333333337
-infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:raise4 strategies raise4=0.3333333333333333 c=0.3333333333333333 f=0.33333333333333337
-infoset /?J/P1:c/P2:raise2/P1:raise2 strategies c=0.75 f=0.25
-infoset /?J/P1:raise2 strategies raise2=0.0216660886957714 c=0.9783339113042286 f=0.0
-infoset /?J/P1:c/P2:raise2/P1:c/C:Q/P1:c strategies raise4=0.0 c=1.0
-infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:raise4 strategies raise4=0.4999999999999999 c=0.5000000000000001 f=0.0
-infoset /?Q/P1:c/P2:c/C:J/P1:c strategies raise4=0.5 c=0.5
-infoset /?K/P1:c/P2:raise2/P1:c/C:Q/P1:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /?Q/P1:raise2/P2:raise2/P1:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?K/P1:raise2/P2:raise2/P1:c/C:Q/P1:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /?K/P1:c/P2:raise2/P1:raise2 strategies c=0.75 f=0.25
-infoset /?K/P1:raise2/P2:c/C:K/P1:raise4 strategies raise4=0.036762832521543616 c=0.9632371674784563 f=0.0
-infoset /?K/P1:c/P2:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?K/P1:raise2/P2:raise2/P1:c/C:Q/P1:c strategies raise4=0.5 c=0.5
-infoset /?Q/P1:raise2/P2:raise2/P1:c/C:Q/P1:c strategies raise4=0.46107962125491725 c=0.5389203787450827
-infoset /?J/P1:raise2/P2:c/C:J/P1:raise4 strategies raise4=0.036762832521543616 c=0.9632371674784563 f=0.0
-infoset /?J/P1:raise2/P2:raise2/P1:c/C:J/P1:raise4 strategies raise4=0.49999999999999983 c=0.5000000000000001 f=0.0
-infoset /?J/P1:c/P2:raise2/P1:c/C:K/P1:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /?Q/P1:c/P2:raise2/P1:c/C:K/P1:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /?K/P1:c/P2:raise2/P1:c/C:Q/P1:c strategies raise4=0.0 c=1.0
-infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /?Q/P1:c/P2:raise2/P1:c/C:J/P1:raise4 strategies raise4=0.3333333333333333 c=0.3333333333333333 f=0.33333333333333337
-infoset /?Q/P1:c/P2:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?J/P1:raise2/P2:c/C:K/P1:c strategies raise4=0.5 c=0.5
-infoset /?Q/P1:raise2/P2:raise2/P1:c/C:K/P1:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /?K/P1:raise2/P2:raise2/P1:c/C:K/P1:c strategies raise4=0.46107962125491725 c=0.5389203787450827
-infoset /?K/P1:c/P2:c/C:K/P1:c strategies raise4=0.0 c=1.0
-infoset /?Q/P1:c/P2:raise2/P1:c/C:K/P1:c strategies raise4=0.0 c=1.0
-infoset /?J/P1:c strategies raise2=0.0 c=1.0
-infoset /?J/P1:c/P2:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?J/P1:c/P2:raise2/P1:c/C:K/P1:c strategies raise4=0.0 c=1.0
-infoset /?K/P1:c/P2:c/C:Q/P1:raise4 strategies raise4=0.3333333333333333 c=0.3333333333333333 f=0.33333333333333337
-infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c strategies raise4=0.46144833783822736 c=0.5385516621617726
-infoset /?K/P1:c/P2:raise2/P1:c/C:J/P1:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /?K/P1:raise2 strategies raise2=0.020709852269690684 c=0.9792901477303093 f=0.0
-infoset /?K/P1:c/P2:raise2/P1:c/C:K/P1:raise4 strategies raise4=0.08808939111938693 c=0.911910608880613 f=0.0
-infoset /?Q/P1:raise2/P2:raise2/P1:c/C:J/P1:raise4 strategies raise4=0.3333333333333333 c=0.3333333333333333 f=0.33333333333333337
-infoset /?J/P1:raise2/P2:raise2/P1:c/C:Q/P1:c strategies raise4=0.5 c=0.5
-infoset /?Q/P1:c/P2:raise2/P1:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?J/P1:c/P2:raise2/P1:c/C:J/P1:raise4 strategies raise4=0.08808939111938693 c=0.911910608880613 f=0.0
-infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c strategies raise4=0.5 c=0.5
-infoset /?K/P1:c/P2:raise2/P1:c/C:J/P1:c strategies raise4=0.0 c=1.0
-infoset /?J/P1:c/P2:raise2/P1:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?J/P1:c/P2:c/C:Q/P1:raise4 strategies raise4=0.3333333333333333 c=0.3333333333333333 f=0.33333333333333337
-infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c strategies raise4=0.5 c=0.5
-infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /?K/P1:raise2/P2:raise2/P1:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?Q/P1:c/P2:raise2/P1:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?J/P1:raise2/P2:c/C:Q/P1:raise4 strategies raise4=0.3333333333333333 c=0.3333333333333333 f=0.33333333333333337
-infoset /?K/P1:raise2/P2:raise2/P1:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c strategies raise4=0.46144833783822736 c=0.5385516621617726
-infoset /?J/P1:raise2/P2:raise2/P1:c/C:J/P1:c strategies raise4=0.46107962125491725 c=0.5389203787450827
-infoset /?Q/P1:c/P2:c/C:Q/P1:c strategies raise4=0.0 c=1.0
-infoset /?J/P1:c/P2:c/C:K/P1:raise4 strategies raise4=0.3333333333333333 c=0.3333333333333333 f=0.33333333333333337
-infoset /?J/P1:raise2/P2:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?J/P1:c/P2:c/C:J/P1:raise4 strategies raise4=0.4999999999999997 c=0.5000000000000002 f=0.0
-infoset /?K/P1:c/P2:c/C:Q/P1:c strategies raise4=0.0 c=1.0
-infoset /?Q/P1:c/P2:c/C:Q/P1:raise4 strategies raise4=0.4999999999999997 c=0.5000000000000002 f=0.0
-infoset /?K/P1:raise2/P2:raise2/P1:c/C:J/P1:c strategies raise4=0.5 c=0.5
-infoset /?Q/P1:c/P2:c/C:K/P1:raise4 strategies raise4=0.3333333333333333 c=0.3333333333333333 f=0.33333333333333337
-infoset /?K/P1:raise2/P2:c/C:K/P1:c strategies raise4=0.4934557894236448 c=0.5065442105763551
-infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c strategies raise4=0.0 c=1.0
-infoset /?J/P1:raise2/P2:raise2/P1:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?K/P1:c/P2:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:raise4 strategies raise4=0.4999999999999999 c=0.5000000000000001 f=0.0
-infoset /?Q/P1:c/P2:raise2/P1:c/C:J/P1:c strategies raise4=0.5 c=0.5
-infoset /?K/P1:c/P2:raise2/P1:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?J/P1:c/P2:c/C:J/P1:c strategies raise4=0.0 c=1.0
-infoset /?J/P1:raise2/P2:raise2/P1:c/C:K/P1:c strategies raise4=0.5 c=0.5
-infoset /?J/P1:c/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=0.0 f=1.0
-infoset /?K/P1:raise2/P2:raise2/P1:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:raise4 strategies raise4=0.4999999999999999 c=0.5000000000000001 f=0.0
-infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:raise4 strategies raise4=0.3333333333333333 c=0.3333333333333333 f=0.33333333333333337
-infoset /?Q/P1:c strategies raise2=0.0 c=1.0
-infoset /?Q/P1:c/P2:raise2/P1:raise2 strategies c=0.75 f=0.25
-infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?K/P1:raise2/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c strategies raise4=0.5 c=0.5
-infoset /?Q/P1:raise2/P2:c/C:Q/P1:raise4 strategies raise4=0.036762832521543616 c=0.9632371674784563 f=0.0
-infoset /?Q/P1:raise2/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c strategies raise4=0.46144833783822736 c=0.5385516621617726
-infoset /?J/P1:c/P2:c/C:K/P1:c strategies raise4=0.5 c=0.5
-infoset /?Q/P1:c/P2:c/C:K/P1:c strategies raise4=0.0 c=1.0
-infoset /?J/P1:raise2/P2:c/C:K/P1:raise4 strategies raise4=0.3333333333333333 c=0.3333333333333333 f=0.33333333333333337
-infoset /?K/P1:raise2/P2:c/C:Q/P1:c strategies raise4=0.5 c=0.5
-infoset /?K/P1:c/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?K/P1:raise2/P2:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c strategies raise4=0.5 c=0.5
-infoset /?Q/P1:raise2 strategies raise2=0.020709852269690684 c=0.9792901477303093 f=0.0
-infoset /?K/P1:raise2/P2:raise2/P1:c/C:K/P1:raise4 strategies raise4=0.49999999999999983 c=0.5000000000000001 f=0.0
-infoset /?J/P1:raise2/P2:raise2/P1:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?K/P1:raise2/P2:c/C:J/P1:c strategies raise4=0.0 c=1.0
-infoset /?Q/P1:raise2/P2:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?K/P1:c/P2:c/C:J/P1:c strategies raise4=0.0 c=1.0
-infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c strategies raise4=0.5 c=0.5
-infoset /?Q/P1:c/P2:c/C:J/P1:raise4 strategies raise4=0.0 c=0.0 f=1.0
-infoset /?K/P1:raise2/P2:c/C:J/P1:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /?J/P1:raise2/P2:raise2/P1:c/C:K/P1:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /?J/P1:raise2/P2:raise2/P1:c/C:Q/P1:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /?K/P1:c/P2:c/C:K/P1:raise4 strategies raise4=0.4999999999999997 c=0.5000000000000002 f=0.0
-infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?J/P1:c/P2:raise2/P1:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?Q/P1:raise2/P2:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?Q/P1:raise2/P2:c/C:K/P1:c strategies raise4=0.5 c=0.5
-infoset /?K/P1:raise2/P2:c/C:Q/P1:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /?Q/P1:c/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?J/P1:c/P2:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=0.0 f=1.0
-infoset /?K/P1:c/P2:c/C:J/P1:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /?Q/P1:raise2/P2:c/C:Q/P1:c strategies raise4=0.4934557894236448 c=0.5065442105763551
-infoset /?Q/P1:raise2/P2:c/C:J/P1:c strategies raise4=0.5 c=0.5
-infoset /?Q/P1:raise2/P2:raise2/P1:c/C:J/P1:c strategies raise4=0.5 c=0.5
-infoset /?Q/P1:raise2/P2:raise2/P1:c/C:K/P1:c strategies raise4=0.0 c=1.0
-infoset /?K/P1:c/P2:raise2/P1:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?J/P1:c/P2:c/C:Q/P1:c strategies raise4=0.5 c=0.5
-infoset /?Q/P1:c/P2:raise2/P1:c/C:Q/P1:raise4 strategies raise4=0.08808939111938693 c=0.911910608880613 f=0.0
-infoset /?Q/P1:c/P2:raise2/P1:c/C:Q/P1:c strategies raise4=0.0 c=1.0
-infoset /?K/P1:c strategies raise2=0.0 c=1.0
-infoset /?Q/P1:raise2/P2:c/C:K/P1:raise4 strategies raise4=0.3333333333333333 c=0.3333333333333333 f=0.33333333333333337
-infoset /?Q/P1:c/P2:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?Q/P1:raise2/P2:c/C:J/P1:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=0.0 f=1.0
-infoset /?J/P1:c/P2:raise2/P1:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?J/P1:raise2/P2:c/C:Q/P1:c strategies raise4=0.5 c=0.5
-infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?K/P1:raise2/P2:raise2/P1:c/C:J/P1:raise4 strategies raise4=0.0 c=1.0 f=0.0
-infoset /?J/P1:raise2/P2:raise2/P1:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
-infoset /?K/P1:c/P2:raise2/P1:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=1.0 f=0.0
+infoset /J?/P1:raise2/P2:raise2/P1:c/C:J strategies raise4=0.5403031357012864 c=0.45969686429871365
+infoset /J?/P1:raise2/P2:raise2/P1:c/C:K strategies raise4=0.40631534928629987 c=0.5936846507137001
+infoset /K?/P1:c/P2:c/C:Q strategies raise4=0.06574771038874258 c=0.9342522896112574
+infoset /K?/P1:c/P2:c/C:Q/P1:c/P2:raise4 strategies raise4=0.2315729502046557 c=0.3607112357158321 f=0.4077158140795123
+infoset /Q?/P1:c/P2:raise2/P1:c/C:J/P1:c/P2:raise4 strategies raise4=0.5373183283141987 c=0.007092198581560284 f=0.4555894731042411
+infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:raise4/P2:raise4 strategies c=0.985 f=0.015
+infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:raise4/P2:raise4 strategies c=0.995 f=0.005
+infoset /J?/P1:raise2/P2:raise2/P1:c/C:J/P1:c/P2:raise4 strategies raise4=0.9827586206896551 c=0.01724137931034483 f=0.0
+infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c/P2:raise4 strategies raise4=0.7823791774621743 c=0.19564280055980357 f=0.02197802197802197
+infoset /J?/P1:raise2/P2:raise2/P1:c/C:Q strategies raise4=0.40631534928629987 c=0.5936846507137001
+infoset /K?/P1:c/P2:c/C:K strategies raise4=0.4678116918182555 c=0.5321883081817446
+infoset /K?/P1:c/P2:c/C:J strategies raise4=0.05263157894736842 c=0.9473684210526315
+infoset /K?/P1:raise2/P2:raise2 strategies c=0.7966032228643015 f=0.20339677713569848
+infoset /K?/P1:raise2/P2:raise2/P1:c/C:K/P1:c/P2:raise4 strategies raise4=0.9827586206896551 c=0.01724137931034483 f=0.0
+infoset /J?/P1:c/P2:c/C:K/P1:c/P2:raise4 strategies raise4=0.2315729502046557 c=0.3607112357158321 f=0.4077158140795123
+infoset /Q?/P1:raise2/P2:raise2/P1:c/C:K/P1:c/P2:raise4 strategies raise4=0.4897150127458224 c=0.5021549059533644 f=0.008130081300813006
+infoset /K?/P1:c/P2:raise2/P1:c/C:K/P1:raise4/P2:raise4 strategies c=0.995 f=0.005
+infoset /J?/P1:c/P2:raise2/P1:c/C:K/P1:raise4/P2:raise4 strategies c=0.99 f=0.01
+infoset /K?/P1:c/P2:raise2/P1:c/C:Q/P1:c/P2:raise4 strategies raise4=0.9583333333333334 c=0.041666666666666664 f=0.0
+infoset /J?/P1:c/P2:raise2/P1:c/C:Q/P1:c/P2:raise4 strategies raise4=0.5373183283141987 c=0.007092198581560284 f=0.4555894731042411
+infoset /Q?/P1:raise2/P2:raise2/P1:c/C:Q/P1:c/P2:raise4 strategies raise4=0.9827586206896551 c=0.01724137931034483 f=0.0
+infoset /K?/P1:raise2/P2:raise2/P1:c/C:K strategies raise4=0.5403031357012864 c=0.45969686429871365
+infoset /K?/P1:raise2/P2:raise2/P1:c/C:J strategies raise4=0.1141502978276096 c=0.8858497021723905
+infoset /Q?/P1:c/P2:c/C:Q strategies raise4=0.4678116918182555 c=0.5321883081817446
+infoset /J?/P1:c/P2:raise2/P1:c/C:K/P1:c/P2:raise4 strategies raise4=0.5373183283141987 c=0.007092198581560284 f=0.4555894731042411
+infoset /Q?/P1:c/P2:c/C:K strategies raise4=0.06574771038874258 c=0.9342522896112574
+infoset /Q?/P1:c/P2:c/C:J strategies raise4=0.05263157894736842 c=0.9473684210526315
+infoset /K?/P1:raise2/P2:raise2/P1:c/C:Q strategies raise4=0.8009452314754023 c=0.19905476852459764
+infoset /K?/P1:c/P2:raise2/P1:c/C:Q/P1:raise4/P2:raise4 strategies c=0.9852188552188552 f=0.014781144781144782
+infoset /Q?/P1:c/P2:c/C:K/P1:raise4/P2:raise4 strategies c=0.9771428571428571 f=0.022857142857142854
+infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:raise4/P2:raise4 strategies c=0.985 f=0.015
+infoset /Q?/P1:raise2/P2:raise2/P1:c/C:Q/P1:raise4/P2:raise4 strategies c=0.995 f=0.005
+infoset /J?/P1:raise2/P2:c/C:Q/P1:c/P2:raise4 strategies raise4=0.6941869467337473 c=0.238597410412044 f=0.06721564285420874
+infoset /J? strategies raise2=0.4837803349867895 c=0.5162196650132105
+infoset /J?/P1:c/P2:c/C:J/P1:c/P2:raise4 strategies raise4=0.9722222222222222 c=0.02777777777777779 f=0.0
+infoset /Q?/P1:c/P2:raise2/P1:c/C:J/P1:raise4/P2:raise4 strategies c=0.9881818181818182 f=0.011818181818181818
+infoset /Q?/P1:c/P2:c/C:K/P1:c/P2:raise4 strategies raise4=0.2315729502046557 c=0.3607112357158321 f=0.4077158140795123
+infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c/P2:raise4 strategies raise4=0.9791666666666666 c=0.02083333333333334 f=0.0
+infoset /K?/P1:raise2/P2:c/C:K/P1:raise4/P2:raise4 strategies c=0.995 f=0.005
+infoset /K?/P1:raise2/P2:c/C:Q strategies raise4=0.20658701585851139 c=0.7934129841414886
+infoset /K?/P1:c/P2:c/C:K/P1:raise4/P2:raise4 strategies c=0.995 f=0.005
+infoset /K?/P1:raise2/P2:raise2/P1:c/C:Q/P1:raise4/P2:raise4 strategies c=0.985 f=0.015
+infoset /Q?/P1:c/P2:c/C:Q/P1:c/P2:raise4 strategies raise4=0.9722222222222222 c=0.02777777777777779 f=0.0
+infoset /J?/P1:c/P2:raise2/P1:c/C:Q/P1:raise4/P2:raise4 strategies c=0.99 f=0.01
+infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c/P2:raise4 strategies raise4=0.9791666666666666 c=0.02083333333333334 f=0.0
+infoset /K? strategies raise2=0.4695723100714839 c=0.5304276899285162
+infoset /K?/P1:raise2/P2:raise2/P1:c/C:J/P1:raise4/P2:raise4 strategies c=0.995 f=0.005
+infoset /K?/P1:raise2/P2:c/C:J strategies raise4=0.6551246985431471 c=0.34487530145685286
+infoset /J?/P1:raise2/P2:c/C:J/P1:c/P2:raise4 strategies raise4=0.9629655780991921 c=0.03703442190080785 f=0.0
+infoset /J?/P1:c/P2:c/C:Q/P1:c/P2:raise4 strategies raise4=0.2315729502046557 c=0.3607112357158321 f=0.4077158140795123
+infoset /K?/P1:raise2/P2:c/C:K/P1:c/P2:raise4 strategies raise4=0.9629655780991921 c=0.03703442190080785 f=0.0
+infoset /Q?/P1:raise2/P2:c/C:K strategies raise4=0.20658701585851139 c=0.7934129841414886
+infoset /Q?/P1:raise2/P2:c/C:J strategies raise4=0.6551246985431471 c=0.34487530145685286
+infoset /Q?/P1:c/P2:raise2 strategies raise2=0.6482783264097707 c=0.3363624211415651 f=0.015359252448664326
+infoset /Q?/P1:raise2/P2:c/C:K/P1:c/P2:raise4 strategies raise4=0.6941869467337473 c=0.238597410412044 f=0.06721564285420874
+infoset /K?/P1:c/P2:c/C:Q/P1:raise4/P2:raise4 strategies c=0.9771428571428571 f=0.022857142857142854
+infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:raise4/P2:raise4 strategies c=0.9781818181818182 f=0.021818181818181816
+infoset /Q?/P1:raise2/P2:c/C:Q strategies raise4=0.7119825303173276 c=0.28801746968267233
+infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c/P2:raise4 strategies raise4=0.7823791774621743 c=0.19564280055980357 f=0.02197802197802197
+infoset /K?/P1:raise2/P2:raise2/P1:c/C:Q/P1:c/P2:raise4 strategies raise4=0.4897150127458224 c=0.5021549059533644 f=0.008130081300813006
+infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:raise4/P2:raise4 strategies c=0.985 f=0.015
+infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c/P2:raise4 strategies raise4=0.7823791774621743 c=0.19564280055980357 f=0.02197802197802197
+infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:raise4/P2:raise4 strategies c=0.995 f=0.005
+infoset /J?/P1:c/P2:c/C:K strategies raise4=0.11163692706423767 c=0.8883630729357624
+infoset /Q?/P1:raise2/P2:c/C:K/P1:raise4/P2:raise4 strategies c=0.9863636363636364 f=0.013636363636363637
+infoset /K?/P1:raise2/P2:c/C:J/P1:c/P2:raise4 strategies raise4=0.5064632283776304 c=0.4935367716223697 f=0.0
+infoset /Q?/P1:c/P2:raise2/P1:c/C:K/P1:c/P2:raise4 strategies raise4=0.9583333333333334 c=0.041666666666666664 f=0.0
+infoset /Q?/P1:raise2/P2:raise2/P1:c/C:K/P1:raise4/P2:raise4 strategies c=0.985 f=0.015
+infoset /Q?/P1:raise2/P2:raise2/P1:c/C:J/P1:c/P2:raise4 strategies raise4=0.4647590473762846 c=0.023809523809523808 f=0.5114314288141916
+infoset /Q?/P1:c/P2:raise2/P1:c/C:Q/P1:raise4/P2:raise4 strategies c=0.995 f=0.005
+infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c/P2:raise4 strategies raise4=0.8723209858208438 c=0.04023465779293663 f=0.08744435638621957
+infoset /K?/P1:c/P2:c/C:K/P1:c/P2:raise4 strategies raise4=0.9722222222222222 c=0.02777777777777779 f=0.0
+infoset /K?/P1:c/P2:raise2 strategies raise2=0.6482783264097707 c=0.3363624211415651 f=0.015359252448664326
+infoset /Q?/P1:c/P2:c/C:Q/P1:raise4/P2:raise4 strategies c=0.995 f=0.005
+infoset /K?/P1:c/P2:raise2/P1:c/C:Q strategies raise4=0.602226085238358 c=0.39777391476164203
+infoset /J?/P1:raise2/P2:raise2/P1:c/C:J/P1:raise4/P2:raise4 strategies c=0.995 f=0.005
+infoset /K?/P1:raise2/P2:c/C:Q/P1:c/P2:raise4 strategies raise4=0.6941869467337473 c=0.238597410412044 f=0.06721564285420874
+infoset /Q?/P1:raise2/P2:c/C:Q/P1:c/P2:raise4 strategies raise4=0.9629655780991921 c=0.03703442190080785 f=0.0
+infoset /J?/P1:raise2/P2:c/C:K/P1:raise4/P2:raise4 strategies c=0.9863636363636364 f=0.013636363636363637
+infoset /K?/P1:c/P2:raise2/P1:c/C:K/P1:c/P2:raise4 strategies raise4=0.9219607843137255 c=0.0780392156862745 f=0.0
+infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c/P2:raise4 strategies raise4=0.7823791774621743 c=0.19564280055980357 f=0.02197802197802197
+infoset /Q?/P1:raise2/P2:raise2 strategies c=0.7966032228643015 f=0.20339677713569848
+infoset /Q?/P1:raise2/P2:raise2/P1:c/C:K strategies raise4=0.40631534928629987 c=0.5936846507137001
+infoset /Q?/P1:raise2/P2:raise2/P1:c/C:J strategies raise4=0.1141502978276096 c=0.8858497021723905
+infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c/P2:raise4 strategies raise4=0.9 c=0.1 f=0.0
+infoset /K?/P1:raise2/P2:raise2/P1:c/C:K/P1:raise4/P2:raise4 strategies c=0.995 f=0.005
+infoset /Q?/P1:raise2/P2:raise2/P1:c/C:Q strategies raise4=0.5403031357012864 c=0.45969686429871365
+infoset /J?/P1:raise2/P2:raise2 strategies c=0.8806763228532182 f=0.11932367714678187
+infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:raise4/P2:raise4 strategies c=0.995 f=0.005
+infoset /K?/P1:raise2/P2:c/C:J/P1:raise4/P2:raise4 strategies c=0.9863636363636364 f=0.013636363636363637
+infoset /J?/P1:raise2/P2:raise2/P1:c/C:Q/P1:raise4/P2:raise4 strategies c=0.985 f=0.015
+infoset /K?/P1:c/P2:c/C:J/P1:raise4/P2:raise4 strategies c=0.975 f=0.025
+infoset /K?/P1:c/P2:c/C:J/P1:c/P2:raise4 strategies raise4=0.8484848484848484 c=0.1212121212121212 f=0.0303030303030303
+infoset /Q?/P1:c/P2:raise2/P1:c/C:Q strategies raise4=0.7515253572431545 c=0.24847464275684544
+infoset /Q?/P1:c/P2:raise2/P1:c/C:K strategies raise4=0.602226085238358 c=0.39777391476164203
+infoset /Q?/P1:c/P2:raise2/P1:c/C:J strategies raise4=0.6412676291009117 c=0.3587323708990882
+infoset /J?/P1:raise2/P2:c/C:Q/P1:raise4/P2:raise4 strategies c=0.9863636363636364 f=0.013636363636363637
+infoset /J?/P1:c/P2:c/C:J/P1:raise4/P2:raise4 strategies c=0.995 f=0.005
+infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:J strategies raise4=0.8570885706730557 c=0.14291142932694426
+infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:K strategies raise4=0.4183586046024758 c=0.5816413953975242
+infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q strategies raise4=0.88 c=0.12
+infoset /J?/P1:c/P2:c/C:K/P1:raise4/P2:raise4 strategies c=0.9771428571428571 f=0.022857142857142854
+infoset /J?/P1:raise2/P2:raise2/P1:c/C:K/P1:raise4/P2:raise4 strategies c=0.985 f=0.015
+infoset /Q?/P1:c/P2:c/C:J/P1:c/P2:raise4 strategies raise4=0.020833333333333336 c=0.020833333333333336 f=0.9583333333333334
+infoset /J?/P1:raise2/P2:raise2/P1:c/C:K/P1:c/P2:raise4 strategies raise4=0.4897150127458224 c=0.5021549059533644 f=0.008130081300813006
+infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:K strategies raise4=0.4183586046024758 c=0.5816413953975242
+infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:J strategies raise4=0.88 c=0.12
+infoset /J?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q strategies raise4=0.4183586046024758 c=0.5816413953975242
+infoset /J?/P1:c/P2:c/C:Q/P1:raise4/P2:raise4 strategies c=0.9771428571428571 f=0.022857142857142854
+infoset /J?/P1:raise2/P2:c/C:J/P1:raise4/P2:raise4 strategies c=0.995 f=0.005
+infoset /J?/P1:raise2/P2:raise2/P1:c/C:Q/P1:c/P2:raise4 strategies raise4=0.4897150127458224 c=0.5021549059533644 f=0.008130081300813006
+infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:J strategies raise4=0.8570885706730557 c=0.14291142932694426
+infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:K strategies raise4=0.88 c=0.12
+infoset /J?/P1:c/P2:raise2/P1:c/C:Q strategies raise4=0.602226085238358 c=0.39777391476164203
+infoset /K?/P1:raise2/P2:c/C:K strategies raise4=0.7119825303173276 c=0.28801746968267233
+infoset /Q?/P1:raise2/P2:raise2/P1:c/C:J/P1:raise4/P2:raise4 strategies c=0.30562579858332034 f=0.6943742014166796
+infoset /Q?/P1:raise2/P2:c/C:J/P1:c/P2:raise4 strategies raise4=0.7911421911421911 c=0.030303030303030297 f=0.17855477855477853
+infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c/P2:raise4 strategies raise4=0.9791666666666666 c=0.02083333333333334 f=0.0
+infoset /J?/P1:c/P2:raise2/P1:c/C:J strategies raise4=0.7515253572431545 c=0.24847464275684544
+infoset /J?/P1:c/P2:raise2/P1:c/C:K strategies raise4=0.602226085238358 c=0.39777391476164203
+infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q strategies raise4=0.551690443858487 c=0.4483095561415131
+infoset /K?/P1:c/P2:raise2/P1:c/C:K strategies raise4=0.7515253572431545 c=0.24847464275684544
+infoset /K?/P1:c/P2:raise2/P1:c/C:J strategies raise4=0.2606524208052198 c=0.7393475791947802
+infoset /J?/P1:raise2/P2:c/C:K/P1:c/P2:raise4 strategies raise4=0.6941869467337473 c=0.238597410412044 f=0.06721564285420874
+infoset /J?/P1:raise2/P2:c/C:Q strategies raise4=0.629297135038118 c=0.37070286496188193
+infoset /J?/P1:c/P2:c/C:J strategies raise4=0.4678116918182555 c=0.5321883081817446
+infoset /Q?/P1:c/P2:raise2/P1:c/C:K/P1:raise4/P2:raise4 strategies c=0.99 f=0.01
+infoset /Q?/P1:c/P2:raise2/P1:c/C:Q/P1:c/P2:raise4 strategies raise4=0.9219607843137255 c=0.0780392156862745 f=0.0
+infoset /J?/P1:raise2/P2:c/C:J strategies raise4=0.7119825303173276 c=0.28801746968267233
+infoset /J?/P1:raise2/P2:c/C:K strategies raise4=0.629297135038118 c=0.37070286496188193
+infoset /J?/P1:c/P2:raise2/P1:c/C:J/P1:raise4/P2:raise4 strategies c=0.995 f=0.005
+infoset /J?/P1:c/P2:c/C:Q strategies raise4=0.11163692706423767 c=0.8883630729357624
+infoset /K?/P1:c/P2:raise2/P1:c/C:J/P1:c/P2:raise4 strategies raise4=0.4996982569380518 c=0.5003017430619481 f=0.0
+infoset /Q?/P1:raise2/P2:c/C:J/P1:raise4/P2:raise4 strategies c=0.9863636363636364 f=0.013636363636363637
+infoset /Q?/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:raise4/P2:raise4 strategies c=0.9869230769230769 f=0.013076923076923076
+infoset /Q?/P1:raise2/P2:c/C:Q/P1:raise4/P2:raise4 strategies c=0.995 f=0.005
+infoset /K?/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:raise4/P2:raise4 strategies c=0.985 f=0.015
+infoset /Q?/P1:c/P2:c/C:J/P1:raise4/P2:raise4 strategies c=0.2973711417076399 f=0.7026288582923601
+infoset /Q? strategies raise2=0.4695723100714839 c=0.5304276899285162
+infoset /J?/P1:c/P2:raise2/P1:c/C:J/P1:c/P2:raise4 strategies raise4=0.9219607843137255 c=0.0780392156862745 f=0.0
+infoset /K?/P1:raise2/P2:raise2/P1:c/C:J/P1:c/P2:raise4 strategies raise4=0.5211908287833877 c=0.4290732557236546 f=0.049735915492957736
+infoset /J?/P1:c/P2:raise2 strategies raise2=0.25564691910774384 c=0.39313611661465 f=0.3512169642776062
+infoset /K?/P1:c/P2:raise2/P1:c/C:J/P1:raise4/P2:raise4 strategies c=0.9881818181818182 f=0.011818181818181818
+infoset /K?/P1:raise2/P2:c/C:Q/P1:raise4/P2:raise4 strategies c=0.9544910927150017 f=0.04550890728499837
+infoset /?Q/P1:c/P2:raise2/P1:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=0.995 f=0.005
+infoset /?J/P1:raise2/P2:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=0.985 f=0.015
+infoset /?J/P1:c/P2:raise2/P1:c/C:Q/P1:raise4 strategies raise4=0.8450388846699611 c=0.043517371989755006 f=0.11144374334028384
+infoset /?J/P1:raise2/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=0.985 f=0.015
+infoset /?Q/P1:raise2/P2:raise2/P1:c/C:Q/P1:raise4 strategies raise4=0.975 c=0.025000000000000005 f=0.0
+infoset /?J/P1:c/P2:raise2/P1:c/C:J/P1:c strategies raise4=0.9583333333333334 c=0.041666666666666664
+infoset /?Q/P1:raise2/P2:raise2/P1:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=0.99 f=0.01
+infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=0.9781818181818182 f=0.021818181818181816
+infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=0.995 f=0.005
+infoset /?Q/P1:raise2/P2:raise2/P1:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=0.9157560830065847 f=0.08424391699341525
+infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:raise4 strategies raise4=0.9387001887001887 c=0.04456654456654457 f=0.016733266733266736
+infoset /?K/P1:c/P2:raise2/P1:c/C:K/P1:c strategies raise4=0.9583333333333334 c=0.041666666666666664
+infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=0.9781818181818182 f=0.021818181818181816
+infoset /?J/P1:raise2/P2:c/C:J/P1:c strategies raise4=0.9788939912259852 c=0.021106008774014796
+infoset /?K/P1:raise2/P2:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=0.995 f=0.005
+infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:raise4 strategies raise4=0.5500292833416406 c=0.3776543513481268 f=0.07231636531023253
+infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:raise4 strategies raise4=0.5500292833416406 c=0.3776543513481268 f=0.07231636531023253
+infoset /?J/P1:c/P2:raise2/P1:raise2 strategies c=0.9932432432432432 f=0.006756756756756757
+infoset /?J/P1:raise2 strategies raise2=0.25947010836270445 c=0.5091290219484411 f=0.23140086968885448
+infoset /?J/P1:c/P2:raise2/P1:c/C:Q/P1:c strategies raise4=0.04497851483033461 c=0.9550214851696653
+infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:raise4 strategies raise4=0.9782608695652174 c=0.021739130434782615 f=0.0
+infoset /?Q/P1:c/P2:c/C:J/P1:c strategies raise4=0.040697674418604654 c=0.9593023255813954
+infoset /?K/P1:c/P2:raise2/P1:c/C:Q/P1:raise4 strategies raise4=0.8450388846699611 c=0.043517371989755006 f=0.11144374334028384
+infoset /?Q/P1:raise2/P2:raise2/P1:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=0.995 f=0.005
+infoset /?K/P1:raise2/P2:raise2/P1:c/C:Q/P1:raise4 strategies raise4=0.6956770303590879 c=0.3043229696409121 f=0.0
+infoset /?K/P1:c/P2:raise2/P1:raise2 strategies c=0.996031746031746 f=0.003968253968253968
+infoset /?K/P1:raise2/P2:c/C:K/P1:raise4 strategies raise4=0.9397976770325964 c=0.06020232296740352 f=0.0
+infoset /?K/P1:c/P2:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=0.995 f=0.005
+infoset /?K/P1:raise2/P2:raise2/P1:c/C:Q/P1:c strategies raise4=0.1813108625196396 c=0.8186891374803603
+infoset /?Q/P1:raise2/P2:raise2/P1:c/C:Q/P1:c strategies raise4=0.9765686791849965 c=0.023431320815003594
+infoset /?J/P1:raise2/P2:c/C:J/P1:raise4 strategies raise4=0.9397976770325964 c=0.06020232296740352 f=0.0
+infoset /?J/P1:raise2/P2:raise2/P1:c/C:J/P1:raise4 strategies raise4=0.975 c=0.025000000000000005 f=0.0
+infoset /?J/P1:c/P2:raise2/P1:c/C:K/P1:raise4 strategies raise4=0.8450388846699611 c=0.043517371989755006 f=0.11144374334028384
+infoset /?Q/P1:c/P2:raise2/P1:c/C:K/P1:raise4 strategies raise4=0.8450388846699611 c=0.043517371989755006 f=0.11144374334028384
+infoset /?K/P1:c/P2:raise2/P1:c/C:Q/P1:c strategies raise4=0.04497851483033461 c=0.9550214851696653
+infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:raise4 strategies raise4=0.44360509073676474 c=0.4291221819905079 f=0.12727272727272723
+infoset /?Q/P1:c/P2:raise2/P1:c/C:J/P1:raise4 strategies raise4=0.48822752835942357 c=0.02222222222222222 f=0.48955024941835423
+infoset /?Q/P1:c/P2:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=0.995 f=0.005
+infoset /?J/P1:raise2/P2:c/C:K/P1:c strategies raise4=0.17882512994181624 c=0.8211748700581837
+infoset /?Q/P1:raise2/P2:raise2/P1:c/C:K/P1:raise4 strategies raise4=0.6956770303590879 c=0.3043229696409121 f=0.0
+infoset /?K/P1:raise2/P2:raise2/P1:c/C:K/P1:c strategies raise4=0.9765686791849965 c=0.023431320815003594
+infoset /?K/P1:c/P2:c/C:K/P1:c strategies raise4=0.9318181818181818 c=0.06818181818181818
+infoset /?Q/P1:c/P2:raise2/P1:c/C:K/P1:c strategies raise4=0.04497851483033461 c=0.9550214851696653
+infoset /?J/P1:c strategies raise2=0.890285498337626 c=0.10971450166237401
+infoset /?J/P1:c/P2:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=0.995 f=0.005
+infoset /?J/P1:c/P2:raise2/P1:c/C:K/P1:c strategies raise4=0.04497851483033461 c=0.9550214851696653
+infoset /?K/P1:c/P2:c/C:Q/P1:raise4 strategies raise4=0.74679390952028 c=0.2209568900452962 f=0.03224920043442378
+infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c strategies raise4=0.9792864745322395 c=0.020713525467760487
+infoset /?K/P1:c/P2:raise2/P1:c/C:J/P1:raise4 strategies raise4=0.6575209104620868 c=0.34247908953791306 f=0.0
+infoset /?K/P1:raise2 strategies raise2=0.13325582338141628 c=0.7897917508398469 f=0.0769524257787368
+infoset /?K/P1:c/P2:raise2/P1:c/C:K/P1:raise4 strategies raise4=0.9685548065903237 c=0.03144519340967631 f=0.0
+infoset /?Q/P1:raise2/P2:raise2/P1:c/C:J/P1:raise4 strategies raise4=0.5781919193429722 c=0.05291005291005289 f=0.3688980277469749
+infoset /?J/P1:raise2/P2:raise2/P1:c/C:Q/P1:c strategies raise4=0.1813108625196396 c=0.8186891374803603
+infoset /?Q/P1:c/P2:raise2/P1:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=0.9742857142857143 f=0.02571428571428571
+infoset /?J/P1:c/P2:raise2/P1:c/C:J/P1:raise4 strategies raise4=0.9685548065903237 c=0.03144519340967631 f=0.0
+infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c strategies raise4=0.6321928177874295 c=0.36780718221257064
+infoset /?K/P1:c/P2:raise2/P1:c/C:J/P1:c strategies raise4=0.21428571428571427 c=0.7857142857142857
+infoset /?J/P1:c/P2:raise2/P1:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=0.995 f=0.005
+infoset /?J/P1:c/P2:c/C:Q/P1:raise4 strategies raise4=0.74679390952028 c=0.2209568900452962 f=0.03224920043442378
+infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=0.995 f=0.005
+infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c strategies raise4=0.5406573927215798 c=0.4593426072784203
+infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:raise4 strategies raise4=0.9387001887001887 c=0.04456654456654457 f=0.016733266733266736
+infoset /?K/P1:raise2/P2:raise2/P1:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=0.99 f=0.01
+infoset /?Q/P1:c/P2:raise2/P1:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=0.92 f=0.08
+infoset /?J/P1:raise2/P2:c/C:Q/P1:raise4 strategies raise4=0.30644942092932764 c=0.31069477613671975 f=0.38285580293395255
+infoset /?K/P1:raise2/P2:raise2/P1:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=0.99 f=0.01
+infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c strategies raise4=0.9792864745322395 c=0.020713525467760487
+infoset /?J/P1:raise2/P2:raise2/P1:c/C:J/P1:c strategies raise4=0.9765686791849965 c=0.023431320815003594
+infoset /?Q/P1:c/P2:c/C:Q/P1:c strategies raise4=0.9318181818181818 c=0.06818181818181818
+infoset /?J/P1:c/P2:c/C:K/P1:raise4 strategies raise4=0.74679390952028 c=0.2209568900452962 f=0.03224920043442378
+infoset /?J/P1:raise2/P2:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=0.995 f=0.005
+infoset /?J/P1:c/P2:c/C:J/P1:raise4 strategies raise4=0.912280701754386 c=0.07017543859649125 f=0.01754385964912281
+infoset /?K/P1:c/P2:c/C:Q/P1:c strategies raise4=0.09615384615384616 c=0.9038461538461539
+infoset /?Q/P1:c/P2:c/C:Q/P1:raise4 strategies raise4=0.912280701754386 c=0.07017543859649125 f=0.01754385964912281
+infoset /?K/P1:raise2/P2:raise2/P1:c/C:J/P1:c strategies raise4=0.3122698048897542 c=0.6877301951102458
+infoset /?Q/P1:c/P2:c/C:K/P1:raise4 strategies raise4=0.74679390952028 c=0.2209568900452962 f=0.03224920043442378
+infoset /?K/P1:raise2/P2:c/C:K/P1:c strategies raise4=0.9788939912259852 c=0.021106008774014796
+infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c strategies raise4=0.1 c=0.9
+infoset /?J/P1:raise2/P2:raise2/P1:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=0.99 f=0.01
+infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=0.9781818181818182 f=0.021818181818181816
+infoset /?K/P1:c/P2:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=0.995 f=0.005
+infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:raise4 strategies raise4=0.9782608695652174 c=0.021739130434782615 f=0.0
+infoset /?Q/P1:c/P2:raise2/P1:c/C:J/P1:c strategies raise4=0.1424035069847618 c=0.8575964930152382
+infoset /?K/P1:c/P2:raise2/P1:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=0.995 f=0.005
+infoset /?J/P1:c/P2:c/C:J/P1:c strategies raise4=0.9318181818181818 c=0.06818181818181818
+infoset /?J/P1:raise2/P2:raise2/P1:c/C:K/P1:c strategies raise4=0.1813108625196396 c=0.8186891374803603
+infoset /?J/P1:c/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=0.23670987381614988 f=0.7632901261838501
+infoset /?K/P1:raise2/P2:raise2/P1:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=0.995 f=0.005
+infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:raise4 strategies raise4=0.9782608695652174 c=0.021739130434782615 f=0.0
+infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:raise4 strategies raise4=0.5500292833416406 c=0.3776543513481268 f=0.07231636531023253
+infoset /?Q/P1:c strategies raise2=0.9209767348065114 c=0.07902326519348853
+infoset /?Q/P1:c/P2:raise2/P1:raise2 strategies c=0.996031746031746 f=0.003968253968253968
+infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=0.9781818181818182 f=0.021818181818181816
+infoset /?K/P1:raise2/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=0.995 f=0.005
+infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:K/P1:c strategies raise4=0.6321928177874295 c=0.36780718221257064
+infoset /?Q/P1:raise2/P2:c/C:Q/P1:raise4 strategies raise4=0.9397976770325964 c=0.06020232296740352 f=0.0
+infoset /?Q/P1:raise2/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=0.995 f=0.005
+infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c strategies raise4=0.9792864745322395 c=0.020713525467760487
+infoset /?J/P1:c/P2:c/C:K/P1:c strategies raise4=0.040697674418604654 c=0.9593023255813954
+infoset /?Q/P1:c/P2:c/C:K/P1:c strategies raise4=0.09615384615384616 c=0.9038461538461539
+infoset /?J/P1:raise2/P2:c/C:K/P1:raise4 strategies raise4=0.30644942092932764 c=0.31069477613671975 f=0.38285580293395255
+infoset /?K/P1:raise2/P2:c/C:Q/P1:c strategies raise4=0.17882512994181624 c=0.8211748700581837
+infoset /?K/P1:c/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=0.99 f=0.01
+infoset /?K/P1:raise2/P2:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=0.985 f=0.015
+infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c strategies raise4=0.5406573927215798 c=0.4593426072784203
+infoset /?Q/P1:raise2 strategies raise2=0.13325582338141628 c=0.7897917508398469 f=0.0769524257787368
+infoset /?K/P1:raise2/P2:raise2/P1:c/C:K/P1:raise4 strategies raise4=0.975 c=0.025000000000000005 f=0.0
+infoset /?J/P1:raise2/P2:raise2/P1:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=0.995 f=0.005
+infoset /?K/P1:raise2/P2:c/C:J/P1:c strategies raise4=0.03571428571428571 c=0.9642857142857143
+infoset /?Q/P1:raise2/P2:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=0.985 f=0.015
+infoset /?K/P1:c/P2:c/C:J/P1:c strategies raise4=0.05555555555555555 c=0.9444444444444444
+infoset /?J/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c strategies raise4=0.6321928177874295 c=0.36780718221257064
+infoset /?Q/P1:c/P2:c/C:J/P1:raise4 strategies raise4=0.33349799753998066 c=0.028862153634797907 f=0.6376398488252215
+infoset /?K/P1:raise2/P2:c/C:J/P1:raise4 strategies raise4=0.4662983795733497 c=0.24479334493819307 f=0.28890827548845727
+infoset /?J/P1:raise2/P2:raise2/P1:c/C:K/P1:raise4 strategies raise4=0.6956770303590879 c=0.3043229696409121 f=0.0
+infoset /?J/P1:raise2/P2:raise2/P1:c/C:Q/P1:raise4 strategies raise4=0.6956770303590879 c=0.3043229696409121 f=0.0
+infoset /?K/P1:c/P2:c/C:K/P1:raise4 strategies raise4=0.912280701754386 c=0.07017543859649125 f=0.01754385964912281
+infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=0.995 f=0.005
+infoset /?J/P1:c/P2:raise2/P1:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=0.9742857142857143 f=0.02571428571428571
+infoset /?Q/P1:raise2/P2:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=0.985 f=0.015
+infoset /?Q/P1:raise2/P2:c/C:K/P1:c strategies raise4=0.17882512994181624 c=0.8211748700581837
+infoset /?K/P1:raise2/P2:c/C:Q/P1:raise4 strategies raise4=0.491207286734285 c=0.23088986840860296 f=0.27790284485711214
+infoset /?Q/P1:c/P2:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=0.995 f=0.005
+infoset /?J/P1:c/P2:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=0.23670987381614988 f=0.7632901261838501
+infoset /?K/P1:c/P2:c/C:J/P1:raise4 strategies raise4=0.4042430627151682 c=0.39854514476194214 f=0.19721179252288978
+infoset /?Q/P1:raise2/P2:c/C:Q/P1:c strategies raise4=0.9788939912259852 c=0.021106008774014796
+infoset /?Q/P1:raise2/P2:c/C:J/P1:c strategies raise4=0.038461538461538464 c=0.9615384615384616
+infoset /?Q/P1:raise2/P2:raise2/P1:c/C:J/P1:c strategies raise4=0.3122698048897542 c=0.6877301951102458
+infoset /?Q/P1:raise2/P2:raise2/P1:c/C:K/P1:c strategies raise4=0.04804357047181477 c=0.9519564295281852
+infoset /?K/P1:c/P2:raise2/P1:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=0.995 f=0.005
+infoset /?J/P1:c/P2:c/C:Q/P1:c strategies raise4=0.040697674418604654 c=0.9593023255813954
+infoset /?Q/P1:c/P2:raise2/P1:c/C:Q/P1:raise4 strategies raise4=0.9685548065903237 c=0.03144519340967631 f=0.0
+infoset /?Q/P1:c/P2:raise2/P1:c/C:Q/P1:c strategies raise4=0.9583333333333334 c=0.041666666666666664
+infoset /?K/P1:c strategies raise2=0.9209767348065114 c=0.07902326519348853
+infoset /?Q/P1:raise2/P2:c/C:K/P1:raise4 strategies raise4=0.30644942092932764 c=0.31069477613671975 f=0.38285580293395255
+infoset /?Q/P1:c/P2:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=0.99 f=0.01
+infoset /?Q/P1:raise2/P2:c/C:J/P1:raise4 strategies raise4=0.4662983795733497 c=0.24479334493819307 f=0.28890827548845727
+infoset /?Q/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=0.4383307802242622 f=0.5616692197757378
+infoset /?J/P1:c/P2:raise2/P1:c/C:Q/P1:c/P2:raise4/P1:raise4 strategies c=0.9742857142857143 f=0.02571428571428571
+infoset /?J/P1:raise2/P2:c/C:Q/P1:c strategies raise4=0.17882512994181624 c=0.8211748700581837
+infoset /?K/P1:c/P2:raise2/P1:raise2/P2:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=0.995 f=0.005
+infoset /?K/P1:raise2/P2:raise2/P1:c/C:J/P1:raise4 strategies raise4=0.43811324627319265 c=0.44311280736665415 f=0.11877394636015325
+infoset /?J/P1:raise2/P2:raise2/P1:c/C:K/P1:c/P2:raise4/P1:raise4 strategies c=0.99 f=0.01
+infoset /?K/P1:c/P2:raise2/P1:c/C:J/P1:c/P2:raise4/P1:raise4 strategies c=0.92 f=0.08

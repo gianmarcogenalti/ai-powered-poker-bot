@@ -29,15 +29,15 @@ def abstractnodes(nodes, abs_infosets, infosets):
 
     nodes['Probability_Opp']      = prob_opp
     #nodes['Payoff_Vector_P1']     = newpo1
-    nodes['Abstract_Map']         = abmap
+    #nodes['Abstract_Map']         = abmap
     abs_infosets['Index_Members'] = members
     nodes['Exp_Utility']          = exp_U
 
 def maptoclust(infosets,abs_infosets):
-    map = [[] for _ in range(len(infosets.index))]
+    map = [[] for _ in range(len(infosets))]
     for index,row in abs_infosets.iterrows():
         for inf in row.Map:
-            map[inf].append(index)
+            map[inf] = index
         #
     #
     infosets['Map_Clust'] = map
@@ -55,22 +55,22 @@ def abstractsons(nodes, abs_infosets, infosets):
             prob_m = nodes.Nature_Prob[m]
             for ds in nodes.Direct_Sons[m]:
                 if nodes.Type[ds] != 'C' and nodes.Type[ds] != 'L':
-                    if infosets.Map_Clust[nodes.Map[ds]][0] not in temp_son[counter]:
-                        temp_son[counter].append(infosets.Map_Clust[nodes.Map[ds]][0])
+                    if infosets.Map_Clust[nodes.Map[ds]] not in temp_son[counter]:
+                        temp_son[counter].append(infosets.Map_Clust[nodes.Map[ds]])
                         temp_prob[counter].append(prob_m)
                     else:
-                        fnd = temp_son[counter].index(infosets.Map_Clust[nodes.Map[ds]][0])
+                        fnd = temp_son[counter].index(infosets.Map_Clust[nodes.Map[ds]])
                         temp_prob[counter][fnd] += prob_m
 
                 if nodes.Type[ds] == 'C':
                     counter2 = 0
                     for ns in nodes.Direct_Sons[ds]:
                         nat_probs = nodes.Actions_Prob[ds]
-                        if infosets.Map_Clust[nodes.Map[ns]][0] not in temp_son[counter]:
+                        if infosets.Map_Clust[nodes.Map[ns]] not in temp_son[counter]:
                             temp_prob[counter].append(prob_m * nat_probs[counter2])
-                            temp_son[counter].append(infosets.Map_Clust[nodes.Map[ns]][0])
+                            temp_son[counter].append(infosets.Map_Clust[nodes.Map[ns]])
                         else:
-                            fnd = temp_son[counter].index(infosets.Map_Clust[nodes.Map[ns]][0])
+                            fnd = temp_son[counter].index(infosets.Map_Clust[nodes.Map[ns]])
                             temp_prob[counter][fnd] += prob_m * nat_probs[counter2]
                         counter2 += 1
                 if nodes.Type[ds] == 'L':
@@ -143,7 +143,7 @@ def get_back(infosets, abs_infosets, strategies):
     abs_infosets['Actions_Prob'] = strategies
     act_probs = []
     for index,row in infosets.iterrows():
-        act_probs.append(strategies[row.Map_Clust[0]])
+        act_probs.append(strategies[row.Map_Clust])
     infosets['Actions_Prob'] = act_probs
 
 def abs_depth(abs_infosets):
@@ -157,13 +157,13 @@ def abs_depth(abs_infosets):
 
 
 def nodeblueprint(nodes, abs_infosets):
-    actprobs = [[] for _ in range(len(nodes.index))]
+    #actprobs = [[] for _ in range(len(nodes.index))]
     for index,row in nodes.iterrows():
         if row.Type == 'N':
-            actprobs[index] = abs_infosets.Actions_Prob[row.Abstract_Map]
-    nodes['Actions_Prob'] = actprobs
+            nodes.Actions_Prob[index] = abs_infosets.Actions_Prob[row.Abs_Map]
+    #nodes['Actions_Prob'] = actprobs
 
-def absnature(nodes, infosets,abs_infosets):
+def absnature(nodes, infosets, abs_infosets):
     nature_w = [[] for _ in range(len(abs_infosets.index))]
     for index, row in abs_infosets.iterrows():
         sm = 0
@@ -175,15 +175,16 @@ def absnature(nodes, infosets,abs_infosets):
     abs_infosets['Nature_Prob'] = nature_w
 
 def nodetoclust(nodes, infosets, abs_infosets):
-    map = [[] for _ in range(len(nodes.index))]
+    map = []
     for index, row in nodes.iterrows():
         if row.Type == 'N':
             maptoinf = row.Map
-            maptoclust = infosets.Map_Clust[maptoinf][0]
+            maptoclust = infosets.Map_Clust[maptoinf]
+            #print(maptoinf, maptoclust)
         else:
             maptoclust = -999999
         #print(maptoclust)
-        map[index]= (maptoclust)
+        map.append(maptoclust)
 
     nodes['Abs_Map'] = map
 
@@ -195,6 +196,7 @@ def chance_to_infoset(nodes, abs_infosets):
         nodes.Abs_Map[index] = nmax + counter
         counter += 1
         cdf = pd.DataFrame([index], columns = ['Map'])
+        cdf['Dads'] = 999999
         abs_infosets = abs_infosets.append(cdf, ignore_index=True)
 
     return abs_infosets
@@ -216,3 +218,23 @@ def prob_leaf(nodes) :
         #
     #
     print('Leaves sum to: ', sum)
+
+def update_nodeprob(nodes):
+    expos = [0 for i in range(len(nodes))]
+    probos = [0 for i in range(len(nodes))]
+    def recursivethings(icn):
+        if nodes.Direct_Sons[icn] != -1:
+            for ids in range(len(nodes.Direct_Sons[icn])):
+                ds = nodes.Direct_Sons[icn][ids]
+                ap = nodes.Actions_Prob[icn][ids]
+                probos[ds] = ap * probos[icn]
+                expos[icn] += ap * recursivethings(ds)
+        else:
+            expos[icn] = nodes.Payoff_P1[icn]
+        return expos[icn]
+
+    start = nodes.index[-1]
+    probos[start] = 1
+    recursivethings(start)
+    nodes['Expected_Payoff'] = expos
+    nodes['Probability'] = probos

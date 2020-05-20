@@ -1,4 +1,4 @@
-from CounterfactualRegretMinimizationBase import *
+from NodeCFR.CounterfactualRegretMinimizationBase import *
 import time
 
 class VanillaCFRPlus(CounterfactualRegretMinimizationBase):

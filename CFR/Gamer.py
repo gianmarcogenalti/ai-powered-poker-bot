@@ -55,7 +55,7 @@ class Gamer() :
         file1 = open(filename,"w")
         for index, row in true_infosets.iterrows():
             line = "infoset " + row.History + " strategies"
-            clust = row.Map_Clust[0]
+            clust = row.Map_Clust
             for action in range(len(row.Actions)):
                 line += " " + row.Actions[action] + "=" + str(self.nash_equilibrium[clust][action])
             file1.write(line + "\n")
