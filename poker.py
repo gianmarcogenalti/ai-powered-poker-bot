@@ -8,7 +8,8 @@ import NodeCFR as ncfr
 import Printer as printer
 import pandas as pd
 
-game =  sys.argv[1]
+# game =  "leduc3" #sys.argv[1]
+game = sys.argv[1]
 
 try:
     cfrmethod = sys.argv[2]
@@ -37,8 +38,12 @@ except:
     infosets.to_pickle(gameinfosets)
 t1 = time.time()
 print("Parsing : Done in %f seconds" % (t1 - t0))
+<<<<<<< HEAD
 #
 abs_infosets = abstraction.abstractgeneration(infosets, verbose = False)
+=======
+abs_infosets = abstraction.abstractgeneration(infosets, verbose = False, sizeofabstraction = 0.95)
+>>>>>>> fe49a8827202e09c0f1597a99de55e7d804147fb
 t2 = time.time()
 print("Abstract Generation : Done in %f seconds" % (t2 - t1))
 #
