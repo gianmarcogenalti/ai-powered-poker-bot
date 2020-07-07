@@ -69,7 +69,7 @@ with open(args['game']) as game:
 
 collected_payoffs = []
 
-for i in range(args['number']):
+for i in range(int(args['number'])):
     type = 'C'
     move = np.random.choice(gamenodes['/']['actions'],p = [prob/sum(gamenodes['/']['odds']) for prob in gamenodes['/']['odds']])
     state = '/C:' + move

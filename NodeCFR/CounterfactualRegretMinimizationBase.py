@@ -70,7 +70,7 @@ class CounterfactualRegretMinimizationBase:
 ################################################################################
 ## virtual function
     def run(self, iterations):
-        raise NotImplementedError("Please implement run method")
+        raise NotImplementedError("No method specified")
 ################################################################################
 ## per ogni nodo calcola la somma dei payoff pesata sulla probabilità di arrivarci
     def value_of_the_game(self):
@@ -142,23 +142,7 @@ class CounterfactualRegretMinimizationBase:
                 self._update_sigma(node)
         return value
 ################################################################################
-    '''
-    def init_sigma(self, node, output = None):
-        output = dict()
-        def init_sigma_recursive(node):
-            if self.nodes.Dad[node] != 999999:
-                #print(self.nodes.Dad[node])
-                if self.nodes.Type[node]=="L" or self.nodes.Abs_Map[self.nodes.Dad[node]] in self.info_leaves:
-                    return
-            if self.nodes.Type[node] == 'C':
-                output[self.nodes.Abs_Map[node]] = {self.nodes.Actions[node][idaction]: self.nodes.Actions_Prob[node][idaction] for idaction in range(len(self.nodes.Actions[node]))}
-            else:
-                output[self.nodes.Abs_Map[node]] = {action: 1. / len(self.nodes.Actions[node]) for action in self.nodes.Actions[node]}
-            for ds in self.nodes.Direct_Sons[node]:
-                init_sigma_recursive(ds)
-        init_sigma_recursive(node)
-        return output
-    '''
+
     def init_sigma(self,node, abs_infosets, output = None):
         output = dict()
         for index, row in abs_infosets[abs_infosets.Dads != 999999].iterrows():
@@ -171,44 +155,3 @@ class CounterfactualRegretMinimizationBase:
         for index, row in abs_infosets[abs_infosets.Dads != 999999].iterrows():
             output[index] = {row.Actions[idaction]: 0 for idaction in range(len(row.Actions))}
         return output
-
-'''
-    def init_empty_node_maps(self, node, output = None):
-        #print(self.info_roots)
-        output = dict()
-        def init_empty_node_maps_recursive(node):
-            #print(node, self.nodes.Abs_Map[node])
-            if self.nodes.Dad[node] != 999999:
-                if self.nodes.Type[node] == 'L' or self.nodes.Abs_Map[self.nodes.Dad[node]] in self.info_leaves:
-            #        print(node)
-                    return
-            output[self.nodes.Abs_Map[node]] = {action: 0. for action in self.nodes.Actions[node]}
-            for ds in self.nodes.Direct_Sons[node]:
-                init_empty_node_maps_recursive(ds)
-        init_empty_node_maps_recursive(node)
-        #print(output)
-        return output
-
-################################################################################
-## output printing
-
-    def print_output(self, game, method, true_infosets) :
-        filename = method + "_nash_output - " + game + ".txt"
-        filename2 = method + "_sigma_output - " + game + ".txt"
-        file1 = open(filename,"a")
-        file1.truncate(0)
-        file2 = open(filename2, "a")
-        file2.truncate(0)
-        for index, row in true_infosets.iterrows():
-            line = "infoset " + row.History + " nash_equilibriums"
-            line2 = "infoset " + row.History + " strategies"
-            clust = row.Map_Clust[0]
-            for idaction in range(len(row.Actions)):
-                action = row.Actions[idaction]
-                line += " " + row.Actions[idaction] + "=" + str(self.nash_equilibrium[clust][action])
-                line2 += " " + row.Actions[idaction] + "=" + str(self.sigma[clust][action])
-            file1.write(line + "\n")
-            file2.write(line2 + "\n")
-
-        file1.close()
-'''

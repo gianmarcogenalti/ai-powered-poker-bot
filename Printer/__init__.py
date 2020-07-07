@@ -1,1 +1,1 @@
-from Printer.main import print_output
+from Printer.main import print_output, print_output_bp

@@ -21,7 +21,7 @@ def cfr(nodes, infosets, abs_infosets, game, method = 'vanilla', T = 100, verbos
         monkey = Vanilla_Gamer(abs_infosets, nodes, verbose)
         monkey.train(T)
         monkey.compute_nash()
-        monkey.print_output(game, infosets)
+        #monkey.print_output(game, infosets)
         abs_infosets['Actions_Prob'] = monkey.nash_equilibrium
         U.get_back(infosets, abs_infosets, monkey.nash_equilibrium)
         '''

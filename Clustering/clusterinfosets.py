@@ -65,7 +65,7 @@ def payoffAverage(toMerge,infosets) :
 
 # Calls kmeans algorithm
 def kmeanscall(toMerge,infosets) :
-    k = round(len(toMerge)**(3/4)) # k in kmeans
+    k = int(np.sqrt(len(toMerge))) # k in kmeans
     pv = list()
     [pv.append(infosets['Payoff'][mg]) for mg in toMerge]
     mg = np.array(pv)
