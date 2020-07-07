@@ -64,8 +64,9 @@ def payoffAverage(toMerge,infosets) :
     return payres
 
 # Calls kmeans algorithm
-def kmeanscall(toMerge,infosets) :
-    k = round(len(toMerge)**(3/4)) # k in kmeans
+def kmeanscall(toMerge,infosets,sizeofabstraction) :
+    k = int(max(1,len(toMerge)-sum(sizeofabstraction < np.random.rand(len(toMerge),1))))
+    #k = round(sizeofabstraction*len(toMerge))
     pv = list()
     [pv.append(infosets['Payoff'][mg]) for mg in toMerge]
     mg = np.array(pv)
@@ -82,14 +83,14 @@ def kmeanscall(toMerge,infosets) :
     return clustGroup, clustPay
 
 # Merges infosets into clusters
-def cluster(infosets, infoloss) :
-
+def cluster(infosets, infoloss, sizeofabstraction = 1) :
+    
     # List of lists: inner lists are to be merged together
     mergeGroup = []
     mergeGroupPay = []
 
     # Updates the mergeGroup with the indexes at idxinfo (at same depth)
-    def updateMergeGroup(idxinfo,mergeGroup,mergeGroupPay) :
+    def updateMergeGroup(idxinfo,mergeGroup,mergeGroupPay, sizeofabstraction = 1) :
         while idxinfo != [] :
             toMerge = [] # the set of indexes that can be merged with idxstart
             idxstart = idxinfo[0] # pivot index, compares it with all the others
@@ -106,7 +107,7 @@ def cluster(infosets, infoloss) :
                 mergeGroup.append(toMerge) # updates
                 mergeGroupPay.append(infosets['Payoff'][toMerge[0]])
             else : # proper clustering with information loss
-                clustGroup, clustPayh = kmeanscall(toMerge,infosets)
+                clustGroup, clustPayh = kmeanscall(toMerge,infosets,sizeofabstraction)
                 for cgi in range(len(clustGroup)) :
                     cg = clustGroup[cgi]
                     cp = clustPayh[cgi]
@@ -117,7 +118,7 @@ def cluster(infosets, infoloss) :
 
     # The groups that are to be merged are saved in mergeGroup
     for depth in range(1,max(infosets['Depth']) + 1):
-        mergeGroup, mergeGroupPay = updateMergeGroup(list(infosets.index[infosets['Depth'] == depth]), mergeGroup,mergeGroupPay)
+        mergeGroup, mergeGroupPay = updateMergeGroup(list(infosets.index[infosets['Depth'] == depth]), mergeGroup, mergeGroupPay, sizeofabstraction = sizeofabstraction)
 
     # Then we get a new dataframe of merged infosets
     return mergeInfosets(infosets,mergeGroup,mergeGroupPay)

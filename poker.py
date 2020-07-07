@@ -7,7 +7,8 @@ import Subgames as sr
 import NodeCFR as ncfr
 import Printer as printer
 
-game =  sys.argv[1]
+# game =  "leduc3" #sys.argv[1]
+game = sys.argv[1]
 
 try:
     cfrmethod = sys.argv[2]
@@ -26,7 +27,7 @@ t0 = time.time()
 nodes, infosets = parser.parsing(game, verbose = False)
 t1 = time.time()
 print("Parsing : Done in %f seconds" % (t1 - t0))
-abs_infosets = abstraction.abstractgeneration(infosets, verbose = False)
+abs_infosets = abstraction.abstractgeneration(infosets, verbose = False, sizeofabstraction = 0.95)
 t2 = time.time()
 print("Abstract Generation : Done in %f seconds" % (t2 - t1))
 infosets, abs_infosets = blueprint.cfr(nodes, infosets, abs_infosets, game, method = cfrmethod, T = cfrT, verbose = cfrverbose)
