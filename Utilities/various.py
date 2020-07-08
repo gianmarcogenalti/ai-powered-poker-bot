@@ -64,3 +64,15 @@ def mult_intersection(lst1, lst2):
 
 def intersection(lst1, lst2):
     return list(set(lst1) & set(lst2))
+
+def chance_to_infoset(nodes, abs_infosets):
+    chances = nodes[nodes.Type == 'C']
+    nmax = len(abs_infosets.index)
+    counter = 0
+    for index,crow in chances.iterrows():
+        nodes.Abs_Map[index] = nmax + counter
+        counter += 1
+        cdf = pd.DataFrame([index], columns = ['Map'])
+        abs_infosets = abs_infosets.append(cdf, ignore_index=True)
+
+    return abs_infosets

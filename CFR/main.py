@@ -22,14 +22,8 @@ def cfr(nodes, infosets, abs_infosets, game, method = 'vanilla', T = 100, verbos
         monkey.train(T)
         monkey.compute_nash()
         #monkey.print_output(game, infosets)
-        abs_infosets['Actions_Prob'] = monkey.nash_equilibrium
+        #abs_infosets['Actions_Prob'] = monkey.nash_equilibrium
         U.get_back(infosets, abs_infosets, monkey.nash_equilibrium)
-        '''
-        filename = game + "_infosets.csv"
-        filename2 = game + "_blueprint.csv"
-        infosets.to_csv(filename, index = False, header = True, escapechar=' ')
-        abs_infosets.to_csv(filename2, index = False, header = True, escapechar=' ')
-        '''
 
     if method == 'montecarlo':
         frogs = MC_Gamer(abs_infosets, nodes, verbose)

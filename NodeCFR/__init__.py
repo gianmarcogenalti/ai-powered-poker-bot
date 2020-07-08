@@ -1,1 +1,1 @@
-from NodeCFR.main import subgameresolver
+from NodeCFR.main import nodecfr

@@ -26,10 +26,10 @@ def print_output_bp(game, true_infosets, abs_infosets):
         na = len(row.Actions)
         counter = 1
         sm = 0
-        for idaction in range(na):
+        for idaction,action in enumerate(row.Actions):
             action = row.Actions[idaction]
             if counter != na:
-                val = round(abs_infosets.Actions_Prob[row.Map_Clust][idaction],4)
+                val = round(abs_infosets.Actions_Prob[row.Map_Clust][action],4)
                 line += " " + action + "=" + str(val)
                 sm += val
             else:

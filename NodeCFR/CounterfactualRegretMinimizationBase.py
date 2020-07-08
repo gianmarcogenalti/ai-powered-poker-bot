@@ -1,30 +1,15 @@
 import random
 
 class CounterfactualRegretMinimizationBase:
-    def __init__(self, nodes, abs_infosets, roots, leaves, players, it, chance_sampling = False):
-        self.it                 = it
-        self.subgameplayer      = players[it]
-        if self.subgameplayer == 2:
-            self.opponent       = 1
-        if self.subgameplayer == 1:
-            self.opponent       = 2
-        self.root               = nodes.index[-(len(roots)-it)]
-        print(self.root)
+    def __init__(self, nodes, chance_sampling = False):
+        self.root               = nodes.index[-1]
         self.nodes              = nodes
-        self.info_roots         = roots[it]
-        self.info_leaves        = leaves[it]
-        self.sigma              = self.init_sigma(self.root, abs_infosets)
-        self.cumulative_regrets = self.init_empty_node_maps(self.root, abs_infosets)
-        self.cumulative_sigma   = self.init_empty_node_maps(self.root, abs_infosets)
-        self.nash_equilibrium   = self.init_empty_node_maps(self.root, abs_infosets)
+        self.sigma              = self.init_sigma(self.root)
+        self.cumulative_regrets = self.init_empty_node_maps(self.root)
+        self.cumulative_sigma   = self.init_empty_node_maps(self.root)
+        self.nash_equilibrium   = self.init_empty_node_maps(self.root)
         self.chance_sampling    = chance_sampling
-################################################################################
-    def return_ne_ec(self):
-        '''
-        ret = [self.nash_equilibrium[i] for i in self.info_roots]
-        return ret
-        '''
-        return self.nash_equilibrium
+
 ################################################################################
 ## updates strategies
     def _update_sigma(self, node):
@@ -37,20 +22,19 @@ class CounterfactualRegretMinimizationBase:
 ################################################################################
 ## Computation of nash equilibrium, to launch at the end
     def compute_nash_equilibrium(self):
+        #print(self.cumulative_sigma)
         self.__compute_ne_rec(self.root)
 
     def __compute_ne_rec(self, node):
-        if self.nodes.Dad[node] != 999999:
-            grandpa = self.nodes.Dad[self.nodes.Dad[node]]
-            if grandpa != -1:
-                if self.nodes.Type[node] == "L" or self.nodes.Abs_Map[self.nodes.Dad[node]] in self.info_leaves or self.nodes.Abs_Map[grandpa] in self.info_leaves :
-                    return
+        if self.nodes.Type[node] == "L":
+            return
         abs_index = self.nodes.Abs_Map[node]
         if self.nodes.Type[node] == "C": ### i nodi della nature sono considerati infoset e il loro equilibrio di nash sono le probabilità delle mosse
-            self.nash_equilibrium[abs_index] = {self.nodes.Actions[node][idaction]: self.nodes.Actions_Prob[node][idaction] for idaction in range(len(self.nodes.Actions[node]))}
+            self.nash_equilibrium[abs_index] = self.sigma[abs_index]#{self.nodes.Actions[node][idaction]: self.nodes.Actions_Prob[node][idaction] for idaction in range(len(self.nodes.Actions[node]))}
         else:
             sigma_sum = sum(self.cumulative_sigma[abs_index].values())
-        if self.nodes.Player[node] == self.opponent or self.nodes.Abs_Map[node] in self.info_roots:
+            #print(abs_index,self.cumulative_sigma[abs_index])
+            #print(node)
             self.nash_equilibrium[abs_index] = {a: self.cumulative_sigma[abs_index][a] / sigma_sum for a in self.nodes.Actions[node]}
         # go to subtrees
         #print(self.nash_equilibrium[abs_index])
@@ -70,7 +54,7 @@ class CounterfactualRegretMinimizationBase:
 ################################################################################
 ## virtual function
     def run(self, iterations):
-        raise NotImplementedError("No method specified")
+        raise NotImplementedError("Please implement run method")
 ################################################################################
 ## per ogni nodo calcola la somma dei payoff pesata sulla probabilità di arrivarci
     def value_of_the_game(self):
@@ -78,26 +62,18 @@ class CounterfactualRegretMinimizationBase:
 
     def __value_of_the_game_state_recursive(self, node):
         value = 0.
-        if self.nodes.Dad[node] != 999999:
-            grandpa = self.nodes.Dad[self.nodes.Dad[node]]
-            if grandpa != -1:
-                if self.nodes.Type[node] == "L" or self.nodes.Abs_Map[self.nodes.Dad[node]] in self.info_leaves or self.nodes.Abs_Map[grandpa] in self.info_leaves :
-                    return self.nodes.Expected_Payoff[node]
+        if self.nodes.Type[node] == "L":
+            return self.nodes.Payoff_Vector_P1[node][0]
         for idaction in range(len(self.nodes.Actions[node])):
             value +=  self.nash_equilibrium[self.nodes.Abs_Map[node]][idaction] * self.__value_of_the_game_state_recursive(self.nodes.Direct_Sons[node][idaction])
         return value
 ################################################################################
     def _cfr_utility_recursive(self, node, reach_a, reach_b):
         children_states_utilities = {}
-        if self.nodes.Dad[node] != 999999:
-            grandpa = self.nodes.Dad[self.nodes.Dad[node]]
-            if grandpa != -1:
-                if self.nodes.Type[node]=="L" or self.nodes.Abs_Map[self.nodes.Dad[node]] in self.info_leaves or self.nodes.Abs_Map[grandpa] in self.info_leaves :
-                    # evaluate terminal node according to the game result
-                    return self.nodes.Expected_Payoff[node]
+        if self.nodes.Type[node]=="L":
+            return self.nodes.Payoff_Vector_P1[node][0]
         if self.nodes.Type[node]=="C":
             if self.chance_sampling:
-                # if node is a chance node, lets sample one child node and proceed normally
                 dslist = self.nodes.Direct_Sons[node]
                 random_ds = random.choice(dslist)
                 return self._cfr_utility_recursive(random_ds, reach_a, reach_b)
@@ -108,50 +84,75 @@ class CounterfactualRegretMinimizationBase:
                     sm += self.nodes.Actions_Prob[node][counter]*self._cfr_utility_recursive(outcome, reach_a, reach_b)
                     counter += 1
                 return sm
-        # sum up all utilities for playing actions in our game state
         value = 0.
-        for idaction in range(len(self.nodes.Actions[node])):
-            action = self.nodes.Actions[node][idaction]
+        for idaction,action in enumerate(self.nodes.Actions[node]):
             child_reach_a = reach_a * (self.sigma[self.nodes.Abs_Map[node]][action] if self.nodes.Player[node] == 1 else 1)
             child_reach_b = reach_b * (self.sigma[self.nodes.Abs_Map[node]][action] if self.nodes.Player[node] == 2 else 1)
-            # value as if child state implied by chosen action was a game tree root
             child_state_utility = self._cfr_utility_recursive(self.nodes.Direct_Sons[node][idaction], child_reach_a, child_reach_b)
-            # value computation for current node
+            action = self.nodes.Actions[node][idaction]
             value +=  self.sigma[self.nodes.Abs_Map[node]][action] * child_state_utility
-            # values for chosen actions (child nodes) are kept here
             children_states_utilities[idaction] = child_state_utility
 
-        # we are computing regrets for both players simultaneously, therefore we need to relate reach,reach_opponent to the player acting
-        # in current node, for player A, it is different than for player B
         (cfr_reach, reach) = (reach_b, reach_a) if self.nodes.Player[node] == 1 else (reach_a, reach_b)
-        if self.nodes.Player[node] == self.opponent or self.nodes.Abs_Map[node] in self.info_roots:
-            for idaction in range(len(self.nodes.Actions[node])):
-                action = self.nodes.Actions[node][idaction]
-                # we multiply regret by -1 for player B, this is because value is computed from player A perspective
-                # again we need that perspective switch
-                if self.nodes.Player[node] == 2:
-                    sign = -1
-                else:
-                    sign = 1
-                action_cfr_regret = sign * cfr_reach * (children_states_utilities[idaction] - value)
-                self._cumulate_cfr_regret(node, idaction, action_cfr_regret)
-                self._cumulate_sigma(node, idaction, reach * self.sigma[self.nodes.Abs_Map[node]][action])
-            if self.chance_sampling:
-                # update sigma according to cumulative regrets - we can do it here because we are using chance sampling
-                # and so we only visit single game_state from an information set (chance is sampled once)
-                self._update_sigma(node)
+
+        for idaction in range(len(self.nodes.Actions[node])):
+            action = self.nodes.Actions[node][idaction]
+            if self.nodes.Player[node] == 2:
+                sign = -1
+            else:
+                sign = 1
+            action_cfr_regret = sign * cfr_reach * (children_states_utilities[idaction] - value)
+            self._cumulate_cfr_regret(node, idaction, action_cfr_regret)
+            self._cumulate_sigma(node, idaction, reach * self.sigma[self.nodes.Abs_Map[node]][action])
+        if self.chance_sampling:
+            self._update_sigma(node)
         return value
 ################################################################################
-
-    def init_sigma(self,node, abs_infosets, output = None):
+    def init_sigma(self, node, output = None):
         output = dict()
-        for index, row in abs_infosets[abs_infosets.Dads != 999999].iterrows():
-            output[index] = {row.Actions[idaction]: row.Actions_Prob[idaction] for idaction in range(len(row.Actions))}
+        def init_sigma_recursive(node):
+            if self.nodes.Type[node] == 'L':
+                return
+            if self.nodes.Type[node] == 'C':
+                output[self.nodes.Abs_Map[node]] = {self.nodes.Actions[node][idaction]: self.nodes.Actions_Prob[node][idaction] for idaction in range(len(self.nodes.Actions[node]))}
+            else:
+                output[self.nodes.Abs_Map[node]] = {action: 1. / len(self.nodes.Actions[node]) for action in self.nodes.Actions[node]}
+            for ds in self.nodes.Direct_Sons[node]:
+                init_sigma_recursive(ds)
+        init_sigma_recursive(node)
         #print(output)
         return output
 
-    def init_empty_node_maps(self,node, abs_infosets, output = None):
+    def init_empty_node_maps(self, node, output = None):
         output = dict()
-        for index, row in abs_infosets[abs_infosets.Dads != 999999].iterrows():
-            output[index] = {row.Actions[idaction]: 0 for idaction in range(len(row.Actions))}
+        def init_empty_node_maps_recursive(node):
+            if self.nodes.Type[node] == 'L':
+                return
+            output[self.nodes.Abs_Map[node]] = {action: 0. for action in self.nodes.Actions[node]}
+            for ds in self.nodes.Direct_Sons[node]:
+                init_empty_node_maps_recursive(ds)
+        init_empty_node_maps_recursive(node)
+        #print(output)
         return output
+################################################################################
+## output printing
+
+    def print_output(self, game, method, true_infosets) :
+        filename = method + "_nash_output - " + game + ".txt"
+        filename2 = method + "_sigma_output - " + game + ".txt"
+        file1 = open(filename,"a")
+        file1.truncate(0)
+        file2 = open(filename2, "a")
+        file2.truncate(0)
+        for index, row in true_infosets.iterrows():
+            line = "infoset " + row.History + " nash_equilibriums"
+            line2 = "infoset " + row.History + " strategies"
+            clust = row.Map_Clust[0]
+            for idaction in range(len(row.Actions)):
+                action = row.Actions[idaction]
+                line += " " + row.Actions[idaction] + "=" + str(self.nash_equilibrium[clust][action])
+                line2 += " " + row.Actions[idaction] + "=" + str(self.sigma[clust][action])
+            file1.write(line + "\n")
+            file2.write(line2 + "\n")
+
+        file1.close()

@@ -140,7 +140,10 @@ def update_natureprob(nodes):
     #
     nodes['Probability'] = nodes['Nature_Prob']
 def get_back(infosets, abs_infosets, strategies):
-    abs_infosets['Actions_Prob'] = strategies
+    probos = []
+    for i in abs_infosets.index:
+        probos.append(strategies[i])
+    abs_infosets['Actions_Prob'] = probos
     act_probs = []
     for index,row in infosets.iterrows():
         act_probs.append(strategies[row.Map_Clust])
@@ -167,6 +170,7 @@ def absnature(nodes, infosets, abs_infosets):
     nature_w = [[] for _ in range(len(abs_infosets.index))]
     for index, row in abs_infosets.iterrows():
         sm = 0
+        print(row)
         for member in row.Index_Members:
             sm += nodes.Nature_Prob[member]
         for member in row.Index_Members:
@@ -224,9 +228,12 @@ def update_nodeprob(nodes):
     probos = [0 for i in range(len(nodes))]
     def recursivethings(icn):
         if nodes.Direct_Sons[icn] != -1:
-            for ids in range(len(nodes.Direct_Sons[icn])):
+            for ids,ds in enumerate(nodes.Direct_Sons[icn]):
                 ds = nodes.Direct_Sons[icn][ids]
-                ap = nodes.Actions_Prob[icn][ids]
+                try:
+                    ap = nodes.Actions_Prob[icn][ids]
+                except:
+                    ap = nodes.Actions_Prob[icn][nodes.Actions[icn][ids]]
                 probos[ds] = ap * probos[icn]
                 expos[icn] += ap * recursivethings(ds)
         else:

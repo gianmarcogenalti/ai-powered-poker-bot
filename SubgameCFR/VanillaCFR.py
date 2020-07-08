@@ -1,7 +1,7 @@
-from NodeCFR.CounterfactualRegretMinimizationBase import *
+from SubgameCFR.CounterfactualRegretMinimizationBase import *
 import time
 
-class VanillaCFRPlus(CounterfactualRegretMinimizationBase):
+class VanillaCFR(CounterfactualRegretMinimizationBase):
     def __init__(self, nodes):
         super().__init__(nodes, chance_sampling = False)
 
@@ -17,10 +17,8 @@ class VanillaCFRPlus(CounterfactualRegretMinimizationBase):
             self.__update_sigma_recursively(self.root)
         print("Execution time: %d" % (time.time() - t0))
 
-    def _cumulate_cfr_regret(self, node, idaction, regret):
-        information_set = self.nodes.Abs_Map[node]
-        action = self.nodes.Actions[node][idaction]
-        self.cumulative_regrets[information_set][action] += max(self.cumulative_regrets[information_set][action] + regret, 0)
+
+
 
     def __update_sigma_recursively(self, node):
         # stop traversal at terminal node

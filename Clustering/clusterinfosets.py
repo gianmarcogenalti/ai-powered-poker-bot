@@ -64,14 +64,9 @@ def payoffAverage(toMerge,infosets) :
     return payres
 
 # Calls kmeans algorithm
-<<<<<<< HEAD
-def kmeanscall(toMerge,infosets) :
-    k = int(np.sqrt(len(toMerge))) # k in kmeans
-=======
 def kmeanscall(toMerge,infosets,sizeofabstraction) :
     k = int(max(1,len(toMerge)-sum(sizeofabstraction < np.random.rand(len(toMerge),1))))
     #k = round(sizeofabstraction*len(toMerge))
->>>>>>> fe49a8827202e09c0f1597a99de55e7d804147fb
     pv = list()
     [pv.append(infosets['Payoff'][mg]) for mg in toMerge]
     mg = np.array(pv)
@@ -89,7 +84,7 @@ def kmeanscall(toMerge,infosets,sizeofabstraction) :
 
 # Merges infosets into clusters
 def cluster(infosets, infoloss, sizeofabstraction = 1) :
-    
+
     # List of lists: inner lists are to be merged together
     mergeGroup = []
     mergeGroupPay = []
