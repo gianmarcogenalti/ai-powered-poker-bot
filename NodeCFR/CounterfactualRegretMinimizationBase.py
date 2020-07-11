@@ -64,8 +64,8 @@ class CounterfactualRegretMinimizationBase:
         value = 0.
         if self.nodes.Type[node] == "L":
             return self.nodes.Payoff_Vector_P1[node][0]
-        for idaction in range(len(self.nodes.Actions[node])):
-            value +=  self.nash_equilibrium[self.nodes.Abs_Map[node]][idaction] * self.__value_of_the_game_state_recursive(self.nodes.Direct_Sons[node][idaction])
+        for idaction,action in enumerate(self.nodes.Actions[node]):
+            value +=  self.nash_equilibrium[self.nodes.Abs_Map[node]][action] * self.__value_of_the_game_state_recursive(self.nodes.Direct_Sons[node][idaction])
         return value
 ################################################################################
     def _cfr_utility_recursive(self, node, reach_a, reach_b):

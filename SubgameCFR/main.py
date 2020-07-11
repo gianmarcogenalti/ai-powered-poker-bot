@@ -3,7 +3,7 @@ from SubgameCFR.ChanceSamplingCFR import *
 from SubgameCFR.VanillaCFR import *
 from SubgameCFR.VanillaCFRPlus import *
 
-def subgameresolver(nodes, infosets, abs_infosets, roots, leaves,players, method = 'public_chance', T = 100):
+def subgameresolver(nodes, abs_infosets, roots, leaves,players, depththreshold, method = 'public_chance', T = 100):
     '''
     ################################################################################
     environment = {"game" : "leduc5", "T" : 100, "method" : 'vanilla'}
@@ -27,12 +27,18 @@ def subgameresolver(nodes, infosets, abs_infosets, roots, leaves,players, method
 ################################################################################
     if method == 'public_chance':
         output = dict()
+        for i in range(len(abs_infosets.index)):
+            output.update({i : abs_infosets.Actions_Prob[i]})
         for it in range(len(roots)):
-            chance_sampling_cfr = ChanceSamplingCFR(nodes,abs_infosets, roots, leaves, players,it)
-            chance_sampling_cfr.run(iterations = T)
-            chance_sampling_cfr.compute_nash_equilibrium()
-            for t in roots[it]:
-                output.update({str(t) : chance_sampling_cfr.nash_equilibrium[t]})
+            if nodes.Depth[nodes.index[-(len(roots)-it)]] >= depththreshold:
+                try:
+                    chance_sampling_cfr = ChanceSamplingCFR(nodes,abs_infosets, roots, leaves, players,it)
+                    chance_sampling_cfr.run(iterations = T)
+                    chance_sampling_cfr.compute_nash_equilibrium()
+                    for t in roots[it]:
+                        output.update({t : chance_sampling_cfr.nash_equilibrium[t]})
+                except:
+                    pass
         return output
 #chance_sampling_cfr.print_output(environment["game"], environment["method"], infosets)
     '''

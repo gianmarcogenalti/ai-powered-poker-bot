@@ -25,7 +25,7 @@ class TreePartitioner:
             if not self.isroot[index]:
                 self.subgameplayer[counter] = self.infosets.Player[index]
                 if self.depth_limited:
-                    self.subgamedepth[counter] = self.infosets.Depth[index]    
+                    self.subgamedepth[counter] = self.infosets.Depth[index]
                 self.rooter(index, counter)
                 counter += 1
         self.info_subgames = [x for x in self.info_subgames if x != []]
@@ -89,6 +89,7 @@ class TreePartitioner:
             cdf['Type'] = "C"
             cdf['Dad'] = 999999
             cdf['Player'] = 0
+            cdf['Depth'] = self.infosets.Depth[roots[0]]
             #cdf['Subgames'] = idroots
             #print(cdf)
             nodes = nodes.append(cdf, ignore_index=True)

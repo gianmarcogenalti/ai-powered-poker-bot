@@ -47,9 +47,10 @@ def abstractsons(nodes, abs_infosets, infosets):
     prob_sons   = []
     abs_payoff  = []
     for index, row in abs_infosets.iterrows():
-        temp_son = [[] for _ in range(len(row.Actions))]
-        temp_prob = [[] for _ in range(len(row.Actions))]
-        temp_payoff = [[] for _ in range(len(row.Actions))]
+        ra = len(row.Actions)
+        temp_son = [[] for _ in range(ra)]
+        temp_prob = [[] for _ in range(ra)]
+        temp_payoff = [[] for _ in range(ra)]
         for m in row.Index_Members:
             counter = 0
             prob_m = nodes.Nature_Prob[m]
@@ -121,6 +122,16 @@ def abstractdads(abs_infosets):
     #
     abs_infosets['Dads'] = dads
 
+def infosons(nodes,infosets):
+    direct_sons = []
+    for index,row in infosets.iterrows():
+        temp_sons = [[] for _ in range(len(row.Actions))]
+        for im, m in enumerate(row.Index_Members):
+            for idson, dson in enumerate(nodes.Direct_Sons[m]):
+                if nodes.Type[dson] == 'N':
+                    temp_sons[idson].append(nodes.Map[dson])
+        direct_sons.append(temp_sons)
+    infosets['Direct_Sons'] = direct_sons
 
 def update_natureprob(nodes):
     nodes['Nature_Prob'] = [1.00] * len(nodes.index)
@@ -139,8 +150,10 @@ def update_natureprob(nodes):
         #
     #
     nodes['Probability'] = nodes['Nature_Prob']
+
 def get_back(infosets, abs_infosets, strategies):
     probos = []
+    print(abs_infosets.index)
     for i in abs_infosets.index:
         probos.append(strategies[i])
     abs_infosets['Actions_Prob'] = probos
@@ -170,7 +183,7 @@ def absnature(nodes, infosets, abs_infosets):
     nature_w = [[] for _ in range(len(abs_infosets.index))]
     for index, row in abs_infosets.iterrows():
         sm = 0
-        print(row)
+        #print(row)
         for member in row.Index_Members:
             sm += nodes.Nature_Prob[member]
         for member in row.Index_Members:
@@ -192,18 +205,22 @@ def nodetoclust(nodes, infosets, abs_infosets):
 
     nodes['Abs_Map'] = map
 
-def chance_to_infoset(nodes, abs_infosets):
+def chance_to_infoset(nodes, infosets, abs_infosets):
     chances = nodes[nodes.Type == 'C']
     nmax = len(abs_infosets.index)
+    nmax2 = len(infosets.index)
     counter = 0
     for index,crow in chances.iterrows():
         nodes.Abs_Map[index] = nmax + counter
+        nodes.Map[index] = nmax2 + counter
         counter += 1
         cdf = pd.DataFrame([index], columns = ['Map'])
         cdf['Dads'] = 999999
         abs_infosets = abs_infosets.append(cdf, ignore_index=True)
+        infosets = infosets.append(cdf, ignore_index=True)
 
-    return abs_infosets
+    return abs_infosets, infosets
+
 
 def update_infoprob(infosets, nodes):
     prob = [0] * len(infosets.index)

@@ -10,6 +10,7 @@ class CounterfactualRegretMinimizationBase:
             self.opponent       = 2
         self.root               = nodes.index[-(len(roots)-it)]
         self.nodes              = nodes
+        self.nodes['Abs_Map']   = nodes.Map
         self.info_roots         = roots[it]
         self.info_leaves        = leaves[it]
         self.sigma              = self.init_sigma(self.root, abs_infosets)
