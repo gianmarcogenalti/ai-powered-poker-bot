@@ -2,7 +2,7 @@ from Clustering.clusterinfosets import *
 import Utilities as U
 import time
 
-def abstractgeneration(infosets, verbose = False, sizeofabstraction = 0.5):
+def abstractgeneration(infosets, verbose = False, sizeofabstraction = 0.5, onlyfirstplayer = False):
 
     t0 = time.time()
     # We initialize the abstract structure
@@ -19,11 +19,11 @@ def abstractgeneration(infosets, verbose = False, sizeofabstraction = 0.5):
 
     #print(abs_infosets.shape)
     # Merges infosets without loss of information
-    abs_infosets = cluster(abs_infosets, infoloss = False)
-    #print(abs_infosets.shape)
+    abs_infosets = cluster(abs_infosets, infoloss = False, onlyfirstplayer = onlyfirstplayer)
+    print(abs_infosets.shape)
     # Properly clusters infosets
-    abs_infosets = cluster(abs_infosets, infoloss = True, sizeofabstraction = sizeofabstraction)
-    #print(abs_infosets.shape)
+    abs_infosets = cluster(abs_infosets, infoloss = True, sizeofabstraction = sizeofabstraction, onlyfirstplayer = onlyfirstplayer)
+    print(abs_infosets.shape)
     # Collects the initial data left behind
     abs_infosets = infosetstoprint(abs_infosets, infosets)
 

@@ -83,23 +83,24 @@ def kmeanscall(toMerge,infosets,sizeofabstraction) :
     return clustGroup, clustPay
 
 # Merges infosets into clusters
-def cluster(infosets, infoloss, sizeofabstraction = 1) :
+def cluster(infosets, infoloss, sizeofabstraction = 1, onlyfirstplayer = False) :
 
     # List of lists: inner lists are to be merged together
     mergeGroup = []
     mergeGroupPay = []
 
     # Updates the mergeGroup with the indexes at idxinfo (at same depth)
-    def updateMergeGroup(idxinfo,mergeGroup,mergeGroupPay, sizeofabstraction = 1) :
+    def updateMergeGroup(idxinfo,mergeGroup,mergeGroupPay, sizeofabstraction = 1, onlyfirstplayer = False) :
         while idxinfo != [] :
             toMerge = [] # the set of indexes that can be merged with idxstart
             idxstart = idxinfo[0] # pivot index, compares it with all the others
             idxinfo.remove(idxstart) # will cycle through the remaining indexes
             # adds to toMerge all the indexes mergeable with idxstart
-            for idxcheck in idxinfo :
-                if basicConditions( infosets.iloc[idxstart], infosets.iloc[idxcheck], mergeGroup ) : # conditions to merge
-                    if infoloss or samepayoff(infosets['Payoff'][idxstart], infosets['Payoff'][idxcheck]):
-                        toMerge.append(idxcheck)
+            if not infoloss or ((not onlyfirstplayer) or infosets.Player[idxstart] == 1):
+                for idxcheck in idxinfo :
+                    if basicConditions( infosets.iloc[idxstart], infosets.iloc[idxcheck], mergeGroup ) : # conditions to merge
+                        if infoloss or samepayoff(infosets['Payoff'][idxstart], infosets['Payoff'][idxcheck]):
+                            toMerge.append(idxcheck)
             for tm in toMerge :
                 idxinfo.remove(tm) # removes the mergeGroup from the list of indexes
             toMerge.append(idxstart)
@@ -118,7 +119,7 @@ def cluster(infosets, infoloss, sizeofabstraction = 1) :
 
     # The groups that are to be merged are saved in mergeGroup
     for depth in range(1,max(infosets['Depth']) + 1):
-        mergeGroup, mergeGroupPay = updateMergeGroup(list(infosets.index[infosets['Depth'] == depth]), mergeGroup, mergeGroupPay, sizeofabstraction = sizeofabstraction)
+        mergeGroup, mergeGroupPay = updateMergeGroup(list(infosets.index[infosets['Depth'] == depth]), mergeGroup, mergeGroupPay, sizeofabstraction = sizeofabstraction, onlyfirstplayer = onlyfirstplayer)
 
     # Then we get a new dataframe of merged infosets
     return mergeInfosets(infosets,mergeGroup,mergeGroupPay)

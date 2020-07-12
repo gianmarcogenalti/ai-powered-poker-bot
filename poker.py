@@ -17,7 +17,7 @@ import pickle
 
 ap = argparse.ArgumentParser()
 ap.add_argument("-g", "--game", default = 'leduc3')
-ap.add_argument('-a', '--abstraction', default = 0.75)
+ap.add_argument('-a', '--abstraction', default = 0.76)
 ap.add_argument('-bp', '--blueprint', default = 1)
 ap.add_argument("-m1", "--method1", default = 'public_chance')
 ap.add_argument("-i1", "--iteration1", default = 1000)
@@ -28,6 +28,7 @@ ap.add_argument('-d', '--depth', default = 5)
 ap.add_argument('-sg', '--subgames', default = 1)
 ap.add_argument('-dt', '--depththreshold', default = 1)
 ap.add_argument('-v', '--verbose', default = 1)
+ap.add_argument('-o1', '--onlyfirstplayer', default = 0)
 
 args = vars(ap.parse_args())
 print(args)
@@ -50,7 +51,7 @@ try:
     abs_infosets = pd.read_pickle('abs_infosets - '+ args['game'] + str(int(float(args['abstraction'])*100)) + '.pkl')
     print('by pickle')
 except:
-    abs_infosets = abstraction.abstractgeneration(infosets, verbose = int(args['verbose']), sizeofabstraction = float(args['abstraction']))
+    abs_infosets = abstraction.abstractgeneration(infosets, verbose = int(args['verbose']), sizeofabstraction = float(args['abstraction']), onlyfirstplayer = int(args["onlyfirstplayer"]))
     abs_infosets.to_pickle('abs_infosets - '+ args['game'] + str(int(float(args['abstraction'])*100)) + '.pkl')
 t2 = time.time()
 print("Abstract Generation : Done in %f seconds" % (t2 - t1))
