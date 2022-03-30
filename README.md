@@ -1,4 +1,4 @@
-# POKERBOT
+# AI Powered 2-Players Poker Bot
 ## Simplified Replica of the Implementation of the well-known AI for 2-players Poker "Libratus" (https://en.wikipedia.org/wiki/Libratus).
 ### This AI powered bot has been developed to partecipate to the AI Poker Tournament of Politecnico di Milano in 2020, held by Prof. Nicola Gatti. This implementation resulted as the winner of that edition.
 ### The procedure is summarized as follows:
