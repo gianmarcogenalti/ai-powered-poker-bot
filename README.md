@@ -1,7 +1,7 @@
 # POKERBOT
 ## Simplified Replica of the Implementation of the well-known AI for 2-players Poker "Libratus" (https://en.wikipedia.org/wiki/Libratus).
 ### This AI powered bot has been developed to partecipate to the AI Poker Tournament of Politecnico di Milano in 2020, held by Prof. Nicola Gatti. This implementation resulted as the winner of that edition.
-## The procedure is summarized as follows:
+### The procedure is summarized as follows:
 ### 00-Parsing 
 0) Parsing the .txt files with the games (Sequence form games of any leduc 1-to-13)
 1) Creating data structures (dataframes) to contain the informations about game: game_nodes.csv, game_infosets.csv
