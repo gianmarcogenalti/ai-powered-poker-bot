@@ -57,6 +57,7 @@ t2 = time.time()
 print("Abstract Generation : Done in %f seconds" % (t2 - t1))
 n_abstract = len(abs_infosets.index)
 n_nodes = len(nodes.index)
+n_infosets = len(infosets.index)
 #
 if int(args['blueprint']):
     infosets, abs_infosets= nodeblueprint.nodecfr(nodes, infosets, abs_infosets, args['game'], method = args['method1'], T = int(args['iteration1']), verbose = int(args['verbose']))
@@ -77,7 +78,7 @@ else:
         raise NotImplementedError("There are not pre-computed blueprint strategies for this game, set --blueprint argument to True to compute them.")
     print('Found a pre-computed blueprint strategy!')
     t3 = t0
-print(E.exploiter(nodes, abs_infosets.Actions_Prob, nodes.index[-1], 1),E.exploiter(nodes, abs_infosets.Actions_Prob, nodes.index[-1], 2),E.value_of_the_game(nodes,abs_infosets.Actions_Prob, nodes.index[-1]))
+print(E.exploiter(nodes, abs_infosets.Actions_Prob, nodes.index[-1], 1),E.exploiter(nodes, abs_infosets.Actions_Prob, nodes.index[-1], 2),E.exp_ut(nodes,abs_infosets.Actions_Prob, nodes.index[-1]))
 abs_infosets = abs_infosets.head(n_abstract)
 nodes = nodes.head(n_nodes)
 if int(args['subgames']):
@@ -106,10 +107,11 @@ else:
             pickle.dump(output, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 nodes = nodes.head(n_nodes)
-U.nodetoclust(nodes, infosets, abs_infosets)            
-printer.print_output(args['game'] , infosets)
+U.nodetoclust(nodes, infosets, abs_infosets)
+infosets = infosets.head(n_infosets)
+printer.print_output(args['game'] +str(int(float(args['abstraction'])*100)), infosets)
 
-print(E.exploiter(nodes, output, nodes.index[-1], 1, trueinfo = 1),E.exploiter(nodes, output, nodes.index[-1], 2, trueinfo = 1),E.value_of_the_game(nodes,output, nodes.index[-1], trueinfo = 1))
+print(E.exploiter(nodes, output, nodes.index[-1], 1, trueinfo = 1),E.exploiter(nodes, output, nodes.index[-1], 2, trueinfo = 1),E.exp_ut(nodes,output, nodes.index[-1], trueinfo = 1))
 
 #with open('finalstrategy - '+args['game']+'.pkl', 'rb') as handle:
 #    b = pickle.load(handle)

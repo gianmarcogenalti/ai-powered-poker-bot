@@ -18,10 +18,10 @@
         return output
     '''
 '''
-    def init_empty_node_maps(self, node, output = None):
+    def empty_strategies_init(self, node, output = None):
         #print(self.info_roots)
         output = dict()
-        def init_empty_node_maps_recursive(node):
+        def strategies_init(node):
             #print(node, self.nodes.Abs_Map[node])
             if self.nodes.Dad[node] != 999999:
                 if self.nodes.Type[node] == 'L' or self.nodes.Abs_Map[self.nodes.Dad[node]] in self.info_leaves:
@@ -29,8 +29,8 @@
                     return
             output[self.nodes.Abs_Map[node]] = {action: 0. for action in self.nodes.Actions[node]}
             for ds in self.nodes.Direct_Sons[node]:
-                init_empty_node_maps_recursive(ds)
-        init_empty_node_maps_recursive(node)
+                strategies_init(ds)
+        strategies_init(node)
         #print(output)
         return output
 

@@ -153,7 +153,6 @@ def update_natureprob(nodes):
 
 def get_back(infosets, abs_infosets, strategies):
     probos = []
-    print(abs_infosets.index)
     for i in abs_infosets.index:
         probos.append(strategies[i])
     abs_infosets['Actions_Prob'] = probos
@@ -210,16 +209,18 @@ def chance_to_infoset(nodes, infosets, abs_infosets):
     nmax = len(abs_infosets.index)
     nmax2 = len(infosets.index)
     counter = 0
+    abs_new = abs_infosets
     for index,crow in chances.iterrows():
         nodes.Abs_Map[index] = nmax + counter
         nodes.Map[index] = nmax2 + counter
         counter += 1
         cdf = pd.DataFrame([index], columns = ['Map'])
         cdf['Dads'] = 999999
-        abs_infosets = abs_infosets.append(cdf, ignore_index=True)
+
+        abs_new = abs_new.append(cdf, ignore_index=True)
         infosets = infosets.append(cdf, ignore_index=True)
 
-    return abs_infosets, infosets
+    return abs_new,infosets
 
 
 def update_infoprob(infosets, nodes):
